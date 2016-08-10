@@ -1,0 +1,17 @@
+
+<Project Header="Project 'AudioSpeaker'" Path=".\AudioSpeaker.rprj" Project="Yes" OutputFile="" sate="96" ActiveApp="AudioSpeaker" >
+	<ApplicationBuild Header="AudioSpeaker" Extern=".\AudioSpeaker.rapp" Path=".\AudioSpeaker.rapp" OutputFile=".\STM32L152-EVAL\AudioSpeaker.elf" Config="STM32L152-EVAL" sate="98" />
+	<Options>
+		<Config Header="Standard" >
+			<Set Header="Target" >
+				<Section Header="ToolSetARM" >
+					<Property Header="BuildToolSetARM" Value="ARM\GNU.config" />
+																																											
+				</Section>
+																																	
+			</Set>
+																				
+		</Config>
+												
+	</Options>
+</Project>

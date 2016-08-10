@@ -1,0 +1,2476 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns:st1="urn:schemas-microsoft-com:office:smarttags" xmlns="http://www.w3.org/TR/REC-html40"><head>
+
+
+
+
+
+
+
+      
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">    
+    <link rel="File-List" href="Release_Notes%20%28package%29_files/filelist.xml">    
+    <link rel="Edit-Time-Data" href="Release_Notes%20%28package%29_files/editdata.mso"><!--[if !mso]> <style> v\:* {behavior:url(#default#VML);} o\:* {behavior:url(#default#VML);} w\:* {behavior:url(#default#VML);} .shape {behavior:url(#default#VML);} </style> <![endif]--><title>Release Notes for STM32F10x, STM32L1xx and STM32F3xx USB Full Speed Device Library</title><!--[if gte mso 9]><xml> <o:DocumentProperties> <o:Author>STMicroelectronics</o:Author> <o:LastAuthor>STMicroelectronics</o:LastAuthor> <o:Revision>145</o:Revision> <o:TotalTime>461</o:TotalTime> <o:Created>2009-02-27T19:26:00Z</o:Created> <o:LastSaved>2010-12-13T14:14:00Z</o:LastSaved> <o:Pages>1</o:Pages> <o:Words>358</o:Words> <o:Characters>2045</o:Characters> <o:Company>STMicroelectronics</o:Company> <o:Lines>17</o:Lines> <o:Paragraphs>4</o:Paragraphs> <o:CharactersWithSpaces>2399</o:CharactersWithSpaces> <o:Version>11.9999</o:Version> </o:DocumentProperties> </xml><![endif]--><!--[if gte mso 9]><xml> <w:WordDocument> <w:View>Normal</w:View> <w:SpellingState>Clean</w:SpellingState> <w:GrammarState>Clean</w:GrammarState> <w:ValidateAgainstSchemas/> <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid> <w:IgnoreMixedContent>false</w:IgnoreMixedContent> <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText> <w:Compatibility> <w:UseFELayout/> </w:Compatibility> <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel> </w:WordDocument> </xml><![endif]--><!--[if gte mso 9]><xml> <w:LatentStyles DefLockedState="false" LatentStyleCount="156"> </w:LatentStyles> </xml><![endif]-->    
+        
+        
+        
+        
+    
+
+    <style>
+      <!--
+       /* Font Definitions */
+       @font-face
+      	{font-family:Wingdings;
+      	panose-1:5 0 0 0 0 0 0 0 0 0;
+      	mso-font-charset:2;
+      	mso-generic-font-family:auto;
+      	mso-font-pitch:variable;
+      	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+      @font-face
+      	{font-family:Verdana;
+      	panose-1:2 11 6 4 3 5 4 4 2 4;
+      	mso-font-charset:0;
+      	mso-generic-font-family:swiss;
+      	mso-font-pitch:variable;
+      	mso-font-signature:536871559 0 0 0 415 0;}
+       /* Style Definitions */
+       p.MsoNormal, li.MsoNormal, div.MsoNormal
+      	{mso-style-parent:"";
+      	margin:0in;
+      	margin-bottom:.0001pt;
+      	mso-pagination:widow-orphan;
+      	font-size:12.0pt;
+      	font-family:"Times New Roman";
+      	mso-fareast-font-family:"Times New Roman";}
+      h1
+      	{mso-margin-top-alt:auto;
+      	margin-right:0in;
+      	mso-margin-bottom-alt:auto;
+      	margin-left:0in;
+      	mso-pagination:widow-orphan;
+      	mso-outline-level:1;
+      	font-size:24.0pt;
+      	font-family:"Times New Roman";
+      	font-weight:bold;}
+      h2
+      	{mso-style-next:Normal;
+      	margin-top:12.0pt;
+      	margin-right:0in;
+      	margin-bottom:3.0pt;
+      	margin-left:0in;
+      	mso-pagination:widow-orphan;
+      	page-break-after:avoid;
+      	mso-outline-level:2;
+      	font-size:14.0pt;
+      	font-family:Arial;
+      	font-weight:bold;
+      	font-style:italic;}
+      h3
+      	{mso-margin-top-alt:auto;
+      	margin-right:0in;
+      	mso-margin-bottom-alt:auto;
+      	margin-left:0in;
+      	mso-pagination:widow-orphan;
+      	mso-outline-level:3;
+      	font-size:13.5pt;
+      	font-family:"Times New Roman";
+      	font-weight:bold;}
+      a:link, span.MsoHyperlink
+      	{color:blue;
+      	text-decoration:underline;
+      	text-underline:single;}
+      a:visited, span.MsoHyperlinkFollowed
+      	{color:blue;
+      	text-decoration:underline;
+      	text-underline:single;}
+      p
+      	{mso-margin-top-alt:auto;
+      	margin-right:0in;
+      	mso-margin-bottom-alt:auto;
+      	margin-left:0in;
+      	mso-pagination:widow-orphan;
+      	font-size:12.0pt;
+      	font-family:"Times New Roman";
+      	mso-fareast-font-family:"Times New Roman";}
+      span.SpellE
+      	{mso-style-name:"";
+      	mso-spl-e:yes;}
+      span.GramE
+      	{mso-style-name:"";
+      	mso-gram-e:yes;}
+      @page Section1
+      	{size:8.5in 11.0in;
+      	margin:1.0in 1.25in 1.0in 1.25in;
+      	mso-header-margin:.5in;
+      	mso-footer-margin:.5in;
+      	mso-paper-source:0;}
+      div.Section1
+      	{page:Section1;}
+       /* List Definitions */
+       @list l0
+      	{mso-list-id:147014661;
+      	mso-list-template-ids:2137004926;}
+      @list l0:level1
+      	{mso-level-number-format:bullet;
+      	mso-level-text:\F0A7;
+      	mso-level-tab-stop:.5in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:Wingdings;}
+      @list l0:level2
+      	{mso-level-number-format:bullet;
+      	mso-level-text:\F0A7;
+      	mso-level-tab-stop:1.0in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:Wingdings;}
+      @list l1
+      	{mso-list-id:172573363;
+      	mso-list-template-ids:531151312;}
+      @list l2
+      	{mso-list-id:255600488;
+      	mso-list-template-ids:-325267114;}
+      @list l2:level1
+      	{mso-level-number-format:bullet;
+      	mso-level-text:\F0A7;
+      	mso-level-tab-stop:.5in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:Wingdings;}
+      @list l2:level2
+      	{mso-level-number-format:bullet;
+      	mso-level-text:\F0A7;
+      	mso-level-tab-stop:1.0in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:Wingdings;}
+      @list l3
+      	{mso-list-id:429083103;
+      	mso-list-template-ids:2094056142;}
+      @list l3:level1
+      	{mso-level-number-format:bullet;
+      	mso-level-text:\F0A7;
+      	mso-level-tab-stop:.5in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:Wingdings;}
+      @list l3:level2
+      	{mso-level-number-format:bullet;
+      	mso-level-text:\F0A7;
+      	mso-level-tab-stop:1.0in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:Wingdings;}
+      @list l4
+      	{mso-list-id:539828704;
+      	mso-list-template-ids:394556358;}
+      @list l4:level1
+      	{mso-level-tab-stop:.5in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	font-family:Verdana;
+      	mso-ansi-font-weight:normal;}
+      @list l4:level2
+      	{mso-level-number-format:bullet;
+      	mso-level-text:o;
+      	mso-level-tab-stop:1.0in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:"Courier New";
+      	mso-bidi-font-family:"Times New Roman";}
+      @list l4:level3
+      	{mso-level-number-format:bullet;
+      	mso-level-text:\F0A7;
+      	mso-level-tab-stop:1.5in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:Wingdings;}
+      @list l4:level4
+      	{mso-level-number-format:bullet;
+      	mso-level-text:\F0A7;
+      	mso-level-tab-stop:2.0in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:Wingdings;}
+      @list l5
+      	{mso-list-id:564265049;
+      	mso-list-template-ids:126764820;}
+      @list l5:level1
+      	{mso-level-number-format:bullet;
+      	mso-level-text:\F0A7;
+      	mso-level-tab-stop:.5in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:Wingdings;}
+      @list l6
+      	{mso-list-id:661662417;
+      	mso-list-template-ids:-1162676490;}
+      @list l6:level1
+      	{mso-level-number-format:bullet;
+      	mso-level-text:\F0A7;
+      	mso-level-tab-stop:.5in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:Wingdings;}
+      @list l7
+      	{mso-list-id:694310594;
+      	mso-list-template-ids:409662308;}
+      @list l7:level1
+      	{mso-level-number-format:bullet;
+      	mso-level-text:\F0A7;
+      	mso-level-tab-stop:.5in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:Wingdings;}
+      @list l8
+      	{mso-list-id:744301158;
+      	mso-list-template-ids:-761518220;}
+      @list l8:level1
+      	{mso-level-number-format:bullet;
+      	mso-level-text:\F0A7;
+      	mso-level-tab-stop:.5in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:Wingdings;}
+      @list l8:level2
+      	{mso-level-number-format:bullet;
+      	mso-level-text:\F0A7;
+      	mso-level-tab-stop:1.0in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:Wingdings;}
+      @list l9
+      	{mso-list-id:775559721;
+      	mso-list-template-ids:-1267296356;}
+      @list l9:level1
+      	{mso-level-number-format:bullet;
+      	mso-level-text:\F0A7;
+      	mso-level-tab-stop:.5in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:Wingdings;}
+      @list l9:level2
+      	{mso-level-number-format:bullet;
+      	mso-level-text:\F0A7;
+      	mso-level-tab-stop:1.0in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:Wingdings;}
+      @list l9:level3
+      	{mso-level-number-format:bullet;
+      	mso-level-text:\F0A7;
+      	mso-level-tab-stop:1.5in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:Wingdings;}
+      @list l10
+      	{mso-list-id:1192454834;
+      	mso-list-template-ids:531151312;}
+      @list l10:level2
+      	{mso-level-number-format:bullet;
+      	mso-level-text:o;
+      	mso-level-tab-stop:1.0in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:"Courier New";
+      	mso-bidi-font-family:"Times New Roman";}
+      @list l10:level3
+      	{mso-level-number-format:bullet;
+      	mso-level-text:\F0A7;
+      	mso-level-tab-stop:1.5in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:Wingdings;}
+      @list l10:level4
+      	{mso-level-number-format:bullet;
+      	mso-level-text:\F0A7;
+      	mso-level-tab-stop:2.0in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:Wingdings;}
+      @list l11
+      	{mso-list-id:1284507816;
+      	mso-list-template-ids:2007251692;}
+      @list l11:level1
+      	{mso-level-number-format:bullet;
+      	mso-level-text:\F0A7;
+      	mso-level-tab-stop:.5in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:Wingdings;}
+      @list l11:level2
+      	{mso-level-number-format:bullet;
+      	mso-level-text:\F0A7;
+      	mso-level-tab-stop:1.0in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:Wingdings;}
+      @list l12
+      	{mso-list-id:1432123741;
+      	mso-list-template-ids:-2107621286;}
+      @list l12:level1
+      	{mso-level-number-format:bullet;
+      	mso-level-text:\F0A7;
+      	mso-level-tab-stop:.5in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:Wingdings;}
+      @list l13
+      	{mso-list-id:1674064117;
+      	mso-list-template-ids:-1472423378;}
+      @list l13:level1
+      	{mso-level-number-format:bullet;
+      	mso-level-text:\F0A7;
+      	mso-level-tab-stop:.5in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:Wingdings;}
+      @list l14
+      	{mso-list-id:1680505798;
+      	mso-list-template-ids:531151312;}
+      @list l14:level1
+      	{mso-level-start-at:3;
+      	mso-level-tab-stop:.5in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;}
+      @list l15
+      	{mso-list-id:1687752343;
+      	mso-list-template-ids:-692044480;}
+      @list l15:level1
+      	{mso-level-number-format:bullet;
+      	mso-level-text:\F0A7;
+      	mso-level-tab-stop:.5in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:Wingdings;}
+      @list l16
+      	{mso-list-id:1777481042;
+      	mso-list-template-ids:-1748469506;}
+      @list l16:level1
+      	{mso-level-number-format:bullet;
+      	mso-level-text:\F0A7;
+      	mso-level-tab-stop:.5in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:Wingdings;}
+      @list l16:level2
+      	{mso-level-number-format:bullet;
+      	mso-level-text:\F0A7;
+      	mso-level-tab-stop:1.0in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:Wingdings;}
+      @list l16:level3
+      	{mso-level-number-format:bullet;
+      	mso-level-text:\F0A7;
+      	mso-level-tab-stop:1.5in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:Wingdings;}
+      @list l17
+      	{mso-list-id:1792631997;
+      	mso-list-template-ids:-90139722;}
+      @list l17:level1
+      	{mso-level-number-format:bullet;
+      	mso-level-text:\F0A7;
+      	mso-level-tab-stop:.5in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:Wingdings;}
+      @list l17:level2
+      	{mso-level-number-format:bullet;
+      	mso-level-text:\F0A7;
+      	mso-level-tab-stop:1.0in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:Wingdings;}
+      @list l18
+      	{mso-list-id:1810509231;
+      	mso-list-template-ids:531151312;}
+      @list l18:level1
+      	{mso-level-start-at:2;
+      	mso-level-tab-stop:.5in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;}
+      @list l19
+      	{mso-list-id:1938366446;
+      	mso-list-template-ids:1794654308;}
+      @list l19:level1
+      	{mso-level-number-format:bullet;
+      	mso-level-text:\F0A7;
+      	mso-level-tab-stop:.5in;
+      	mso-level-number-position:left;
+      	text-indent:-.25in;
+      	mso-ansi-font-size:10.0pt;
+      	font-family:Wingdings;}
+      @list l20
+      	{mso-list-id:1980957100;
+      	mso-list-template-ids:531151312;}
+      ol
+      	{margin-bottom:0in;}
+      ul
+      	{margin-bottom:0in;}
+      -->
+    </style><!--[if gte mso 10]>
+    <style>
+     /* Style Definitions */
+     table.MsoNormalTable
+    	{mso-style-name:"Table Normal";
+    	mso-tstyle-rowband-size:0;
+    	mso-tstyle-colband-size:0;
+    	mso-style-noshow:yes;
+    	mso-style-parent:"";
+    	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+    	mso-para-margin:0in;
+    	mso-para-margin-bottom:.0001pt;
+    	mso-pagination:widow-orphan;
+    	font-size:10.0pt;
+    	font-family:"Times New Roman";
+    	mso-ansi-language:#0400;
+    	mso-fareast-language:#0400;
+    	mso-bidi-language:#0400;}
+    </style>
+    <![endif]--><!--[if gte mso 9]><xml>
+     <o:shapedefaults v:ext="edit" spidmax="7170"/>
+    </xml><![endif]--><!--[if gte mso 9]><xml>
+     <o:shapelayout v:ext="edit">
+      <o:idmap v:ext="edit" data="1"/>
+     </o:shapelayout></xml><![endif]-->
+  <meta content="MCD Application Team" name="author"></head><body link="blue" vlink="blue">
+    <div class="Section1">
+      <p class="MsoNormal">
+        <span style="font-family: Arial;">
+          <o:p>&nbsp;
+          </o:p>
+        </span>
+      </p>
+      <div align="center">
+        <table class="MsoNormalTable" style="width: 675pt;" border="0" cellpadding="0" cellspacing="0" width="900"> 
+          <tbody>
+            <tr style="">  
+              <td style="padding: 0in;" valign="top">  
+                <table class="MsoNormalTable" style="width: 675pt;" border="0" cellpadding="0" cellspacing="0" width="900">   
+                  <tbody>
+                    <tr style="">    
+                      <td style="padding: 1.5pt;">    
+                        <h1 style="margin-bottom: 0.25in; text-align: center;" align="center">
+                          <span style="font-size: 20pt; font-family: Verdana; color: rgb(51, 102, 255);">Release Notes     for&nbsp;
+                          </span></h1>
+                        <h1 style="margin-bottom: 0.25in; text-align: center;" align="center">
+                          <span style="font-size: 20pt; font-family: Verdana; color: rgb(51, 102, 255);">STM32F10x, STM32L1xx and STM32F3xx USB Full Speed Device Library
+                          </span>
+                          <span style="font-size: 20pt; font-family: Verdana;">
+                            <o:p>
+                            </o:p>
+                          </span></h1>    
+                        <p class="MsoNormal" style="text-align: center;" align="center">
+                          <span style="font-size: 10pt; font-family: Arial; color: black;">Copyright 2013 STMicroelectronics
+                          </span>
+                          <span style="color: black;">
+                            <u1:p>
+                            </u1:p>
+                            <o:p>
+                            </o:p>
+                          </span>
+                        </p>    
+                        <p class="MsoNormal" style="text-align: center;" align="center">
+                          <span style="font-size: 10pt; font-family: Arial; color: black;">
+                            <img id="_x0000_i1025" src="_htmresc/logo.bmp" style="border-style: solid; border-width: 0px; height: 65px; width: 86px;" height="65" width="86">
+                          </span>
+                          <span style="font-size: 10pt;">
+                            <o:p>
+                            </o:p>
+                          </span>
+                        </p>    </td>   
+                    </tr>  
+                  </tbody>
+                </table>  
+                <p class="MsoNormal">
+                  <span style="font-family: Arial; display: none;">
+                    <o:p>&nbsp;
+                    </o:p>
+                  </span>
+                </p>  
+                <table class="MsoNormalTable" style="width: 675pt;" border="0" cellpadding="0" width="900">   
+                  <tbody>
+                    <tr style="">    
+                      <td style="padding: 0in;" valign="top">    
+                        <h2 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+                          <span style="font-size: 12pt; color: white;">Contents
+                            <o:p>
+                            </o:p>
+                          </span></h2>    
+                        <ol style="margin-top: 0in;" start="1" type="1">     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span style="font-size: 10pt; font-family: Verdana;">
+                              <a href="#History">Update History</a>
+                              <o:p>
+                              </o:p>
+                            </span></li>     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span style="color: windowtext;">
+                              <a href="#License">
+                                <span style="font-size: 10pt; font-family: Verdana;">License
+                                </span></a>
+                            </span>
+                            <a name="WhatsNew"></a>
+                            <span style="font-size: 10pt; font-family: Verdana;">
+                              <o:p>
+                              </o:p>
+                            </span></li>    
+                        </ol>    
+                        <h2 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+                          <a name="History"></a> <span style="font-size: 12pt; color: white;">Update History
+                            <o:p>
+                            </o:p>
+                          </span></h2>    
+                        
+            <h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 500pt; width: 195px;"><span style="font-size: 10pt; font-family: Arial; color: white;">V4.0.0 / 21-January-2013<o:p></o:p></span></h3>
+
+
+            
+            
+            <p class="MsoNormal" style="margin: 4.5pt 0cm 4.5pt 18pt;"><b style=""><u><span style="font-size: 10pt; font-family: Verdana; color: black;">Main
+Changes<o:p></o:p></span></u></b></p>
+
+
+
+            
+            
+            <ul style="margin-top: 0cm;" type="square">
+<li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">Add support of <span style="font-weight: bold; font-style: italic;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold; font-style: italic;">STM32F30xx</span><span style="font-style: italic;"> and </span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold; font-style: italic;">STM32F37xx </span><span style="font-weight: bold; font-style: italic;">devices</span></span></li>
+              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Remove support</span> of the <span style="font-weight: bold; font-style: italic;">USB OTG Full speed in device</span> (peripheral) <span style="font-weight: bold; font-style: italic;">mode</span> embedded in the <span style="font-weight: bold; font-style: italic;">STM32F105x/7x devices</span></span></li>
+              <ul>
+<li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">All source files starting with prefix <span style="font-style: italic;">otgd_fs</span> (ex. otgd_fs_pcd.c/.h) were removed</span></li><li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">There is no change on the <span style="font-weight: bold; font-style: italic;">API</span> dealing with the <span style="font-style: italic; font-weight: bold;">USB FS Device&nbsp; peripheral</span>, <span style="font-weight: bold; font-style: italic;">full compatibility</span> is maintained vs. V3.4.0<br>
+                  </span></li><li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">The&nbsp;</span><span style="font-size: 10pt; font-family: Verdana;"> <span style="font-weight: bold; font-style: italic;">STM32F105x/7x devices</span></span><span style="font-size: 10pt; font-family: Verdana;"> are supported by the <span style="font-weight: bold; font-style: italic;">STM32F105/7xx, STM32F2xx and STM32F4xx USB On-The-Go Host and Device Library (UM1021)<br>
+</span></span></li>
+              </ul>
+            </ul>
+            <ul style="margin-top: 0cm;" type="square">
+              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">All examples</span></li>
+              <ul>
+                <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">usb_pwr.c and usb_istr.c files updated to make the code more robust</span></li>
+              </ul>
+              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">Custom HID </span><span style="font-size: 10pt; font-family: Verdana;">example</span><span style="font-size: 10pt; font-family: Verdana;"></span></li>
+              <ul>
+                <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">Add GET_Report/Set_Report features</span></li>
+              </ul>
+              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">Add <span style="font-style: italic;">composite "Mass Storage and HID"</span> </span><span style="font-size: 10pt; font-family: Verdana;">example</span><span style="font-size: 10pt; font-family: Verdana;"></span></li>
+              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">Add <span style="font-style: italic;">VirtualComport_Loopback</span> </span><span style="font-size: 10pt; font-family: Verdana;">example</span></li>
+              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">Remove <span style="font-style: italic;">USB Audio Streaming</span> </span><span style="font-size: 10pt; font-family: Verdana;">example (used only for </span><span style="font-size: 10pt; font-family: Verdana;"> STM32F105x/7x devices)</span></li>
+              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">Remove "stm32_usb-fs-device_lib_contents.htm" file: the information provided in this html page are available in UM0424<br>
+</span></li>
+
+            </ul>
+
+            
+
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+            <br>
+
+            
+            <p class="MsoNormal" style="margin: 4.5pt 0cm 4.5pt 23px; width: 868px;">
+                          <b style=""><u>
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">Contents
+                                <o:p>
+                                </o:p>
+                              </span></u></b>
+                        </p>
+
+
+                        
+            
+            <ul style="margin-top: 0cm;" type="square">
+<li class="MsoNormal">
+                            <span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">CMSIS CM3 V3.01</span><span style="font-size: 10pt; font-family: Verdana;"> (<a href="Libraries/CMSIS/index.html">release notes</a>)
+                            </span></li><li class="MsoNormal" style="">
+                            <span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">STM32F10x </span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">CMSIS</span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;"> V3.6.1</span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;"></span><span style="font-size: 10pt; font-family: Verdana;"> (<a href="Libraries/CMSIS/Device/ST/STM32F10x/Release_Notes.html">release notes</a>)
+                            </span></li><li class="MsoNormal" style="">
+                            <span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">STM32L1xx </span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">CMSIS</span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;"> V1.1.1</span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="Libraries/CMSIS/Device/ST/STM32L1xx/Release_Notes.html">release notes</a>)</span></li>
+              <li class="MsoNormal" style="">
+                            <span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">STM32F30x </span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">CMSIS</span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;"> V1.0.0</span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="Libraries/CMSIS/Device/ST/STM32F30x/Release_Notes.html">release notes</a>)</span></li>
+              <li class="MsoNormal" style="">
+                            <span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">STM32F37x </span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">CMSIS</span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;"> V1.0.0</span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="Libraries/CMSIS/Device/ST/STM32F37x/Release_Notes.html">release notes</a>)</span></li>
+<li class="MsoNormal" style="">
+                            <span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">STM32_USB-FS-Device_Driver 
+                            </span>
+                            <span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">V4.0.0 </span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;"></span><span style="font-size: 10pt; font-family: Verdana;">(<a href="Libraries/STM32_USB-FS-Device_Driver/Release_Notes.html">release notes</a>)
+                            </span></li><li class="MsoNormal" style="">
+                            <span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">STM32F10x_StdPeriph_Driver&nbsp; V3.6.1</span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;"></span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="Libraries/STM32F10x_StdPeriph_Driver/Release_Notes.html">release notes</a>)
+                            </span></li><li class="MsoNormal" style="">
+                            <span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">STM32L1xx_StdPeriph_Driver&nbsp;&nbsp; V1.1.1 </span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;"></span><span style="font-size: 10pt; font-family: Verdana;">(<a href="Libraries/STM32L1xx_StdPeriph_Driver/Release_Notes.html">release notes</a>)</span></li>
+              <li class="MsoNormal" style=""><span style="font-size: 10pt; font-family: Verdana;">STM32F30x_StdPeriph_Driver</span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">&nbsp;&nbsp; V1.0.1 </span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;"></span><span style="font-size: 10pt; font-family: Verdana;">(<a href="Libraries/STM32F30x_StdPeriph_Driver/Release_Notes.html">release notes</a>)</span></li>
+              <li class="MsoNormal" style=""><span style="font-size: 10pt; font-family: Verdana;">STM32F37x_StdPeriph_Driver</span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">&nbsp;&nbsp; V1.0.0 </span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;"></span><span style="font-size: 10pt; font-family: Verdana;">(<a href="Libraries/STM32F37x_StdPeriph_Driver/Release_Notes.html">release notes</a>)</span></li>
+<li class="MsoNormal" style=""><span style="font-size: 10pt; font-family: Verdana;">STM32_EVAL\Common V5.0.2</span><span style="font-size: 10pt; font-family: Verdana;"> (<a href="Utilities/STM32_EVAL/Common/Release_Notes.html">release notes</a>)</span></li><li class="MsoNormal" style=""><span style="font-size: 10pt; font-family: Verdana;">STM3210B_EVAL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; V5.0.1</span><span style="font-size: 10pt; font-family: Verdana;"> (<a href="Utilities/STM32_EVAL/STM3210B_EVAL/Release_Notes.html">release notes</a>)</span></li><li class="MsoNormal" style=""><span style="font-size: 10pt; font-family: Verdana;">STM3210E_EVAL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; V5.1.0</span><span style="font-size: 10pt; font-family: Verdana;"> (<a href="Utilities/STM32_EVAL/STM3210E_EVAL/Release_Notes.html">release notes</a>)</span></li><li class="MsoNormal" style=""><span style="font-size: 10pt; font-family: Verdana;">STM32L152_EVAL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; V5.0.2</span><span style="font-size: 10pt; font-family: Verdana;"> (<a href="Utilities/STM32_EVAL/STM32L152_EVAL/Release_Notes.html">release notes</a>)</span></li><li class="MsoNormal" style=""><span style="font-size: 10pt; font-family: Verdana;">STM32L152D_EVAL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; V1.0.1 </span><span style="font-size: 10pt; font-family: Verdana;">(<a href="Utilities/STM32_EVAL/STM32L152D_EVAL/Release_Notes.html">release notes</a>)</span></li>
+              <li class="MsoNormal" style=""><span style="font-size: 10pt; font-family: Verdana;">STM32303C_EVAL</span><span style="font-size: 10pt; font-family: Verdana;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; V1.0.1</span><span style="font-size: 10pt; font-family: Verdana;"> (<a href="Utilities/STM32_EVAL/STM32303C_EVAL/Release_Notes.html">release notes</a>)</span></li>
+              <li class="MsoNormal" style=""><span style="font-size: 10pt; font-family: Verdana;">STM32373C_EVAL</span><span style="font-size: 10pt; font-family: Verdana;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; V1.0.0</span><span style="font-size: 10pt; font-family: Verdana;"> (<a href="Utilities/STM32_EVAL/STM32373C_EVAL/Release_Notes.html">release notes</a>)</span></li>
+            </ul>
+
+
+                        <br>
+
+
+                        <span style="font-size: 10pt; font-family: Verdana;">
+                        </span>
+                        
+            
+            <p class="MsoNormal" style="margin: 4.5pt 0cm 4.5pt 23px; width: 868px;">
+                          <b style=""><u>
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">Development Toolchains
+                                <o:p>
+                                </o:p>
+                              </span></u></b>
+                        </p>
+
+
+                        
+            
+            <ul style="margin-top: 0cm;" type="square">
+<li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">IAR Embedded Workbench for ARM (EWARM) toolchain V6.50 + J-Link</span></li><li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">RealView Microcontroller Development Kit (MDK-ARM) toolchain V4.50 + ULINK</span></li><li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">Raisonance IDE RIDE7 (RIDE) toolchain v1.46 +&nbsp;</span><span style="font-size: 10pt; font-family: Verdana;">Rlink Pro</span></li><li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">Atollic TrueSTUDIO&nbsp;toolchain V3.3.0 +&nbsp;</span><span style="font-size: 10pt; font-family: Verdana;">ST-LINK</span></li><li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">TASKING VX-toolset for ARM Cortex-M V4.3r1 +&nbsp;</span><span style="font-size: 10pt; font-family: Verdana;">ST-LINK</span></li>
+            </ul>
+            <p class="MsoNormal">&nbsp;</p>
+            <p class="MsoNormal" style="margin: 4.5pt 0cm 4.5pt 23px; width: 868px;"><b style=""><u><span style="font-size: 10pt; font-family: Verdana; color: black;">Supported
+Devices and EVAL boards<o:p></o:p></span></u></b></p>
+
+
+
+            
+            
+            <ul style="margin-top: 0cm;" type="square">
+              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">STM32F10x Medium-density devices and STM3210B-EVAL board <br>
+                </span></li>
+              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">STM32F10x High-density devices and STM3210E-EVAL board&nbsp; <br>
+                </span></li>
+              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">STM32F10x XL-density devices STM3210E-EVAL_XL board&nbsp; <br>
+                </span></li>
+              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">STM32L1xx Medium-Density devices and STM32L152-EVAL board&nbsp;&nbsp; <br>
+                </span></li>
+              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">STM32L1xx High-Density devices and STM32L152D-EVAL board <br>
+                </span></li>
+              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">STM32F37xx devices and STM32373C-EVAL board&nbsp; <br>
+                </span></li>
+              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">STM32F30xx devices and STM32303C-EVAL board&nbsp; <br>
+                </span></li>
+            </ul>
+            <p class="MsoNormal">
+                          <span style="color: black;">
+                            <o:p>
+</o:p></span></p>
+
+            <h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 500pt; width: 167px;"><span style="font-size: 10pt; font-family: Arial; color: white;">V3.4.0 / 29-June-2012<o:p></o:p></span></h3>
+
+            
+            <p class="MsoNormal" style="margin: 4.5pt 0cm 4.5pt 18pt;"><b style=""><u><span style="font-size: 10pt; font-family: Verdana; color: black;">Main
+Changes<o:p></o:p></span></u></b></p>
+
+
+            
+            <ul style="margin-top: 0cm;" type="square">
+<li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">All source files:&nbsp;<span style="font-weight: bold; font-style: italic;">license disclaimer text update</span> and add link to the License file on ST Internet.</span></li>
+              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">Add support of <span style="font-weight: bold; font-style: italic;">STM32L1xx High Density</span> and <span style="font-weight: bold; font-style: italic;">Medium Density Plus devices</span><br>
+</span></li>
+              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">Use <span style="font-weight: bold; font-style: italic;">latest version of STM32F10x and </span></span><span style="font-size: 10pt; font-family: Verdana; font-weight: bold; font-style: italic;">STM32L1xx </span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold; font-style: italic;">HAL and BSP components</span> (</span><span style="font-size: 10pt; font-family: Verdana;">for more details refer to each&nbsp;</span><span style="font-size: 10pt; font-family: Verdana;">component</span><span style="font-size: 10pt; font-family: Verdana;">'s release notes):</span></li>
+              <ul>
+<li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;"><span style="font-style: italic;">CMSIS drivers:</span> update directory structure&nbsp;to be compliant&nbsp;with CMSIS V2.1, </span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold; font-style: italic;">full&nbsp;API compatibility maintained with previous version</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold; font-style: italic;"></span></span><span style="font-size: 10pt; font-family: Verdana;"></span></li>
+              </ul>
+              <ul>
+<li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;"><span style="font-style: italic;">Standard Peripherals&nbsp;Drivers:</span> miscellaneous bug fix and </span><span style="font-size: 10pt; font-family: Verdana;">enhancement</span></li><li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;"><span style="font-style: italic;">STM32xxx_EVAL board drivers:</span>&nbsp;</span><span style="font-size: 10pt; font-family: Verdana;">update drivers architecture and folder organization,&nbsp;<span style="font-weight: bold; font-style: italic;">full&nbsp;API compatibility maintained vs. V4.4.0</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold; font-style: italic;"></span></span><span style="font-size: 10pt; font-family: Verdana;"></span></li>
+              </ul>
+              
+              
+              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">All
+examples:&nbsp;</span></li>
+              <ul>
+<li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">Project settings updated to be in line with changes made on latest version of the </span><span style="font-size: 10pt; font-family: Verdana;">STM32F10x and </span><span style="font-size: 10pt; font-family: Verdana;">STM32L1xx </span><span style="font-size: 10pt; font-family: Verdana;">HAL and BSP drivers </span><span style="font-size: 10pt; font-family: Verdana;"></span></li><li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">Remove projects for </span><span style="font-size: 10pt; font-family: Verdana;">HiTOP toolchain<br>
+      </span></li><li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">Add projects for TASKING toolchain<br>
+</span></li>
+              </ul>
+</ul>
+
+            
+            <ul>
+              <ul>
+                <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">Add support of STM32L1xx High Density devices and </span><span style="font-size: 10pt; font-family: Verdana;">STM32L152D_EVAL board</span><br>
+<span style="font-size: 10pt; font-family: Verdana;"></span></li>
+              </ul>
+              <ul>
+                <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">Source code update&nbsp;to be in line with latest version of&nbsp;</span><span style="font-size: 10pt; font-family: Verdana;">STM32xxx_EVAL board drivers</span></li>
+              </ul>
+            </ul>
+            <ul style="margin-top: 0cm;" type="square">
+
+              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">JoyStickMouse example</span></li>
+              <ul>
+                <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">usb_pwr.c: </span><span style="font-size: 10pt; font-family: Verdana;">remove duplicated function RCC_HSEConfig()</span><br>
+<span style="font-size: 10pt; font-family: Verdana;"></span></li>
+              </ul>
+            </ul>
+            <span style="font-size: 10pt; font-family: Verdana;"></span><br>
+
+            <span style="font-size: 10pt; font-family: Verdana;"></span><ul style="margin-top: 0cm;" type="square"><ul>
+              </ul>
+            </ul>
+            <br>
+            <p class="MsoNormal" style="margin: 4.5pt 0cm 4.5pt 23px; width: 868px;">
+                          <b style=""><u>
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">Contents
+                                <o:p>
+                                </o:p>
+                              </span></u></b>
+                        </p>
+
+                        
+            <ul style="margin-top: 0cm;" type="square">
+<li class="MsoNormal">
+                            <span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">CMSIS CM3 V2.1</span><span style="font-size: 10pt; font-family: Verdana;"> (<a href="Libraries/CMSIS/Documentation/CMSIS_History.htm">release notes</a>)
+                            </span></li><li class="MsoNormal" style="">
+                            <span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">STM32F10x </span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">CMSIS</span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;"> V3.6.1</span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;"></span><span style="font-size: 10pt; font-family: Verdana;"> (<a href="Libraries/CMSIS/Device/ST/STM32F10x/Release_Notes.html">release notes</a>)
+                            </span></li><li class="MsoNormal" style="">
+                            <span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">STM32L1xx </span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">CMSIS</span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;"> V1.1.</span>1 <span style="font-size: 10pt; font-family: Verdana;">(<a href="Libraries/CMSIS/Device/ST/STM32L1xx/Release_Notes.html">release notes</a>)
+                            </span></li><li class="MsoNormal" style="">
+                            <span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">STM32_USB-FS-Device_Driver 
+                            </span>
+                            <span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">V3.4.0 </span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;"></span><span style="font-size: 10pt; font-family: Verdana;">(<a href="Libraries/STM32_USB-FS-Device_Driver/Release_Notes.html">release notes</a>)
+                            </span></li><li class="MsoNormal" style="">
+                            <span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">STM32F10x_StdPeriph_Driver&nbsp; V3.6.1</span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;"></span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="Libraries/STM32F10x_StdPeriph_Driver/Release_Notes.html">release notes</a>)
+                            </span></li><li class="MsoNormal" style="">
+                            <span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">STM32L1xx_StdPeriph_Driver&nbsp;&nbsp; V1.1.1 </span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;"></span><span style="font-size: 10pt; font-family: Verdana;">(<a href="Libraries/STM32L1xx_StdPeriph_Driver/Release_Notes.html">release notes</a>)
+                            </span></li>
+              <li class="MsoNormal" style=""><span style="font-size: 10pt; font-family: Verdana;">STM32_EVAL\Common V5.0.2</span><span style="font-size: 10pt; font-family: Verdana;"> (<a href="Utilities/STM32_EVAL/Common/Release_Notes.html">release notes</a>)</span></li>
+              <li class="MsoNormal" style=""><span style="font-size: 10pt; font-family: Verdana;">STM3210B_EVAL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; V5.0.1</span><span style="font-size: 10pt; font-family: Verdana;"> (<a href="Utilities/STM32_EVAL/STM3210B_EVAL/Release_Notes.html">release notes</a>)</span></li>
+              <li class="MsoNormal" style=""><span style="font-size: 10pt; font-family: Verdana;">STM3210C_EVAL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; V5.0.1</span><span style="font-size: 10pt; font-family: Verdana;"> (<a href="Utilities/STM32_EVAL/STM3210C_EVAL/Release_Notes.html">release notes</a>)</span></li>
+              <li class="MsoNormal" style=""><span style="font-size: 10pt; font-family: Verdana;">STM3210E_EVAL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; V5.0.1</span><span style="font-size: 10pt; font-family: Verdana;"> (<a href="Utilities/STM32_EVAL/STM3210E_EVAL/Release_Notes.html">release notes</a>)</span></li>
+              <li class="MsoNormal" style=""><span style="font-size: 10pt; font-family: Verdana;">STM32L152_EVAL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; V5.0.2</span><span style="font-size: 10pt; font-family: Verdana;"> (<a href="Utilities/STM32_EVAL/STM32L152_EVAL/Release_Notes.html">release notes</a>)</span></li>
+              <li class="MsoNormal" style=""><span style="font-size: 10pt; font-family: Verdana;">STM32L152D_EVAL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; V1.0.1 </span><span style="font-size: 10pt; font-family: Verdana;">(<a href="Utilities/STM32_EVAL/STM32L152D_EVAL/Release_Notes.html">release notes</a>)</span></li>
+            </ul>
+
+                        <br>
+
+                        <span style="font-size: 10pt; font-family: Verdana;">
+                        </span>
+                        
+            <p class="MsoNormal" style="margin: 4.5pt 0cm 4.5pt 23px; width: 868px;">
+                          <b style=""><u>
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">Development Toolchains
+                                <o:p>
+                                </o:p>
+                              </span></u></b>
+                        </p>
+
+                        
+            <ul style="margin-top: 0cm;" type="square">
+              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">IAR Embedded Workbench for ARM (EWARM) toolchain V6.30.7 + J-Link</span></li>
+              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">RealView Microcontroller Development Kit (MDK-ARM) toolchain V4.50 + ULINK</span></li>
+              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">Raisonance IDE RIDE7 (RIDE) toolchain (RIDE7 IDE:7.36, RKitARM for RIDE7:1.38) +&nbsp;</span><span style="font-size: 10pt; font-family: Verdana;">Rlink Pro</span></li>
+              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">Atollic TrueSTUDIO&nbsp;toolchain V3.0.0 +&nbsp;</span><span style="font-size: 10pt; font-family: Verdana;">ST-LINK</span></li>
+              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">TASKING VX-toolset for ARM Cortex-M V4.2r1 +&nbsp;</span><span style="font-size: 10pt; font-family: Verdana;">ST-LINK</span></li>
+            </ul>
+            <p class="MsoNormal">
+                        </p>
+
+                        <h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 558.05pt; width: 171px;">
+                          <span style="font-size: 10pt; font-family: Arial; color: white;">V3.3.0 / 21-March-2011
+                          </span></h3>
+                        <p class="MsoNormal" style="margin: 4.5pt 0cm 4.5pt 18pt;">
+                          <b style=""><u>
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">Main Changes
+                                <o:p>
+                                </o:p>
+                              </span></u></b>
+                        </p>
+                        <ul style="margin-top: 0cm;" type="square">
+                          <li class="MsoNormal" style="">
+                            <span style="font-size: 10pt; font-family: Verdana; color: black;">Add support for 
+                              <span style="font-weight: bold;">STM32L15x Medium-Density Low-Power
+                              </span> devices.
+                            </span></li>
+                          <li class="MsoNormal" style="">
+                            <span style="font-size: 10pt; font-family: Verdana; color: black;">Project
+                            </span></li>
+                          <ul>
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">All demos: add support for STM32L15x&nbsp;devices.
+                              </span></li>
+                          </ul>
+                          <ul>
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">Device_Firmware_Upgrade demo:&nbsp;
+                              </span></li>
+                            <ul>
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana; color: black;">Update the project to use the library SPI flash driver 
+                                  <span style="font-style: italic;">stm32_eval_spi_flash.c
+                                  </span>
+                                </span></li>
+                            </ul>
+                            <ul>
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana; color: black;">dfu_mal.c: add explanation of write and erase timings and use defines for all values
+                                </span></li>
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana; color: black;">usb_conf.h: add defines for Erase/Write timing values for all memories
+                                </span></li>
+                            </ul>
+                            <ul>
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana; color: black;">
+                                  <span style="font-style: italic; text-decoration: underline;">
+                                  </span>For 
+                                </span>
+                                <span style="font-size: 10pt; font-family: Verdana; color: black;">STM32L15x&nbsp;devices, 
+                                </span>
+                                <span style="font-size: 10pt; font-family: Verdana; color: black;">the Joystick Up button is used&nbsp; instead of Key push button to control entering DFU mode or jump to user application
+                                </span></li>
+                            </ul>
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">Custom HID demo:
+                              </span>
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">
+                                <span style="text-decoration: underline; font-style: italic;">
+                                </span>for 
+                              </span>
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">STM32L15x&nbsp;devices,
+                              </span>
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">the Right/Left Joystick buttons are used instead of Key/Tamper push buttons
+                                <span style="font-style: italic;">
+                                  <br>
+                                </span>
+                              </span></li>
+                          </ul>
+                          <li class="MsoNormal" style="">
+                            <span style="font-size: 10pt; font-family: Verdana; color: black;">Utilities
+                            </span></li>
+                          <ul>
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">
+                                <span style="font-style: italic;">Binary
+                                </span> 
+                              </span>
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">folder
+                              </span>
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">: update the 
+                                <span style="font-style: italic;">hextobin.bat
+                                </span> and 
+                                <span style="font-style: italic;">axftobin.bat
+                                </span> files to support the STM32L15x devices template project
+                              </span></li>
+                          </ul>
+                          <ul>
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">
+                                <span style="font-style: italic;">DFU_images</span></span> <span style="font-size: 10pt; font-family: Verdana; color: black;">folder: update DFU images for all demos
+                                <br>
+                              </span></li>
+                          </ul>
+                        </ul>
+                        <br>
+                        <p class="MsoNormal" style="margin: 4.5pt 0cm 4.5pt 23px; width: 868px;">
+                          <b style=""><u>
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">Contents
+                                <o:p>
+                                </o:p>
+                              </span></u></b>
+                        </p>
+                        <ul style="margin-top: 0cm;" type="square">
+                          <li class="MsoNormal">
+                            <span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">CMSIS CM3 V1.3</span><span style="font-size: 10pt; font-family: Verdana;"> (
+                              <a href="Libraries/CMSIS/CMSIS%20changes.htm">release notes</a>)
+                            </span></li>
+                          <li class="MsoNormal" style="">
+                            <span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">STM32F10x </span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">CMSIS</span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;"> V3.5.0</span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;"></span><span style="font-size: 10pt; font-family: Verdana;"> (
+                              <a href="Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x/Release_Notes.html">release notes</a>)
+                            </span></li>
+                          <li class="MsoNormal" style="">
+                            <span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">STM32L1xx </span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">CMSIS</span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;"> V1.0.0</span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;"></span> <span style="font-size: 10pt; font-family: Verdana;">(
+                              <a href="Libraries/CMSIS/CM3/DeviceSupport/ST/STM32L1xx/Release_Notes.html">release notes</a>)
+                            </span></li>
+                          <li class="MsoNormal" style="">
+                            <span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">STM32_USB-FS-Device_Driver 
+                            </span>
+                            <span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">V3.3.0 </span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;"></span><span style="font-size: 10pt; font-family: Verdana;">(
+                              <a href="Libraries/STM32_USB-FS-Device_Driver/Release_Notes.html">release notes</a>)
+                            </span></li>
+                          <li class="MsoNormal" style="">
+                            <span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">STM32F10x_StdPeriph_Driver V3.5.0</span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;"></span> <span style="font-size: 10pt; font-family: Verdana;">(
+                              <a href="Libraries/STM32F10x_StdPeriph_Driver/Release_Notes.html">release notes</a>)
+                            </span></li>
+                          <li class="MsoNormal" style="">
+                            <span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">STM32L1xx_StdPeriph_Driver V1.0.0 </span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;"></span><span style="font-size: 10pt; font-family: Verdana;">(
+                              <a href="Libraries/STM32L1xx_StdPeriph_Driver/Release_Notes.html">release notes</a>)
+                            </span></li>
+                          <li class="MsoNormal" style="">
+                            <span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">STM32_EVAL V4.4.0</span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;"></span><span style="font-size: 10pt; font-family: Verdana;"> (
+                              <a href="Utilities/STM32_EVAL/Release_Notes.html">release notes</a>)
+                            </span></li>
+                        </ul>
+                        <br>
+                        <span style="font-size: 10pt; font-family: Verdana;">
+                        </span>
+                        <p class="MsoNormal" style="margin: 4.5pt 0cm 4.5pt 23px; width: 868px;">
+                          <b style=""><u>
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">Development Toolchains
+                                <o:p>
+                                </o:p>
+                              </span></u></b>
+                        </p>
+                        <ul style="margin-top: 0cm;" type="square">
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span style="font-size: 10pt; font-family: Verdana;">IAR Embedded Workbench for ARM (EWARM) toolchain v5.50
+                            </span></li>
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span style="font-size: 10pt; font-family: Verdana;">RealView Microcontroller Development Kit (MDK-ARM) toolchain v4.13
+                            </span></li>
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span style="font-size: 10pt; font-family: Verdana;">Raisonance IDE RIDE7 (RIDE) toolchain (RIDE7 v7.24 &amp; Rkit ARM v1.22.09.0254)
+                            </span></li>
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span style="font-size: 10pt; font-family: Verdana;">Hitex IDE/Debugger (HiTOP) toolchain v5.32 (compiler: Tasking v3.0r3)
+                            </span></li>
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span style="font-size: 10pt; font-family: Verdana;">Atollic TrueSTUDIO STM32 (TrueSTUDIO) toolchain v1.3.0
+                            </span></li>
+                        </ul>
+                        <em>
+                          <span style="font-weight: bold; text-decoration: underline;">
+                          </span>
+                        </em>
+                        <br>
+                        <h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 558.05pt;">
+                          <span style="font-size: 10pt; font-family: Arial; color: white;">V3.2.1 - 07/05/2010
+                            <o:p>
+                            </o:p>
+                          </span></h3>    
+                        <ol style="margin-top: 0in;" start="1" type="1">
+                          <li class="MsoNormal" style=""><b>
+                              <span style="font-size: 10pt; font-family: Verdana;">General
+                              </span></b>
+                            <span style="font-size: 10pt; font-family: Verdana;">
+                              <o:p>
+                              </o:p>
+                            </span></li>
+                          <ul style="margin-top: 0in;" type="circle">
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">Fix&nbsp;bug in 
+                              </span>
+                              <span style="font-size: 10pt; font-family: Verdana;">usb_core.c (only for&nbsp;
+                              </span>
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">
+                              </span>
+                              <span style="font-size: 10pt; font-family: Verdana;">STM32F105x/7x           Connectivity Line devices
+                              </span>
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">).
+                              </span></li>
+                          </ul>
+                          <li class="MsoNormal" style=""><b>
+                              <span style="font-size: 10pt; font-family: Verdana;">Libraries
+                              </span></b>
+                            <span style="font-size: 10pt; font-family: Verdana;">
+                              <o:p>
+                              </o:p>
+                            </span></li>
+                          <ul style="margin-top: 0in;" type="circle">
+                            <li class="MsoNormal" style=""><u>
+                                <span style="font-size: 10pt; font-family: Verdana;">STM32_USB-FS-Device_Driver
+                                </span></u>
+                              <span style="font-size: 10pt; font-family: Verdana;">
+                                <o:p>
+                                </o:p>
+                              </span></li>
+                            <ul style="margin-top: 0in;" type="square">
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana;">usb_core.c
+                                </span></li>
+                              <ul style="margin-top: 0in;" type="square">
+                                <li class="MsoNormal" style="">
+                                  <span style="font-size: 10pt; font-family: Verdana;">
+                                    <span style="font-style: italic;">Setup0_Process()
+                                    </span> function: 
+                                  </span>
+                                  <span style="font-size: 10pt; font-family: Verdana;">remove call to&nbsp;
+                                    <span style="font-style: italic;">OTGD_FS_EP0StartXfer()
+                                    </span> function,&nbsp;to fix issue when the&nbsp;
+                                  </span>
+                                  <span style="font-size: 10pt; font-family: Verdana; color: black;">Endpoint0 is stalled and no further setup request is received.
+                                  </span></li>
+                              </ul>
+                            </ul>
+                          </ul>
+                          <li class="MsoNormal" style=""><b>
+                              <span style="font-size: 10pt; font-family: Verdana;">Project
+                              </span></b>
+                            <span style="font-size: 10pt; font-family: Verdana;">
+                              <o:p>
+                              </o:p>
+                            </span></li>
+                          <ul style="margin-top: 0in;" type="circle">
+                            <li class="MsoNormal" style="color: black;">
+                              <span style="font-size: 10pt; font-family: Verdana;">The          library and demonstrations firmware are provided and have been tested           with the following toolchains:
+                                <o:p>
+                                </o:p>
+                              </span></li>
+                            <ul style="margin-top: 0in;" type="square">
+                              <li class="MsoNormal" style="color: black;">
+                                <span style="font-size: 10pt; font-family: Verdana;">EWARM v5.42
+                                  <o:p>
+                                  </o:p>
+                                </span></li>
+                              <li class="MsoNormal" style="color: black;">
+                                <span style="font-size: 10pt; font-family: Verdana;">MDK-
+                                </span>
+                                <span style="font-size: 10pt; font-family: Verdana;">ARM
+                                </span>
+                                <span style="font-size: 10pt; font-family: Verdana;"> v4.10
+                                  <o:p>
+                                  </o:p>
+                                </span></li>
+                              <li class="MsoNormal" style="color: black;">
+                                <span style="font-size: 10pt; font-family: Verdana;" lang="SV">RIDE7 v7.24 &amp;            Rkit ARM v1.22.09.0254
+                                </span>
+                                <span style="" lang="SV">
+                                  <o:p>
+                                  </o:p>
+                                </span></li>
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana; color: black;">HiTOP5.32 (compiler: Tasking v3.0r3)
+                                </span></li>
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana; color: black;">TrueSTUDIO v1.3.0
+                                </span>
+                                <span style="font-size: 10pt; font-family: Verdana; font-style: italic;">
+                                </span></li>
+                            </ul>
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">The Standard Peripherals Library components used in this version are:
+                              </span></li>
+                            <ul>
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana; color: black;">CMSIS: v1.30 
+                                  <br>
+                                </span></li>
+                            </ul>
+                            <ul>
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana; color: black;">Peripheral drivers: v3.3.0
+                                </span></li>
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana; color: black;">Utilities: v4.2.0
+                                </span></li>
+                            </ul>
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana;">AudioStreaming Demo:
+                              </span></li>
+                            <ul>
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana;">MDK-ARMproject:
+in the configuration "STM3210C-EVAL-14MHz", add HSE_Value = 14745600
+define&nbsp;in the compiler&nbsp;preprocessor. </span></li>
+                            </ul>
+                          </ul>
+                          <li class="MsoNormal" style=""><b>
+                              <span style="font-size: 10pt; font-family: Verdana;">Utilities\DFU_images
+                              </span></b></li>
+                          <ul style="margin-top: 0in;" type="circle">
+                            <li class="MsoNormal" style="text-decoration: underline;">
+                              <span style="font-size: 10pt; font-family: Verdana;">DFU
+                              </span></li>
+                            <ul>
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana;">Update all STM3210C-EVAL DFU images 
+                                </span>
+                                <span style="font-size: 10pt; font-family: Verdana;">(available in folder "
+                                  <span style="font-style: italic;">STM32_USB-FS-Device_Lib\Utilities\DFU_images
+                                  </span>").
+                                </span>
+                                <span style="font-size: 10pt; font-family: Verdana;">.
+                                </span></li>
+                            </ul>
+                          </ul>
+                        </ol>
+                        <em>
+                          <span style="font-weight: bold; text-decoration: underline;">
+                          </span>
+                        </em>
+                        <h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 558.05pt;">
+                          <span style="font-size: 10pt; font-family: Arial; color: white;">V3.2.0 -     05/14/2010
+                            <o:p>
+                            </o:p>
+                          </span></h3>    
+                        <ol style="margin-top: 0in;" start="1" type="1">
+                          <li class="MsoNormal" style=""><b>
+                              <span style="font-size: 10pt; font-family: Verdana;">General
+                              </span></b>
+                            <span style="font-size: 10pt; font-family: Verdana;">
+                              <o:p>
+                              </o:p>
+                            </span></li>
+                          <ul style="margin-top: 0in;" type="circle">
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">Add support for 
+                                <span style="font-weight: bold;">STM32F10x XL-Density
+                                </span> devices.
+                              </span></li>
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">Solve issues and enhance the Virtual COM Port demo.&nbsp;
+                              </span></li>
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">
+                              </span>
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">Update drivers to support Isochronous IN transfers.
+                              </span></li>
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">Add project for TrueSTUDIO toolchain.&nbsp;
+                              </span></li>
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">Update demos projects to use latest version 
+                              </span>
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">V3.3.0 of Standard Peripherals Library.
+                              </span></li>
+                          </ul>
+                          <li class="MsoNormal" style=""><b>
+                              <span style="font-size: 10pt; font-family: Verdana;">Libraries
+                              </span></b>
+                            <span style="font-size: 10pt; font-family: Verdana;">
+                              <o:p>
+                              </o:p>
+                            </span></li>
+                          <ul style="margin-top: 0in;" type="circle">
+                            <li class="MsoNormal" style=""><u>
+                                <span style="font-size: 10pt; font-family: Verdana;">STM32_USB-FS-Device_Driver
+                                </span></u>
+                              <span style="font-size: 10pt; font-family: Verdana;">
+                                <o:p>
+                                </o:p>
+                              </span></li>
+                            <ul style="margin-top: 0in;" type="square">
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana;">otgd_fs_cal.c/h
+                                </span></li>
+                              <ul style="margin-top: 0in;" type="square">
+                                <li class="MsoNormal" style="">
+                                  <span style="font-size: 10pt; font-family: Verdana;">Update all registers and bit names to be in line with the reference manual&nbsp;description and remove unused registers/bits.
+                                  </span></li>
+                                <li class="MsoNormal" style="">
+                                  <span style="font-size: 10pt; font-family: Verdana;">Update function 
+                                    <span style="font-style: italic;">OTGD_FS_EPStartXfer() 
+                                    </span>to support Isochronous IN transfers.
+                                  </span></li>
+                                <li class="MsoNormal" style="">
+                                  <span style="font-size: 10pt; font-family: Verdana;">Remove unused code in 
+                                    <span style="font-style: italic;">OTGD_FS_EPStartXfer()
+                                    </span> function.
+                                  </span></li>
+                                <li class="MsoNormal" style="">
+                                  <span style="font-size: 10pt; font-family: Verdana;">Internal core delay functions (
+                                    <span style="font-style: italic;">mDelay()
+                                    </span> and 
+                                    <span style="font-style: italic;">uDelay()
+                                    </span> in&nbsp;
+                                    <span style="font-style: italic;">otgd_fs_cal.h
+                                    </span>)modified to use&nbsp;SysTick timer or other user-defined counting mechanism through a user defined function:&nbsp;
+                                    <span style="font-style: italic;">USB_OTG_BSP_uDelay()
+                                    </span>.This function prototype is declared in library header&nbsp;file (
+                                    <span style="font-style: italic;">otgd_fs_cal.h
+                                    </span>) and should be implemented in user application. In all provided demos a&nbsp;template of the function 
+                                    <span style="font-style: italic;">USB_OTG_BSP_uDelay()
+                                    </span> is implemented in&nbsp;
+                                    <span style="font-style: italic;">hw_config.c
+                                    </span> file.
+                                  </span></li>
+                              </ul>
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana;">otgd_fs_pcd.c
+                                </span></li>
+                              <ul>
+                                <li class="MsoNormal" style="">
+                                  <span style="font-size: 10pt; font-family: Verdana;">Remove extra NAKs and PID toggling and update impacted functions accordingly.
+                                  </span></li>
+                              </ul>
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana;">otgd_fs_pcd.c
+                                </span></li>
+                              <ul>
+                                <li class="MsoNormal" style="">
+                                  <span style="font-size: 10pt; font-family: Verdana;">Update function 
+                                    <span style="font-style: italic;">OTGD_FS_Handle_InEP_ISR()
+                                    </span> to support Isochronous IN transfers.
+                                  </span></li>
+                                <li class="MsoNormal" style="">
+                                  <span style="font-size: 10pt; font-family: Verdana;">Remove extra NAKs and PID toggling and update impacted functions accordingly.
+                                    <br>
+                                  </span></li>
+                              </ul>
+                            </ul>
+                          </ul>
+                          <li class="MsoNormal" style=""><b>
+                              <span style="font-size: 10pt; font-family: Verdana;">Project
+                              </span></b>
+                            <span style="font-size: 10pt; font-family: Verdana;">
+                              <o:p>
+                              </o:p>
+                            </span></li>
+                          <ul style="margin-top: 0in;" type="circle">
+                            <li class="MsoNormal" style="color: black;">
+                              <span style="font-size: 10pt; font-family: Verdana;">The          library and demonstrations firmware are provided and have been tested           with the following toolchains:
+                                <o:p>
+                                </o:p>
+                              </span></li>
+                            <ul style="margin-top: 0in;" type="square">
+                              <li class="MsoNormal" style="color: black;">
+                                <span style="font-size: 10pt; font-family: Verdana;">EWARM v5.42
+                                  <o:p>
+                                  </o:p>
+                                </span></li>
+                              <li class="MsoNormal" style="color: black;">
+                                <span style="font-size: 10pt; font-family: Verdana;">MDK-
+                                </span>
+                                <span style="font-size: 10pt; font-family: Verdana;">ARM
+                                </span>
+                                <span style="font-size: 10pt; font-family: Verdana;"> v4.10
+                                  <o:p>
+                                  </o:p>
+                                </span></li>
+                              <li class="MsoNormal" style="color: black;">
+                                <span style="font-size: 10pt; font-family: Verdana;" lang="SV">RIDE7 v7.24 &amp;            Rkit ARM v1.22.09.0254
+                                </span>
+                                <span style="" lang="SV">
+                                  <o:p>
+                                  </o:p>
+                                </span></li>
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana; color: black;">HiTOP5.32 (compiler: Tasking v3.0r3)
+                                </span></li>
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana; color: black;">TrueSTUDIO v1.3.0
+                                </span>
+                                <span style="font-size: 10pt; font-family: Verdana; font-style: italic;">
+                                </span></li>
+                            </ul>
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">The Standard Peripherals Library components used in this version are:
+                              </span></li>
+                            <ul>
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana; color: black;">CMSIS: v1.30 
+                                  <br>
+                                </span></li>
+                            </ul>
+                            <ul>
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana; color: black;">Peripheral drivers: v3.3.0
+                                </span></li>
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana; color: black;">Utilities: v4.2.0
+                                </span></li>
+                            </ul>
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana;">All demos&nbsp;
+                              </span></li>
+                            <ul style="margin-top: 0in;" type="square">
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana;">hw_config.c: Serial Number definition (
+                                  <span style="font-style: italic;">Get_SerialNum()
+                                  </span> function in all 
+                                  <span style="font-style: italic;">hw_config.c
+                                  </span>demo files) modified to provide host with a string in Unicode format (instead of device Unique ID in hex format). 
+                                </span></li>
+                            </ul>
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana;">Virtual_COM_Port demo
+                              </span></li>
+                            <ul style="margin-top: 0in;" type="square">
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana;">Demo enhanced
+by using more reliable data buffering algorithm (largecircular buffer
+for IN transfers using SOF synchronization) and modifying data OUT
+writing algorithm. For more details, please refer to the "readme.txt"
+file in the demo folder. <o:p>
+                                  </o:p>
+                                </span></li>
+                            </ul>
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana;">Custom_HID demo
+                              </span></li>
+                            <ul>
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana;">usb_desc.c: Modify the Usage page code from 
+                                  <span style="font-style: italic;">0x8C
+                                  </span> to "Vendor defined usage page" (
+                                  <span style="font-style: italic;">0xFF00
+                                  </span>)
+                                </span></li>
+                            </ul>
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana;">Mass_Storage demo
+                              </span></li>
+                            <ul>
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana;">Update the project to use the library SD card drivers&nbsp;
+                                  <span style="font-style: italic;">stm32_eval_spi_sd.c
+                                  </span>&nbsp;and&nbsp;
+                                  <span style="font-style: italic;">stm32_eval_sdio_sd.c
+                                  </span>.
+                                  <br>
+                                </span></li>
+                            </ul>
+                          </ul>
+                          <li class="MsoNormal" style=""><b>
+                              <span style="font-size: 10pt; font-family: Verdana;">Utilities\DFU_images
+                              </span></b></li>
+                          <ul style="margin-top: 0in;" type="circle">
+                            <li class="MsoNormal" style="text-decoration: underline;">
+                              <span style="font-size: 10pt; font-family: Verdana;">Binary
+                              </span></li>
+                            <ul>
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana;">Update the 
+                                  <span style="font-style: italic;">hextobin.bat
+                                  </span> and 
+                                  <span style="font-style: italic;">axftobin.bat
+                                  </span> files to support the XL-Density devices template project.
+                                </span></li>
+                            </ul>
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana;">
+                                <span style="text-decoration: underline;">DFU
+                                </span>
+                              </span></li>
+                            <ul>
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana;">Update DFU images for all demos (available in folder "
+                                  <span style="font-style: italic;">STM32_USB-FS-Device_Lib\Utilities\DFU_images
+                                  </span>").
+                                </span></li>
+                            </ul>
+                          </ul>
+                        </ol>
+                        <em>
+                          <br>
+                          <span style="font-weight: bold; text-decoration: underline;">Note:
+                          </span> STM32F10x XL-Density devices are supported with the same boards as&nbsp;High-Density devices (ie. STM3210E-EVAL boards).
+                        </em>
+                        <br>    
+                        <h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 558.05pt;">
+                          <span style="font-size: 10pt; font-family: Arial; color: white;">V3.1.1 -     04/07/2010
+                            <o:p>
+                            </o:p>
+                          </span></h3>    
+                        <ol style="margin-top: 0in;" start="1" type="1">     
+                          <li class="MsoNormal" style=""><b>
+                              <span style="font-size: 10pt; font-family: Verdana;">General
+                              </span></b>
+                            <span style="font-size: 10pt; font-family: Verdana;">
+                              <o:p>
+                              </o:p>
+                            </span></li>     
+                          <ul style="margin-top: 0in;" type="circle">      
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">Solve issue           for Virtual Com Port demo on 
+                              </span>
+                              <span style="font-size: 10pt; font-family: Verdana;">STM32F105x/7x
+Connectivity Line devices; change the FIFO allocation&nbsp;in the USB
+OTG Core layer to define statically the Rx and all Tx FIFO sizes
+following the application configuration in the&nbsp;&nbsp;<i>usb_config.h</i> file (defined in           each project).
+                                <o:p>
+                                </o:p>
+                              </span></li>      
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana;">Add project for HiTOP           toolchain
+                              </span></li>     
+                          </ul>     
+                          <li class="MsoNormal" style=""><b>
+                              <span style="font-size: 10pt; font-family: Verdana;">Libraries
+                              </span></b>
+                            <span style="font-size: 10pt; font-family: Verdana;">
+                              <o:p>
+                              </o:p>
+                            </span></li>     
+                          <ul style="margin-top: 0in;" type="circle">      
+                            <li class="MsoNormal" style=""><u>
+                                <span style="font-size: 10pt; font-family: Verdana;">STM32_USB-FS-Device_Driver
+                                </span></u>
+                              <span style="font-size: 10pt; font-family: Verdana;">
+                                <o:p>
+                                </o:p>
+                              </span></li>      
+                            <ul style="margin-top: 0in;" type="square">       
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana;">otgd_fs_cal.c
+                                </span></li>       
+                              <ul style="margin-top: 0in;" type="square">        
+                                <li class="MsoNormal" style="">
+                                  <span style="font-size: 10pt; font-family: Verdana;">Initialize some local             variables
+                                  </span></li>        
+                                <li class="MsoNormal" style="">
+                                  <span style="font-size: 10pt; font-family: Verdana;">OTGD_FS_CoreInitDev()
+function: update FIFO allocation&nbsp;to handle user configuration in
+the usb_config.h file </span></li>       
+                              </ul>       
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana;">otgd_fs_int.c
+                                  <o:p>
+                                  </o:p>
+                                </span></li>       
+                              <ul style="margin-top: 0in;" type="square">        
+                                <li class="MsoNormal" style="">
+                                  <span style="font-size: 10pt; font-family: Verdana;">Initialize some local             variables
+                                  </span></li>        
+                                <li class="MsoNormal" style="">
+                                  <span style="font-size: 10pt; font-family: Verdana;">OTGD_FS_Handle_RxStatusQueueLevel_ISR()             function: remove commented code
+                                  </span></li>        
+                                <li class="MsoNormal" style="">
+                                  <span style="font-size: 10pt; font-family: Verdana;">OTGD_FS_PCD_WriteEmptyTxFifo()             function: increment xfer_buff&nbsp;after writing to the FIFO 
+                                    <o:p>
+                                    </o:p>
+                                  </span></li>        
+                                <li class="MsoNormal" style="">
+                                  <span style="font-size: 10pt; font-family: Verdana;">OTGD_FS_Handle_InEP_ISR()
+function: code updated to manage all endpoints (previously supporting
+only endpoint 1) </span></li>       
+                              </ul>       
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana;">otgd_fs_pcd.c
+                                </span></li>       
+                              <ul style="margin-top: 0in;" type="square">        
+                                <li class="MsoNormal" style="">
+                                  <span style="font-size: 10pt; font-family: Verdana;">optimize coding of             OTGD_FS_PCD_EP_Open() function 
+                                    <o:p>
+                                    </o:p>
+                                  </span></li>        
+                                <li class="MsoNormal" style="">
+                                  <span style="font-size: 10pt; font-family: Verdana;">Initialize some local             variables
+                                  </span></li>       
+                              </ul>      
+                            </ul>     
+                          </ul>     
+                          <li class="MsoNormal" style=""><b>
+                              <span style="font-size: 10pt; font-family: Verdana;">Project
+                              </span></b>
+                            <span style="font-size: 10pt; font-family: Verdana;">
+                              <o:p>
+                              </o:p>
+                            </span></li>     
+                          <ul style="margin-top: 0in;" type="circle">      
+                            <li class="MsoNormal" style="color: black;">
+                              <span style="font-size: 10pt; font-family: Verdana;">The          library and demonstrations firmware are provided and have been tested           with the following toolchains:
+                                <o:p>
+                                </o:p>
+                              </span></li>      
+                            <ul style="margin-top: 0in;" type="square">       
+                              <li class="MsoNormal" style="color: black;">
+                                <span style="font-size: 10pt; font-family: Verdana;">IAR: EWARM v5.41
+                                  <o:p>
+                                  </o:p>
+                                </span></li>       
+                              <li class="MsoNormal" style="color: black;">
+                                <span style="font-size: 10pt; font-family: Verdana;">RVMDK: ARM-MDK v4.10
+                                  <o:p>
+                                  </o:p>
+                                </span></li>       
+                              <li class="MsoNormal" style="color: black;">
+                                <span style="font-size: 10pt; font-family: Verdana;" lang="SV">RIDE: RIDE7 v7.24 &amp;            Rkit ARM v1.22.09.0254
+                                </span>
+                                <span style="" lang="SV">
+                                  <o:p>
+                                  </o:p>
+                                </span></li>       
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana; color: black;">HiTOP:            HiTOP5.32 (compiler: Tasking v3.0r3)
+                                </span></li>      
+                            </ul>      
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana;">All demos&nbsp;
+                              </span></li>      
+                            <ul style="margin-top: 0in;" type="square">       
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana;">usb_config.h:
+add the definition of&nbsp;FIFO partitions for STM32F105x/7x
+Connectivity Line devices (for more details refer to the comments
+within this file) </span></li>      
+                            </ul>      
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana;">Audio_Speaker demo
+                              </span></li>      
+                            <ul style="margin-top: 0in;" type="square">       
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana;">usb_desc.c: change            error in USB Descriptor comment
+                                  <o:p>
+                                  </o:p>
+                                </span></li>      
+                            </ul>      
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana;">Virtual Com Port demo:          update&nbsp;USART interrupt service routine to handle the OverRun           error
+                              </span></li>     
+                          </ul>     
+                          <li class="MsoNormal" style=""><b>
+                              <span style="font-size: 10pt; font-family: Verdana;">Utilities\DFU_images
+                              </span></b></li>     
+                          <ul style="margin-top: 0in;" type="circle">      
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana;">Update DFU images of           Virtual Com Port demo 
+                              </span>
+                              <o:p>
+                              </o:p></li>     
+                          </ul>    
+                        </ol>    
+                        <h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 558.05pt;">
+                          <span style="font-size: 10pt; font-family: Arial; color: white;">&nbsp;V3.1.0     - 10/30/2009
+                            <o:p>
+                            </o:p>
+                          </span></h3>    
+                        <ol style="margin-top: 0in;" start="1" type="1">     
+                          <li class="MsoNormal" style=""><b>
+                              <span style="font-size: 10pt; font-family: Verdana;">General
+                              </span></b>
+                            <span style="font-size: 10pt; font-family: Verdana;">
+                              <o:p>
+                              </o:p>
+                            </span></li>     
+                          <ul style="margin-top: 0in;" type="circle">      
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">Supports the           USB OTG Full speed <b>in&nbsp;device (peripheral) mode</b>&nbsp;
+                              </span>
+                              <span style="font-size: 10pt; font-family: Verdana;">embedded in the <b>STM32F105x/7x           Connectivity Line devices.</b>
+                                <o:p>
+                                </o:p>
+                              </span></li>      
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana;">Implements <b>SIL layer           (Simplified Interface Layer)</b> for initialization, read and write           operations on non control endpoints.
+                                <o:p>
+                                </o:p>
+                              </span></li>      
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana; color: black;">Audio           Streaming demonstration added for&nbsp;
+                              </span>
+                              <span style="font-size: 10pt; font-family: Verdana;">STM32F105x/7x Connectivity Line devices.
+                                <o:p>
+                                </o:p>
+                              </span></li>      
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana;">Update with STM32F10x           Standard Peripherals Library V3.1.2
+                                <o:p>
+                                </o:p>
+                              </span></li>     
+                          </ul>     
+                          <li class="MsoNormal" style=""><b>
+                              <span style="font-size: 10pt; font-family: Verdana;">Libraries
+                              </span></b>
+                            <span style="font-size: 10pt; font-family: Verdana;">
+                              <o:p>
+                              </o:p>
+                            </span></li>     
+                          <ul style="margin-top: 0in;" type="circle">      
+                            <li class="MsoNormal" style=""><u>
+                                <span style="font-size: 10pt; font-family: Verdana;">STM32_USB-FS-Device_Driver
+                                </span></u>
+                              <span style="font-size: 10pt; font-family: Verdana;">
+                                <o:p>
+                                </o:p>
+                              </span></li>      
+                            <ul style="margin-top: 0in;" type="square">       
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana;">Enhancements:
+                                  <o:p>
+                                  </o:p>
+                                </span></li>       
+                              <ul style="margin-top: 0in;" type="square">        
+                                <li class="MsoNormal" style="">
+                                  <span style="font-size: 10pt; font-family: Verdana;">Minor modifications in             
+                                    <span class="SpellE">usb_int.c
+                                    </span>: replace some functions by             macros to improve speed.
+                                    <o:p>
+                                    </o:p>
+                                  </span></li>        
+                                <li class="MsoNormal" style="">
+                                  <span style="font-size: 10pt; font-family: Verdana;">Implemented new medium             layer: SIL (Simplified Interface Layer, 
+                                    <span class="SpellE">usb_sil.c
+                                    </span>/.h)             allowing simple initialization
+                                    <span class="GramE">, &nbsp;read
+                                    </span>            and write operations on non control Endpoints.
+                                    <o:p>
+                                    </o:p>
+                                  </span></li>       
+                              </ul>       
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana;">New features:
+                                  <o:p>
+                                  </o:p>
+                                </span></li>       
+                              <ul style="margin-top: 0in;" type="square">        
+                                <li class="MsoNormal" style="">
+                                  <span style="font-size: 10pt; font-family: Verdana;">Added Peripheral             interface layer to support Connectivity Line USB peripheral: (
+                                    <span class="SpellE">otgd_fs_dev.c
+                                    </span>/.h, 
+                                    <span class="SpellE">otgd_fs_cal.c
+                                    </span>/.h,             
+                                    <span class="SpellE">otgd_fs_pcd.c
+                                    </span>/.h, 
+                                    <span class="SpellE">otgd_fs_int.c
+                                    </span>/.h,             
+                                    <span class="SpellE">otgd_fs_regs.h
+                                    </span>) (managed by pre-compiler             defines).
+                                    <o:p>
+                                    </o:p>
+                                  </span></li>        
+                                <li class="MsoNormal" style="">
+                                  <span style="font-size: 10pt; font-family: Verdana;">Minor modifications on             
+                                    <span class="SpellE">usb_core.c
+                                    </span> to support Connectivity Line             USB peripheral (managed by pre-compiler defines).
+                                    <o:p>
+                                    </o:p>
+                                  </span></li>       
+                              </ul>      
+                            </ul>      
+                            <li class="MsoNormal" style=""><u>
+                                <span style="font-size: 10pt; font-family: Verdana;">STM32F10x_StdPeriph_Driver
+                                </span></u>
+                              <span style="font-size: 10pt; font-family: Verdana;">
+                                <o:p>
+                                </o:p>
+                              </span></li>      
+                            <ul style="margin-top: 0in;" type="square">       
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana;">Update with STM32F10x Standard            Peripherals Library V3.1.2
+                                  <o:p>
+                                  </o:p>
+                                </span></li>      
+                            </ul>     
+                          </ul>     
+                          <li class="MsoNormal" style=""><b>
+                              <span style="font-size: 10pt; font-family: Verdana;">Project
+                              </span></b>
+                            <span style="font-size: 10pt; font-family: Verdana;">
+                              <o:p>
+                              </o:p>
+                            </span></li>     
+                          <ul style="margin-top: 0in;" type="circle">      
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana;">The library and          demonstrations firmware are provided and have been tested with the           following toolchains:
+                                <o:p>
+                                </o:p>
+                              </span></li>      
+                            <ul style="margin-top: 0in;" type="square">       
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana;">IAR: EWARM v5.42
+                                  <o:p>
+                                  </o:p>
+                                </span></li>       
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana;">RVMDK: ARM-MDK v3.80a
+                                  <o:p>
+                                  </o:p>
+                                </span></li>       
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana;" lang="SV">RIDE: RIDE7 v7.24 &amp; Rkit ARM v1.22.09.0254
+                                  <o:p>
+                                  </o:p>
+                                </span></li>      
+                            </ul>      
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana;">Projects for HiTOP toolchain           will be provided in next version.
+                                <o:p>
+                                </o:p>
+                              </span></li>      
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana;">Custom 
+                                <span class="GramE">HID,
+                                </span> Joystick Mouse, Device Firmware Upgrade, Mass           Storage and 
+                                <st1:placename w:st="on">
+                                  <st1:place w:st="on">
+                                    <st1:placename w:st="on">Virtual
+                                      </st1:placename>
+                                      </st1:place> 
+                                      <st1:placename w:st="on">
+                                        <st1:placename w:st="on">Com
+                                          </st1:placename>
+                                          </st1:placename> 
+                                          <st1:placetype w:st="on">
+                                            <st1:placetype w:st="on">Port
+                                              </st1:placetype>
+                                              </st1:placetype>
+                                              </st1:placename>
+demos have been updated to support Connectivity Line devices and use
+the SIL layer (Simplified Interface Layer). <o:p>
+                                              </o:p>
+                              </span></li>      
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana;">Mass Storage demo: minor           modifications on 
+                                <span class="SpellE">msd.c
+                                </span> driver to support           larger range of micro SD cards.
+                                <o:p>
+                                </o:p>
+                              </span></li>      
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana;">Joystick Mouse: Update           of Remote wake-up function to operate properly.
+                                <o:p>
+                                </o:p>
+                              </span></li>      
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana;">Device Firmware           Upgrade:&nbsp;
+                                <o:p>
+                                </o:p>
+                              </span></li>      
+                            <ul style="margin-top: 0in;" type="square">       
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana;">DFU Descriptors            updated.
+                                  <o:p>
+                                  </o:p>
+                                </span></li>      
+                            </ul>      
+                            <li class="MsoNormal" style="">
+                              <span style="font-size: 10pt; font-family: Verdana;">Added Audio Streaming           demo for Connectivity Line devices.
+                                <o:p>
+                                </o:p>
+                              </span></li>     
+                          </ul>     
+                          <li class="MsoNormal" style=""><b>
+                              <span style="font-size: 10pt; font-family: Verdana;">Utilities
+                              </span></b>
+                            <span style="font-size: 10pt; font-family: Verdana;">
+                              <o:p>
+                              </o:p>
+                            </span></li>     
+                          <ul style="margin-top: 0in;" type="circle">      
+                            <li class="MsoNormal" style=""><u>
+                                <span style="font-size: 10pt; font-family: Verdana;">Binary
+                                </span></u>
+                              <span style="font-size: 10pt; font-family: Verdana;">
+                                <o:p>
+                                </o:p>
+                              </span></li>      
+                            <ul style="margin-top: 0in;" type="square">       
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana;">Updated the 
+                                  <span class="SpellE">hextobin.bat
+                                  </span> and 
+                                  <span class="SpellE">axftobin.bat
+                                  </span>           files to support the connectivity line template project.
+                                  <o:p>
+                                  </o:p>
+                                </span></li>       
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana;">Updated the 
+                                  <span class="SpellE">hextobin.bat
+                                  </span> file to use&nbsp;hex            files&nbsp;generated by IAR toolchain.
+                                  <o:p>
+                                  </o:p>
+                                </span></li>      
+                            </ul>      
+                            <li class="MsoNormal" style=""><u>
+                                <span style="font-size: 10pt; font-family: Verdana;">DFU
+                                  <o:p>
+                                  </o:p>
+                                </span></u></li>      
+                            <ul style="margin-top: 0in;" type="square">       
+                              <li class="MsoNormal" style="">
+                                <span style="font-size: 10pt; font-family: Verdana;">Added 
+                                  <span class="SpellE">dfu
+                                  </span> image for Connectivity Line devices.
+                                </span>
+                                <span style="font-size: 10pt;">
+                                  <o:p>
+                                  </o:p>
+                                </span></li>      
+                            </ul>     
+                          </ul>    
+                        </ol>    
+                        <h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 558.05pt;">
+                          <span style="font-size: 10pt; font-family: Arial; color: white;">V3.0.1 -     04/27/2009
+                            <o:p>
+                            </o:p>
+                          </span></h3>    
+                        <ul style="margin-top: 0in;" type="square">     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span style="font-size: 10pt; font-family: Verdana;">STM3210x USB Library         USB-FS-Device Mass Storage ARM startup file updated: increase stack          size.
+                            </span>
+                            <o:p>
+                            </o:p></li>    
+                        </ul>    
+                        <h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 558.05pt;">
+                          <span style="font-size: 10pt; font-family: Arial; color: white;">V3.0.0 -     04/06/2009
+                            <o:p>
+                            </o:p>
+                          </span></h3>    
+                        <ul style="margin-top: 0in;" type="square">     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span style="font-size: 10pt; font-family: Verdana;">STM3210x USB Library          renamed to STM32 USB-FS-Device Library (<b><i>USB-FS-
+                                  <span class="SpellE">Device_Lib
+                                  </span></i></b>)
+                            </span>
+                            <o:p>
+                            </o:p></li>     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span style="font-size: 10pt; font-family: Verdana;">STM32 USB-FS-Device Library          is full CMSIS compliant
+                            </span>
+                            <o:p>
+                            </o:p></li>     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span style="font-size: 10pt; font-family: Verdana;">STM32 USB-FS-Device          Library&nbsp;Structure is updated.
+                            </span>
+                            <o:p>
+                            </o:p></li>     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span style="font-size: 10pt; font-family: Verdana;">STM32 USB-FS-Device          Library Package Architecture is enhanced
+                            </span>
+                            <o:p>
+                            </o:p></li>     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span style="font-size: 10pt; font-family: Verdana;">Update with STM32F10x          Standard Peripherals Library V3.0.0.&nbsp;
+                            </span>
+                            <o:p>
+                            </o:p></li>    
+                        </ul>    
+                        <p class="MsoNormal">
+                          <span style="font-size: 10pt; font-family: Verdana; color: black;">For more details, please refer to 
+                            <a href="http://www.st.com/mcu/familiesdocs-110.html" target="_blank">AN2953</a>    "How to migrate from the STM32F10xxx firmware library V2.0.3 to the     STM32F10xxx standard peripheral library V3.0.0".
+                          </span>
+                          <o:p>
+                          </o:p>
+                        </p>    
+                        <h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 558.05pt;">
+                          <span style="font-size: 10pt; font-family: Arial; color: white;">V2.2.1 -     09/22/2008
+                            <o:p>
+                            </o:p>
+                          </span></h3>    
+                        <ul style="margin-top: 0in;" type="square">     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span class="SpellE">
+                              <span style="font-size: 10pt; font-family: Verdana;">Device_Firmware_Upgrade
+                              </span>
+                            </span>
+                            <span style="font-size: 10pt; font-family: Verdana;"> demo
+                              <o:p>
+                              </o:p>
+                            </span></li>     
+                          <ul style="margin-top: 0in;" type="square">      
+                            <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                              <span style="font-size: 10pt; font-family: Verdana;">Update the FSMC NOR           Driver and SPI FLASH Driver
+                              </span>
+                              <o:p>
+                              </o:p></li>     
+                          </ul>    
+                        </ul>    
+                        <ul style="margin-top: 0in;" type="square">     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span class="SpellE">
+                              <span style="font-size: 10pt; font-family: Verdana;">Mass_Storage
+                              </span>
+                            </span>
+                            <span style="font-size: 10pt; font-family: Verdana;"> demo
+                              <o:p>
+                              </o:p>
+                            </span></li>     
+                          <ul style="margin-top: 0in;" type="square">      
+                            <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                              <span style="font-size: 10pt; font-family: Verdana;">Update the FSMC 
+                                <st1:city w:st="on">NAND
+                                  </st1:city>,           
+                                  <st1:state w:st="on">SD
+                                    </st1:state> Card Drivers
+                              </span>
+                              <o:p>
+                              </o:p></li>     
+                          </ul>    
+                        </ul>    
+                        <ul style="margin-top: 0in;" type="square">     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span class="SpellE">
+                              <span style="font-size: 10pt; font-family: Verdana;">Virtual_COM_Port
+                              </span>
+                            </span>
+                            <span style="font-size: 10pt; font-family: Verdana;"> demo
+                              <o:p>
+                              </o:p>
+                            </span></li>     
+                          <ul style="margin-top: 0in;" type="square">      
+                            <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                              <span style="font-size: 10pt; font-family: Verdana;">Update the USART Parity           Configuration
+                              </span>
+                              <o:p>
+                              </o:p></li>     
+                          </ul>    
+                        </ul>    
+                        <h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 558.05pt;">
+                          <span style="font-size: 10pt; font-family: Arial; color: white;">V2.2.0 -     06/13/2008
+                            <o:p>
+                            </o:p>
+                          </span></h3>    
+                        <ul style="margin-top: 0in;" type="square">     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span class="SpellE">
+                              <span style="font-size: 10pt; font-family: Verdana;">Device_Firmware_Upgrade
+                              </span>
+                            </span>
+                            <span style="font-size: 10pt; font-family: Verdana;"> demo
+                              <o:p>
+                              </o:p>
+                            </span></li>     
+                          <ul style="margin-top: 0in;" type="square">      
+                            <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                              <span style="font-size: 10pt; font-family: Verdana;">Add
+example with preconfigured projects for RVMDK, EWARMv4, EWARMv5, RIDE
+and HiTOP toolchain to demonstrate how to create a binary image to be
+loaded with the DFU &nbsp;&nbsp;&nbsp; &nbsp; <o:p>
+                                </o:p>
+                              </span></li>     
+                          </ul>    
+                        </ul>    
+                        <ul style="margin-top: 0in;" type="square">     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span style="font-size: 10pt; font-family: Verdana;">Remove the Firmware          License Agreement file
+                              <o:p>
+                              </o:p>
+                            </span></li>    
+                        </ul>    
+                        <ul style="margin-top: 0in;" type="square">     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span style="font-size: 10pt; font-family: Verdana;">Update the source 
+                              <span class="SpellE">files's
+                              </span> header to remove reference to the License
+                              <o:p>
+                              </o:p>
+                            </span></li>    
+                        </ul>    
+                        <h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 558.05pt;">
+                          <span style="font-size: 10pt; font-family: Arial; color: white;">V2.1 -     05/30/2008
+                            <o:p>
+                            </o:p>
+                          </span></h3>    
+                        <ul style="margin-top: 0in;" type="square">     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span class="SpellE">
+                              <span style="font-size: 10pt; font-family: Verdana;">Device_Firmware_Upgrade
+                              </span>
+                            </span>
+                            <span style="font-size: 10pt; font-family: Verdana;"> demo
+                            </span>
+                            <o:p>
+                            </o:p></li>     
+                          <ul style="margin-top: 0in;" type="square">      
+                            <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                              <span style="font-size: 10pt; font-family: Verdana;">Resolve
+the issue of jump to user program with some toolchain. At each device
+startup, if user doesn't select to enter DFU mode the application
+program will check if user code is programmed starting from address
+0x8003000 (test if the initial Stack Pointer is programmed at this
+address), and if so it will jump and execute this code. But since some
+toolchain places the initial Stack Pointer on the top of the SRAM
+memory (0x20010000 for High-density devices, 0x20005000 for
+Medium-density devices), this test will not detect that the Stack
+Pointer is programmed due to wrong definition of mask variable value.
+This issue is fixed in main.c file at line60: "0x2FFF0000" changed to
+"0x2FFE0000". </span>
+                              <o:p>
+                              </o:p></li>     
+                          </ul>    
+                        </ul>    
+                        <h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 558.05pt;">
+                          <span style="font-size: 10pt; font-family: Arial; color: white;">V2.0 -     05/23/2008
+                          </span></h3>    
+                        <ol style="margin-top: 0in;" start="1" type="1">     
+                          <li class="MsoNormal" style=""><b><i>
+                                <span style="font-size: 10pt; font-family: Verdana;">General
+                                </span></i></b><b><i>
+                                <span style="font-size: 10pt;">
+                                  <o:p>
+                                  </o:p>
+                                </span></i></b></li>    
+                        </ol>    
+                        <ul style="margin-top: 0in;" type="square">     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span style="font-size: 10pt; font-family: Verdana;">Update
+with STM32F10x FWLib V2.0 to support the extra peripherals and features
+embedded in the STM32 High-density devices.&nbsp;&nbsp;&nbsp; <o:p>
+                              </o:p>
+                            </span></li>     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span style="font-size: 10pt; font-family: Verdana;">Add Firmware License          Agreement file
+                              <o:p>
+                              </o:p>
+                            </span></li>     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span style="font-size: 10pt; font-family: Verdana;">For
+more details about USB Library and demos implementation, please refer
+to the User manual "UM0424 STM32F10xxx USB development kit <span class="GramE">&nbsp;          available
+                              </span> for download from the ST microcontrollers website: 
+                              <a href="http://www.st.com/stm32">www.st.com/stm32</a>. 
+                              <o:p>
+                              </o:p>
+                            </span></li>     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span style="font-size: 10pt; font-family: Verdana;">Glossary
+                              <o:p>
+                              </o:p>
+                            </span></li>     
+                          <ul style="margin-top: 0in;" type="square">      
+                            <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                              <span style="font-size: 10pt; font-family: Verdana;">Medium-density
+devices are STM32F101xx and STM32F103xx microcontrollers where the
+Flash memory density ranges between 32 and 128 Kbytes. <o:p>
+                                </o:p>
+                              </span></li>      
+                            <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                              <span style="font-size: 10pt; font-family: Verdana;">High-density
+devices are STM32F101xx and STM32F103xx microcontrollers where the
+Flash memory density ranges between 256 and 512
+Kbytes.&nbsp;&nbsp;&nbsp; <o:p>
+                                </o:p>
+                              </span></li>     
+                          </ul>    
+                        </ul>    
+                        <ol style="margin-top: 0in;" start="2" type="1">     
+                          <li class="MsoNormal" style=""><b><i>
+                                <span style="font-size: 10pt; font-family: Verdana;">USB library
+                                </span></i></b><b><i>
+                                <span style="font-size: 10pt;">
+                                  <o:p>
+                                  </o:p>
+                                </span></i></b></li>    
+                        </ol>    
+                        <ul style="margin-top: 0in;" type="square">     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span style="font-size: 10pt; font-family: Verdana;">Correct the bug of         control transfer when the data to transfer is an exact&nbsp;multiple          of 
+                              <span class="SpellE">wMaxPacketSize
+                              </span>
+for the endpoint. In this case the device should&nbsp;return a
+zero-length packet to indicate the end of the Data stage.&nbsp;For more
+details regarding this condition please refer to the
+section&nbsp;8.5.3.2 of the USB 2.0 specification. </span>
+                            <o:p>
+                            </o:p></li>    
+                        </ul>    
+                        <p class="MsoNormal">
+                          <span style="font-size: 10pt; font-family: Verdana;">&nbsp;&nbsp;&nbsp;&nbsp;     The functions 
+                            <span class="SpellE">
+                              <span class="GramE">DataStageIn
+                              </span>
+                            </span>
+                            <span class="GramE">(
+                            </span>) and Data_Setup0() in the file "
+                            <span class="SpellE">usb_core.c
+                            </span>" are 
+                            <br>    &nbsp;&nbsp;&nbsp;&nbsp; modified to support this feature.&nbsp; 
+                          </span>
+                          <span style="font-size: 10pt;">
+                            <o:p>
+                            </o:p>
+                          </span>
+                        </p>    
+                        <ul style="margin-top: 0in;" type="square">     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span style="font-size: 10pt; font-family: Verdana;">Correct the Get Status          request (bus/self power feature reporting): function&nbsp;
+                              <span class="SpellE">Standard_
+                                <span class="GramE">GetStatus
+                                </span>
+                              </span>
+                              <span class="GramE">(
+                              </span>u16 Length) in the 
+                              <span class="SpellE">usb_core.c
+                              </span>         updated.
+                              <o:p>
+                              </o:p>
+                            </span></li>    
+                        </ul>    
+                        <ol style="margin-top: 0in;" start="3" type="1">     
+                          <li class="MsoNormal" style=""><b><i>
+                                <span style="font-size: 10pt; font-family: Verdana;">USB demos
+                                  <o:p>
+                                  </o:p>
+                                </span></i></b></li>    
+                        </ol>    
+                        <ul style="margin-top: 0in;" type="square">     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span style="font-size: 10pt; font-family: Verdana;">Add a CUSTOM_HID demo          with PC applet (source code 
+                              <span class="SpellE">provided
+                              </span>) to         give an&nbsp;example of how to create a customized HID device based on          windows native&nbsp;driver.
+                              <o:p>
+                              </o:p>
+                            </span></li>     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span style="font-size: 10pt; font-family: Verdana;">All
+demos ported to run on STMicroelectronics STM3210E-EVAL evaluation
+board&nbsp; (in addition to STM3210B-EVAL)&nbsp; &nbsp; <o:p>
+                              </o:p>
+                            </span></li>     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span class="SpellE">
+                              <span style="font-size: 10pt; font-family: Verdana;">JoyStickMouse
+                              </span>
+                            </span>
+                            <span style="font-size: 10pt; font-family: Verdana;">&nbsp;
+                              <o:p>
+                              </o:p>
+                            </span></li>     
+                          <ul style="margin-top: 0in;" type="square">      
+                            <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                              <span class="GramE">
+                                <span style="font-size: 10pt; font-family: Verdana;">add
+                                </span>
+                              </span>
+                              <span style="font-size: 10pt; font-family: Verdana;"> the support of the           remote wake-up using the Key push button as wake-up&nbsp; source.
+                              </span>
+                              <o:p>
+                              </o:p></li>      
+                            <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                              <span class="GramE">
+                                <span style="font-size: 10pt; font-family: Verdana;">add
+                                </span>
+                              </span>
+                              <span style="font-size: 10pt; font-family: Verdana;"> the support of STM32           STOP Mode entry/exit during USB Suspend/resume&nbsp;states.
+                              </span>
+                              <o:p>
+                              </o:p></li>     
+                          </ul>     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span style="font-size: 10pt; font-family: Verdana;">DFU&nbsp;
+                              <o:p>
+                              </o:p>
+                            </span></li>     
+                          <ul style="margin-top: 0in;" type="square">      
+                            <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                              <span style="font-size: 10pt; font-family: Verdana;">update to support           internal Flash programming of STM32 High-density devices
+                              </span>
+                              <o:p>
+                              </o:p></li>      
+                            <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                              <span style="font-size: 10pt; font-family: Verdana;">add support of NOR flash           memory mounted on the STM3210E-EVAL board (
+                                <span class="SpellE">this memory
+                                </span>          can be: M29W128F, M29W128G or S29GL128)
+                              </span>
+                              <o:p>
+                              </o:p></li>      
+                            <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                              <span style="font-size: 10pt; font-family: Verdana;">add an intermediary           layers to separate media access and USB class (files&nbsp;
+                                <span class="SpellE">dfu_mal.c
+                                </span>/h files and 
+                                <span class="SpellE">nor_if.c
+                                </span>/h)
+                              </span>
+                              <o:p>
+                              </o:p></li>     
+                          </ul>     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span style="font-size: 10pt; font-family: Verdana;">Mass Storage Demo&nbsp;
+                              <o:p>
+                              </o:p>
+                            </span></li>     
+                          <ul style="margin-top: 0in;" type="square">      
+                            <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                              <span style="font-size: 10pt; font-family: Verdana;">add
+support of NAND flash memory mounted on the STM3210E-EVAL board (only
+small page is supported (512Byte/page) and ECC is not supported) </span>
+                              <o:p>
+                              </o:p></li>      
+                            <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                              <span style="font-size: 10pt; font-family: Verdana;">add an intermediary layers           to separate media access and USB class (files 
+                                <span class="SpellE">mass_mal.c
+                                </span>/h           files and 
+                                <span class="SpellE">nand_if.c
+                                </span>/h) 
+                              </span>
+                              <o:p>
+                              </o:p></li>     
+                          </ul>     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span style="font-size: 10pt; font-family: Verdana;">All demos&nbsp;
+                              <o:p>
+                              </o:p>
+                            </span></li>     
+                          <ul style="margin-top: 0in;" type="square">      
+                            <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                              <span style="font-size: 10pt; font-family: Verdana;">add
+the support of STMicroelectronics STM3210E-EVAL evaluation board (in
+addition to STM3210B-EVAL)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+                              <o:p>
+                              </o:p></li>      
+                            <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                              <span class="GramE">
+                                <span style="font-size: 10pt; font-family: Verdana;">add
+                                </span>
+                              </span>
+                              <span style="font-size: 10pt; font-family: Verdana;"> the support of a unique          serial number string descriptor based on the&nbsp;STM32 Device Unique           ID register.
+                              </span>
+                              <o:p>
+                              </o:p></li>      
+                            <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                              <span class="GramE">
+                                <span style="font-size: 10pt; font-family: Verdana;">first
+                                </span>
+                              </span>
+                              <span style="font-size: 10pt; font-family: Verdana;">
+plug bug: in the first plug on a new PC, Windows sends a
+specific&nbsp;Get string descriptor (OS descriptor index 0xEE). This
+descriptor is not&nbsp;supported by the demos so the function " <span class="SpellE">GetStringDescriptor
+                                </span>(u16
+Length)" is modified to STALL all Get string descriptor requests with
+an index&nbsp;greater than the number of supported string
+descriptors(file <span class="SpellE">usb_prop.c
+                                </span>).&nbsp;
+                              </span>
+                              <o:p>
+                              </o:p></li>      
+                            <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                              <span class="GramE">
+                                <span style="font-size: 10pt; font-family: Verdana;">the
+                                </span>
+                              </span>
+                              <span style="font-size: 10pt; font-family: Verdana;"> infinite loop in the           USB initialization is removed to be compliant&nbsp;with 
+                                <span class="SpellE">embedded
+                                </span> 
+                                <st1:city w:st="on">
+                                  <st1:city w:st="on">
+                                    <st1:place w:st="on">
+                                      <span class="SpellE">OSs
+                                      </span>
+                                      </st1:place>
+                                      </st1:city>
+                                      </st1:city>
+                              </span>          (file 
+                              <span class="SpellE">usb_prop.c
+                              </span>).
+                              <o:p>
+                              </o:p></li>      
+                            <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                              <span style="font-size: 10pt; font-family: Verdana;">update the "
+                                <span class="SpellE">bDeviceState
+                                </span>" possible values (file 
+                                <span class="SpellE">usb_pwr.h
+                                </span>) to be:
+                              </span>
+                              <o:p>
+                              </o:p></li>      
+                            <ul style="margin-top: 0in;" type="square">       
+                              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                                <span style="font-size: 10pt; font-family: Verdana;">UNCONNECTED
+                                </span>
+                                <o:p>
+                                </o:p></li>       
+                              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                                <span style="font-size: 10pt; font-family: Verdana;">ATTACHED
+                                </span>
+                                <o:p>
+                                </o:p></li>       
+                              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                                <span style="font-size: 10pt; font-family: Verdana;">POWERED
+                                </span>
+                                <o:p>
+                                </o:p></li>       
+                              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                                <span style="font-size: 10pt; font-family: Verdana;">SUSPENDED
+                                </span>
+                                <o:p>
+                                </o:p></li>       
+                              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                                <span style="font-size: 10pt; font-family: Verdana;">ADDRESSED
+                                </span>
+                                <o:p>
+                                </o:p></li>       
+                              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                                <span style="font-size: 10pt; font-family: Verdana;">CONFIGURED&nbsp;&nbsp;
+                                </span>
+                                <o:p>
+                                </o:p></li>       
+                              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                                <span style="font-size: 10pt; font-family: Verdana;">&nbsp;The "
+                                  <span class="SpellE">bDeviceState
+                                  </span>" is updated according to the            device state in the files&nbsp;
+                                  <span class="SpellE">usb_prop.c
+                                  </span>           and 
+                                  <span class="SpellE">hw_config.c
+                                  </span>&nbsp;&nbsp;&nbsp;&nbsp; 
+                                </span>
+                                <o:p>
+                                </o:p></li>      
+                            </ul>      
+                            <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                              <span class="GramE">
+                                <span style="font-size: 10pt; font-family: Verdana;">current
+                                </span>
+                              </span>
+                              <span style="font-size: 10pt; font-family: Verdana;"> feature initialization:           the field "
+                                <span class="SpellE">pInformation
+                                </span>-&gt;
+                                <span class="SpellE">Current_Feature
+                                </span>"&nbsp;is initialized on each           USB reset (file 
+                                <span class="SpellE">usb_prop.c
+                                </span>).&nbsp;&nbsp;&nbsp;&nbsp;
+                              </span>
+                              <o:p>
+                              </o:p></li>      
+                            <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                              <span class="GramE">
+                                <span style="font-size: 10pt; font-family: Verdana;">update
+                                </span>
+                              </span>
+                              <span style="font-size: 10pt; font-family: Verdana;"> all device and           configuration descriptors to be USB 2.0 
+                                <span class="SpellE">compliant&nbsp;
+                                </span>and           bus powered devices (file 
+                                <span class="SpellE">usb_desc.c
+                                </span>).&nbsp;
+                              </span>
+                              <o:p>
+                              </o:p></li>     
+                          </ul>    
+                        </ul>    
+                        <h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 558.05pt;">
+                          <span style="font-size: 10pt; font-family: Arial; color: white;">V1.0 -     10/08/2007
+                            <o:p>
+                            </o:p>
+                          </span></h3>    
+                        <ul style="margin-top: 0in;" type="square">     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span style="font-size: 10pt; font-family: Verdana;">Updated with STM32F10x          FWLib V1.0&nbsp;
+                              <o:p>
+                              </o:p>
+                            </span></li>     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span style="font-size: 10pt; font-family: Verdana;">All demos
+                              <o:p>
+                              </o:p>
+                            </span></li>     
+                          <ul style="margin-top: 0in;" type="square">      
+                            <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                              <span style="font-size: 10pt; font-family: Verdana;">Add project with RIDE           toolchain
+                              </span>
+                              <o:p>
+                              </o:p></li>      
+                            <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                              <span style="font-size: 10pt; font-family: Verdana;">Product descriptor           updated
+                              </span>
+                              <o:p>
+                              </o:p></li>      
+                            <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                              <span class="SpellE">
+                                <span style="font-size: 10pt; font-family: Verdana;">hw_config.c
+                                </span>
+                              </span>
+                              <o:p>
+                              </o:p></li>      
+                            <ul style="margin-top: 0in;" type="square">       
+                              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                                <span style="font-size: 10pt; font-family: Verdana;">PD.09 pin configured as            Output open-drain instead of Output push-pull
+                                </span>
+                                <o:p>
+                                </o:p></li>      
+                            </ul>     
+                          </ul>     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span class="SpellE">
+                              <span style="font-size: 10pt; font-family: Verdana;">Device_Firmware_Upgrade
+                              </span>
+                            </span>
+                            <span style="font-size: 10pt; font-family: Verdana;"> demo
+                              <o:p>
+                              </o:p>
+                            </span></li>     
+                          <ul style="margin-top: 0in;" type="square">      
+                            <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                              <span style="font-size: 10pt; font-family: Verdana;">main.c&nbsp;
+                                <o:p>
+                                </o:p>
+                              </span></li>      
+                            <ul style="margin-top: 0in;" type="square">       
+                              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                                <span style="font-size: 10pt; font-family: Verdana;">Initialize user            application's Stack Pointer before jumping to user application
+                                  <o:p>
+                                  </o:p>
+                                </span></li>      
+                            </ul>     
+                          </ul>    
+                        </ul>    
+                        <h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 558.05pt;">
+                          <span style="font-size: 10pt; font-family: Arial; color: white;">V0.3 -     05/21/2007
+                            <o:p>
+                            </o:p>
+                          </span></h3>    
+                        <ul style="margin-top: 0in;" type="square">     
+                          <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;">
+                            <span style="font-size: 10pt; font-family: Verdana;">Created.</span></li>
+              
+    
+                        </ul><span style="font-size: 10pt; font-family: Verdana;"><br>
+
+            </span>    
+                        <h2 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+                          <a name="License"></a>
+                          <span style="font-size: 12pt; color: white;">License
+                            <o:p>
+                            </o:p>
+                          </span></h2>    
+                            
+                        
+            <p class="MsoNormal"><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;; color: black;">Licensed under MCD-ST Liberty SW License Agreement V2, (the "License"); You may not use this&nbsp;</span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;; color: black;">package</span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;; color: black;"> except in compliance with the License. You may obtain a copy of the License at:<br><br></span></p>
+            <div style="text-align: center;"><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;; color: black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://www.st.com/software_license_agreement_liberty_v2">http://www.st.com/software_license_agreement_liberty_v2</a></span><br><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;; color: black;"></span></div>
+            <span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;; color: black;"><br>Unless
+required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS, <br>WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See
+the License for the specific language governing permissions and
+limitations under the License.</span><p class="MsoNormal">
+                        </p>    
+                            
+                        <div class="MsoNormal" style="text-align: center;" align="center">
+                          <span style="color: black;">    
+                            <hr align="center" size="2" width="100%">    
+                          </span>
+                        </div>    
+                        <p class="MsoNormal" style="margin: 4.5pt 0in 4.5pt 0.25in; text-align: center;" align="center">
+                          <span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;; color: black;">For
+    complete documentation on </span><span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">STM32<span style="color: black;">
+    Microcontrollers visit </span><u><span style="color: blue;"><a href="http://www.st.com/internet/mcu/family/141.jsp" target="_blank">www.st.com/STM32</a></span></u></span><span style="font-size: 10pt; font-family: Verdana;"><u><span style="color: blue;"><a href="http://www.st.com/stm32" target="_blank"></a>
+                              </span></u>
+                          </span>
+                          <span style="color: black;">
+                            <o:p>
+                            </o:p>
+                          </span>
+                        </p>    </td>   
+                    </tr>  
+                  </tbody>
+                </table>  
+                <p class="MsoNormal">
+                  <span style="font-size: 10pt;">
+                    <o:p>
+                    </o:p>
+                  </span>
+                </p>  </td> 
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="MsoNormal">
+        <o:p>&nbsp;
+        </o:p>
+      </p>
+    </div>
+  </body></html>

@@ -1,0 +1,826 @@
+
+<ApplicationBuild Header="AudioSpeaker" Extern=".\AudioSpeaker.rapp" Path=".\AudioSpeaker.rapp" OutputFile=".\STM32L152-EVAL\AudioSpeaker.elf" Config="STM32L152-EVAL" sate="98" >
+	<Group Header="Doc" Marker="-1" OutputFile="" sate="0" >
+		<NodeText Path="..\readme.txt" Header="readme.txt" Marker="-1" OutputFile="" sate="0" />
+																																																									
+	</Group>
+	<Group Header="User" Marker="-1" OutputFile="" sate="0" >
+		<NodeC Path="..\src\stm32_it.c" Header="stm32_it.c" Marker="-1" OutputFile=".\STM32L152-EVAL\stm32_it.o" sate="0" />
+		<NodeC Path="..\src\hw_config.c" Header="hw_config.c" Marker="-1" OutputFile=".\STM32L152-EVAL\hw_config.o" sate="0" />
+		<NodeC Path="..\src\i2s_codec.c" Header="i2s_codec.c" Marker="-1" OutputFile=".\STM32L152-EVAL\i2s_codec.o" sate="0" />
+		<NodeC Path="..\src\main.c" Header="main.c" Marker="-1" OutputFile=".\STM32L152-EVAL\main.o" sate="0" />
+		<NodeC Path="..\src\usb_desc.c" Header="usb_desc.c" Marker="-1" OutputFile=".\STM32L152-EVAL\usb_desc.o" sate="0" />
+		<NodeC Path="..\src\usb_endp.c" Header="usb_endp.c" Marker="-1" OutputFile=".\STM32L152-EVAL\usb_endp.o" sate="0" />
+		<NodeC Path="..\src\usb_istr.c" Header="usb_istr.c" Marker="-1" OutputFile=".\STM32L152-EVAL\usb_istr.o" sate="0" />
+		<NodeC Path="..\src\usb_prop.c" Header="usb_prop.c" Marker="-1" OutputFile=".\STM32L152-EVAL\usb_prop.o" sate="0" />
+		<NodeC Path="..\src\usb_pwr.c" Header="usb_pwr.c" Marker="-1" OutputFile=".\STM32L152-EVAL\usb_pwr.o" sate="0" />
+																																																																																																																														
+	</Group>
+	<Group Header="USB-FS-Device_Driver" Marker="-1" OutputFile="" sate="0" >
+		<NodeC Path="..\..\..\Libraries\STM32_USB-FS-Device_Driver\src\usb_core.c" Header="usb_core.c" Marker="-1" OutputFile=".\STM32L152-EVAL\usb_core.o" sate="0" />
+		<NodeC Path="..\..\..\Libraries\STM32_USB-FS-Device_Driver\src\usb_init.c" Header="usb_init.c" Marker="-1" OutputFile=".\STM32L152-EVAL\usb_init.o" sate="0" />
+		<NodeC Path="..\..\..\Libraries\STM32_USB-FS-Device_Driver\src\usb_int.c" Header="usb_int.c" Marker="-1" OutputFile=".\STM32L152-EVAL\usb_int.o" sate="0" />
+		<NodeC Path="..\..\..\Libraries\STM32_USB-FS-Device_Driver\src\usb_mem.c" Header="usb_mem.c" Marker="-1" OutputFile=".\STM32L152-EVAL\usb_mem.o" sate="0" />
+		<NodeC Path="..\..\..\Libraries\STM32_USB-FS-Device_Driver\src\usb_regs.c" Header="usb_regs.c" Marker="-1" OutputFile=".\STM32L152-EVAL\usb_regs.o" sate="0" />
+		<NodeC Path="..\..\..\Libraries\STM32_USB-FS-Device_Driver\src\otgd_fs_cal.c" Header="otgd_fs_cal.c" Marker="-1" OutputFile=".\STM32L152-EVAL\otgd_fs_cal.o" sate="0" />
+		<NodeC Path="..\..\..\Libraries\STM32_USB-FS-Device_Driver\src\otgd_fs_dev.c" Header="otgd_fs_dev.c" Marker="-1" OutputFile=".\STM32L152-EVAL\otgd_fs_dev.o" sate="0" />
+		<NodeC Path="..\..\..\Libraries\STM32_USB-FS-Device_Driver\src\otgd_fs_int.c" Header="otgd_fs_int.c" Marker="-1" OutputFile=".\STM32L152-EVAL\otgd_fs_int.o" sate="0" />
+		<NodeC Path="..\..\..\Libraries\STM32_USB-FS-Device_Driver\src\otgd_fs_pcd.c" Header="otgd_fs_pcd.c" Marker="-1" OutputFile=".\STM32L152-EVAL\otgd_fs_pcd.o" sate="0" />
+		<NodeC Path="..\..\..\Libraries\STM32_USB-FS-Device_Driver\src\usb_sil.c" Header="usb_sil.c" Marker="-1" OutputFile=".\STM32L152-EVAL\usb_sil.o" sate="0" />
+																																																																																																																														
+	</Group>
+	<Configs>
+		<Config Header="STM3210E-EVAL" />
+		<Config Header="STM3210B-EVAL" />
+		<Config Header="STM3210E-EVAL_XL" />
+		<Config Header="STM32L152-EVAL" />
+																																																																																				
+	</Configs>
+	<Group Header="STM32F10x" Marker="0" OutputFile="" sate="0" >
+		<Group Header="STM32F10X_StdPeriph_Driver" Marker="0" OutputFile="" sate="0" >
+			<NodeC Path="..\..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_tim.c" Header="stm32f10x_tim.c" Marker="-1" OutputFile=".\STM32L152-EVAL\stm32f10x_tim.o" sate="0" />
+			<NodeC Path="..\..\..\Libraries\STM32F10x_StdPeriph_Driver\src\misc.c" Header="misc.c" Marker="-1" OutputFile=".\STM32L152-EVAL\misc.o" sate="0" />
+			<NodeC Path="..\..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c" Header="stm32f10x_gpio.c" Marker="-1" OutputFile=".\STM32L152-EVAL\stm32f10x_gpio.o" sate="0" />
+			<NodeC Path="..\..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_i2c.c" Header="stm32f10x_i2c.c" Marker="-1" OutputFile=".\STM32L152-EVAL\stm32f10x_i2c.o" sate="0" />
+			<NodeC Path="..\..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c" Header="stm32f10x_rcc.c" Marker="-1" OutputFile=".\STM32L152-EVAL\stm32f10x_rcc.o" sate="0" />
+			<NodeC Path="..\..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_spi.c" Header="stm32f10x_spi.c" Marker="-1" OutputFile=".\STM32L152-EVAL\stm32f10x_spi.o" sate="0" />
+			<NodeC Path="..\..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_flash.c" Header="stm32f10x_flash.c" Marker="-1" OutputFile=".\STM32L152-EVAL\stm32f10x_flash.o" sate="0" />
+			<Options>
+				<Config Header="STM32L152-EVAL" >
+					<Set Header="Group" >
+						<Section Header="Build" >
+							<Property Header="Exclude" Value="Yes" Removable="1" />
+							<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																																																										
+						</Section>
+																																																																																																						
+					</Set>
+																																																																														
+				</Config>
+																																																												
+			</Options>
+																																																																								
+		</Group>
+		<Group Header="CMSIS" Marker="-1" OutputFile="" sate="0" >
+			<NodeC Path="..\src\system_stm32f10x.c" Header="system_stm32f10x.c" Marker="-1" OutputFile=".\STM32L152-EVAL\system_stm32f10x.o" sate="0" >
+				<Options>										</Options>
+																																																										
+			</NodeC>
+			<NodeASM Path="..\..\..\Libraries\CMSIS\Device\ST\STM32F10x\Source\Templates\gcc_ride7\startup_stm32f10x_xl.s" Header="startup_stm32f10x_xl.s" Marker="-1" OutputFile=".\STM32L152-EVAL\startup_stm32f10x_xl.o" sate="0" >
+				<Options>
+					<Config Header="STM3210E-EVAL" >
+						<Set Header="NodeASM" >
+							<Section Header="Build" >
+								<Property Header="Exclude" Value="Yes" Removable="1" />
+								<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																																																	
+							</Section>
+																																																																																																	
+						</Set>
+																																																																												
+					</Config>
+					<Config Header="STM3210B-EVAL" >
+						<Set Header="NodeASM" >
+							<Section Header="Build" >
+								<Property Header="Exclude" Value="Yes" Removable="1" />
+								<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																																																	
+							</Section>
+																																																																																																	
+						</Set>
+																																																																												
+					</Config>
+																																																														
+				</Options>
+																																																
+			</NodeASM>
+			<NodeASM Path="..\..\..\Libraries\CMSIS\Device\ST\STM32F10x\Source\Templates\gcc_ride7\startup_stm32f10x_cl.s" Header="startup_stm32f10x_cl.s" Marker="-1" OutputFile=".\STM32L152-EVAL\startup_stm32f10x_cl.o" sate="0" >
+				<Options>
+					<Config Header="STM3210E-EVAL" >
+						<Set Header="NodeASM" >
+							<Section Header="Build" >
+								<Property Header="Exclude" Value="Yes" Removable="1" />
+								<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																																																	
+							</Section>
+																																																																																																	
+						</Set>
+																																																																												
+					</Config>
+					<Config Header="STM3210B-EVAL" >
+						<Set Header="NodeASM" >
+							<Section Header="Build" >
+								<Property Header="Exclude" Value="Yes" Removable="1" />
+								<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																																																	
+							</Section>
+																																																																																																	
+						</Set>
+																																																																												
+					</Config>
+					<Config Header="STM3210E-EVAL_XL" >
+						<Set Header="NodeASM" >
+							<Section Header="Build" >
+								<Property Header="Exclude" Value="Yes" Removable="1" />
+								<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																																																	
+							</Section>
+																																																																																																	
+						</Set>
+																																																																												
+					</Config>
+																																																														
+				</Options>
+																																																
+			</NodeASM>
+			<NodeASM Path="..\..\..\Libraries\CMSIS\Device\ST\STM32F10x\Source\Templates\gcc_ride7\startup_stm32f10x_hd.s" Header="startup_stm32f10x_hd.s" Marker="-1" OutputFile=".\STM32L152-EVAL\startup_stm32f10x_hd.o" sate="0" >
+				<Options>
+					<Config Header="STM3210B-EVAL" >
+						<Set Header="NodeASM" >
+							<Section Header="Build" >
+								<Property Header="Exclude" Value="Yes" Removable="1" />
+								<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																																																	
+							</Section>
+																																																																																																	
+						</Set>
+																																																																												
+					</Config>
+					<Config Header="STM3210E-EVAL_XL" >
+						<Set Header="NodeASM" >
+							<Section Header="Build" >
+								<Property Header="Exclude" Value="Yes" Removable="1" />
+								<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																																																	
+							</Section>
+																																																																																																	
+						</Set>
+																																																																												
+					</Config>
+																																																														
+				</Options>
+																																																
+			</NodeASM>
+			<NodeASM Path="..\..\..\Libraries\CMSIS\Device\ST\STM32F10x\Source\Templates\gcc_ride7\startup_stm32f10x_hd_vl.s" Header="startup_stm32f10x_hd_vl.s" Marker="-1" OutputFile=".\STM32L152-EVAL\startup_stm32f10x_hd_vl.o" sate="0" >
+				<Options>
+					<Config Header="STM3210E-EVAL" >
+						<Set Header="NodeASM" >
+							<Section Header="Build" >
+								<Property Header="Exclude" Value="Yes" Removable="1" />
+								<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																																																	
+							</Section>
+																																																																																																	
+						</Set>
+																																																																												
+					</Config>
+					<Config Header="STM3210B-EVAL" >
+						<Set Header="NodeASM" >
+							<Section Header="Build" >
+								<Property Header="Exclude" Value="Yes" Removable="1" />
+								<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																																																	
+							</Section>
+																																																																																																	
+						</Set>
+																																																																												
+					</Config>
+					<Config Header="STM3210E-EVAL_XL" >
+						<Set Header="NodeASM" >
+							<Section Header="Build" >
+								<Property Header="Exclude" Value="Yes" Removable="1" />
+								<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																																																	
+							</Section>
+																																																																																																	
+						</Set>
+																																																																												
+					</Config>
+																																																														
+				</Options>
+																																																
+			</NodeASM>
+			<NodeASM Path="..\..\..\Libraries\CMSIS\Device\ST\STM32F10x\Source\Templates\gcc_ride7\startup_stm32f10x_ld.s" Header="startup_stm32f10x_ld.s" Marker="-1" OutputFile=".\STM32L152-EVAL\startup_stm32f10x_ld.o" sate="0" >
+				<Options>
+					<Config Header="STM3210E-EVAL" >
+						<Set Header="NodeASM" >
+							<Section Header="Build" >
+								<Property Header="Exclude" Value="Yes" Removable="1" />
+								<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																																																	
+							</Section>
+																																																																																																	
+						</Set>
+																																																																												
+					</Config>
+					<Config Header="STM3210B-EVAL" >
+						<Set Header="NodeASM" >
+							<Section Header="Build" >
+								<Property Header="Exclude" Value="Yes" Removable="1" />
+								<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																																																	
+							</Section>
+																																																																																																	
+						</Set>
+																																																																												
+					</Config>
+					<Config Header="STM3210E-EVAL_XL" >
+						<Set Header="NodeASM" >
+							<Section Header="Build" >
+								<Property Header="Exclude" Value="Yes" Removable="1" />
+								<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																																																	
+							</Section>
+																																																																																																	
+						</Set>
+																																																																												
+					</Config>
+																																																														
+				</Options>
+																																																
+			</NodeASM>
+			<NodeASM Path="..\..\..\Libraries\CMSIS\Device\ST\STM32F10x\Source\Templates\gcc_ride7\startup_stm32f10x_ld_vl.s" Header="startup_stm32f10x_ld_vl.s" Marker="-1" OutputFile=".\STM32L152-EVAL\startup_stm32f10x_ld_vl.o" sate="0" >
+				<Options>
+					<Config Header="STM3210E-EVAL" >
+						<Set Header="NodeASM" >
+							<Section Header="Build" >
+								<Property Header="Exclude" Value="Yes" Removable="1" />
+								<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																																																	
+							</Section>
+																																																																																																	
+						</Set>
+																																																																												
+					</Config>
+					<Config Header="STM3210B-EVAL" >
+						<Set Header="NodeASM" >
+							<Section Header="Build" >
+								<Property Header="Exclude" Value="Yes" Removable="1" />
+								<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																																																	
+							</Section>
+																																																																																																	
+						</Set>
+																																																																												
+					</Config>
+					<Config Header="STM3210E-EVAL_XL" >
+						<Set Header="NodeASM" >
+							<Section Header="Build" >
+								<Property Header="Exclude" Value="Yes" Removable="1" />
+								<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																																																	
+							</Section>
+																																																																																																	
+						</Set>
+																																																																												
+					</Config>
+																																																														
+				</Options>
+																																																
+			</NodeASM>
+			<NodeASM Path="..\..\..\Libraries\CMSIS\Device\ST\STM32F10x\Source\Templates\gcc_ride7\startup_stm32f10x_md.s" Header="startup_stm32f10x_md.s" Marker="-1" OutputFile=".\STM32L152-EVAL\startup_stm32f10x_md.o" sate="0" >
+				<Options>
+					<Config Header="STM3210E-EVAL" >
+						<Set Header="NodeASM" >
+							<Section Header="Build" >
+								<Property Header="Exclude" Value="Yes" Removable="1" />
+								<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																																																	
+							</Section>
+																																																																																																	
+						</Set>
+																																																																												
+					</Config>
+					<Config Header="STM3210E-EVAL_XL" >
+						<Set Header="NodeASM" >
+							<Section Header="Build" >
+								<Property Header="Exclude" Value="Yes" Removable="1" />
+								<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																																																	
+							</Section>
+																																																																																																	
+						</Set>
+																																																																												
+					</Config>
+																																																														
+				</Options>
+																																																
+			</NodeASM>
+			<NodeASM Path="..\..\..\Libraries\CMSIS\Device\ST\STM32F10x\Source\Templates\gcc_ride7\startup_stm32f10x_md_vl.s" Header="startup_stm32f10x_md_vl.s" Marker="-1" OutputFile=".\STM32L152-EVAL\startup_stm32f10x_md_vl.o" sate="0" >
+				<Options>
+					<Config Header="STM3210E-EVAL" >
+						<Set Header="NodeASM" >
+							<Section Header="Build" >
+								<Property Header="Exclude" Value="Yes" Removable="1" />
+								<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																																																	
+							</Section>
+																																																																																																	
+						</Set>
+																																																																												
+					</Config>
+					<Config Header="STM3210B-EVAL" >
+						<Set Header="NodeASM" >
+							<Section Header="Build" >
+								<Property Header="Exclude" Value="Yes" Removable="1" />
+								<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																																																	
+							</Section>
+																																																																																																	
+						</Set>
+																																																																												
+					</Config>
+					<Config Header="STM3210E-EVAL_XL" >
+						<Set Header="NodeASM" >
+							<Section Header="Build" >
+								<Property Header="Exclude" Value="Yes" Removable="1" />
+								<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																																																	
+							</Section>
+																																																																																																	
+						</Set>
+																																																																												
+					</Config>
+																																																														
+				</Options>
+																																																
+			</NodeASM>
+																														
+		</Group>
+		<Options>
+			<Config Header="STM32L152-EVAL" >
+				<Set Header="Group" >
+					<Section Header="Build" >
+						<Property Header="Exclude" Value="Yes" Removable="1" />
+						<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																					
+					</Section>
+																																																																					
+				</Set>
+																																																	
+			</Config>
+																												
+		</Options>
+																					
+	</Group>
+	<Group Header="STM32L1xx" Marker="-1" OutputFile="" sate="0" >
+		<Group Header="STM32L1xx_StdPeriph_Driver" Marker="-1" OutputFile="" sate="0" >
+			<NodeC Path="..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.c" Header="stm32l1xx_gpio.c" Marker="-1" OutputFile=".\STM32L152-EVAL\stm32l1xx_gpio.o" sate="0" >
+				<Options/>
+																																																												
+			</NodeC>
+			<NodeC Path="..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.c" Header="stm32l1xx_i2c.c" Marker="-1" OutputFile=".\STM32L152-EVAL\stm32l1xx_i2c.o" sate="0" >
+				<Options/>
+																																																												
+			</NodeC>
+			<NodeC Path="..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.c" Header="stm32l1xx_pwr.c" Marker="-1" OutputFile=".\STM32L152-EVAL\stm32l1xx_pwr.o" sate="0" />
+			<NodeC Path="..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.c" Header="stm32l1xx_rcc.c" Marker="-1" OutputFile=".\STM32L152-EVAL\stm32l1xx_rcc.o" sate="0" />
+			<NodeC Path="..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.c" Header="stm32l1xx_syscfg.c" Marker="-1" OutputFile=".\STM32L152-EVAL\stm32l1xx_syscfg.o" sate="0" />
+			<NodeC Path="..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.c" Header="stm32l1xx_tim.c" Marker="-1" OutputFile=".\STM32L152-EVAL\stm32l1xx_tim.o" sate="0" />
+			<NodeC Path="..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.c" Header="stm32l1xx_usart.c" Marker="-1" OutputFile=".\STM32L152-EVAL\stm32l1xx_usart.o" sate="0" />
+			<NodeC Path="..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.c" Header="stm32l1xx_dac.c" Marker="-1" OutputFile=".\STM32L152-EVAL\stm32l1xx_dac.o" sate="0" />
+			<NodeC Path="..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.c" Header="stm32l1xx_exti.c" Marker="-1" OutputFile=".\STM32L152-EVAL\stm32l1xx_exti.o" sate="0" />
+			<NodeC Path="..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.c" Header="stm32l1xx_flash.c" Marker="-1" OutputFile=".\STM32L152-EVAL\stm32l1xx_flash.o" sate="0" />
+			<NodeC Path="..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\src\misc.c" Header="misc.c" Marker="-1" OutputFile=".\STM32L152-EVAL\misc.o" sate="0" />
+			<Options>
+				<Config Header="STM3210E-EVAL_XL" >
+					<Set Header="Group" >
+						<Section Header="Build" >
+							<Property Header="Exclude" Value="Yes" Removable="1" />
+							<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																																																										
+						</Section>
+																																																																																																						
+					</Set>
+																																																																														
+				</Config>
+				<Config Header="STM3210E-EVAL" >
+					<Set Header="Group" >
+						<Section Header="Build" >
+							<Property Header="Exclude" Value="Yes" Removable="1" />
+							<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																																																										
+						</Section>
+																																																																																																						
+					</Set>
+																																																																														
+				</Config>
+				<Config Header="STM3210B-EVAL" >
+					<Set Header="Group" >
+						<Section Header="Build" >
+							<Property Header="Exclude" Value="Yes" Removable="1" />
+							<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																																																										
+						</Section>
+																																																																																																						
+					</Set>
+																																																																														
+				</Config>
+																																																												
+			</Options>
+																																										
+		</Group>
+		<Options>
+			<Config Header="STM3210E-EVAL" >
+				<Set Header="Group" >
+					<Section Header="Build" >
+						<Property Header="Exclude" Value="Yes" Removable="1" />
+						<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																					
+					</Section>
+																																																																					
+				</Set>
+																																																	
+			</Config>
+			<Config Header="STM3210B-EVAL" >
+				<Set Header="Group" >
+					<Section Header="Build" >
+						<Property Header="Exclude" Value="Yes" Removable="1" />
+						<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																					
+					</Section>
+																																																																					
+				</Set>
+																																																	
+			</Config>
+			<Config Header="STM3210E-EVAL_XL" >
+				<Set Header="Group" >
+					<Section Header="Build" >
+						<Property Header="Exclude" Value="Yes" Removable="1" />
+						<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																					
+					</Section>
+																																																																					
+				</Set>
+																																																	
+			</Config>
+																																			
+		</Options>
+		<Group Header="CMSIS" Marker="-1" OutputFile="" sate="0" >
+			<NodeASM Path="..\..\..\Libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc_ride7\startup_stm32l1xx_hd.s" Header="startup_stm32l1xx_hd.s" Marker="0" OutputFile=".\STM32L152-EVAL\startup_stm32l1xx_hd.o" sate="0" >
+				<Options>
+					<Config Header="STM32L152-EVAL" >
+						<Set Header="NodeASM" >
+							<Section Header="Build" >
+								<Property Header="Exclude" Value="Yes" Removable="1" />
+								<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																					
+							</Section>
+																																																																									
+						</Set>
+																																																							
+					</Config>
+																																													
+				</Options>
+																																			
+			</NodeASM>
+			<NodeASM Path="..\..\..\Libraries\CMSIS\Device\ST\STM32L1xx\Source\Templates\gcc_ride7\startup_stm32l1xx_md.s" Header="startup_stm32l1xx_md.s" Marker="-1" OutputFile=".\STM32L152-EVAL\startup_stm32l1xx_md.o" sate="0" >
+				<Options>																</Options>
+																																			
+			</NodeASM>
+			<NodeC Path="..\src\system_stm32l1xx.c" Header="system_stm32l1xx.c" Marker="-1" OutputFile=".\STM32L152-EVAL\system_stm32l1xx.o" sate="0" >
+				<Options>
+					<Config Header="STM3210E-EVAL_XL" >
+						<Set Header="NodeC" >
+							<Section Header="Build" >
+								<Property Header="Exclude" Value="Yes" Removable="1" />
+								<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																																																																											
+							</Section>
+																																																																																																																							
+						</Set>
+																																																																																														
+					</Config>
+					<Config Header="STM3210E-EVAL" >
+						<Set Header="NodeC" >
+							<Section Header="Build" >
+								<Property Header="Exclude" Value="Yes" Removable="1" />
+								<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																																																																											
+							</Section>
+																																																																																																																							
+						</Set>
+																																																																																														
+					</Config>
+					<Config Header="STM3210B-EVAL" >
+						<Set Header="NodeC" >
+							<Section Header="Build" >
+								<Property Header="Exclude" Value="Yes" Removable="1" />
+								<Property Header="LinkExclude" Value="Yes" Removable="1" />
+																																																																																																																																											
+							</Section>
+																																																																																																																							
+						</Set>
+																																																																																														
+					</Config>
+																																																																												
+				</Options>
+																																																										
+			</NodeC>
+																														
+		</Group>
+																					
+	</Group>
+	<Options>
+		<Config Header="Standard" >
+			<Set Header="ApplicationBuild" >
+				<Section Header="General" >
+					<Property Header="TargetFamily" Value="ARM" />
+																																																																																																																																																																																																																																																																																																																																																																																																																												
+				</Section>
+				<Section Header="Directories" >
+					<Property Header="OutDir" Value="obj" Removable="1" />
+					<Property Header="ListDir" Value="lst" Removable="1" />
+					<Property Header="IncDir" Value="..\..\..\..\..\FWLib\library\inc;..\..\..\..\library\inc;..\..\include" Removable="1" />
+																																																																																																																																																																																																																																																																																					
+				</Section>
+																																																																																																																																																																																																																							
+			</Set>
+			<Set Header="Target" >
+				<Section Header="ProcessorARM" >
+					<Property Header="Processor" Value="STM32F103VBT6" />
+																																																																																																																																																																																																																																																																																																																																																																																																																												
+				</Section>
+				<Section Header="ToolSetARM" >
+					<Property Header="BuildToolSetARM" Value="ARM\\GNU.config" Removable="1" />
+																																																																																																																																																																																																																																																																																																																																																																																																																												
+				</Section>
+				<Section Header="DebugARM" >
+					<Property Header="DebugTool" Value="RLINK_CORTEX" Removable="1" />
+																																																																																																																																																																																																																																																																																																																																																													
+				</Section>
+																																																																																																																																																																																																																																																																															
+			</Set>
+			<Set Header="LD" >
+				<Section Header="LIB" >
+					<Property Header="UART0PUTC" Value="0" Removable="1" />
+					<Property Header="SMALLP" Value="0" Removable="1" />
+					<Property Header="STLIB" Value="0" Removable="1" />
+																																																																																																																																																																																																																																																																																																							
+				</Section>
+																																																																																																																																																																																																																																					
+			</Set>
+			<Set Header="AS" >
+				<Section Header="Options" >
+					<Property Header="Debug" Value="" Removable="1" />
+																																																																																																																																																																																																																																																																																																							
+				</Section>
+																																																																																																																																																																																																																																					
+			</Set>
+			<Set Header="GCC" >
+				<Section Header="OPTIMIZE" >
+					<Property Header="Optimize" Value="-Os" Removable="1" />
+																																																																																																																																																																																																																																																																												
+				</Section>
+																																																																																																																																																																																																																
+			</Set>
+																																																																																																																																																	
+		</Config>
+		<Config Header="STM3210B_EVAL" >
+			<Set Header="LD" >
+				<Section Header="Startup" >
+					<Property Header="DEFAULTSTARTUP" Value="No" Removable="1" />
+					<Property Header="File" Value="" Removable="1" />
+																																																																																																																																																																																																																																																																			
+				</Section>
+				<Section Header="Scripts" >
+					<Property Header="StarterKitLimit" Value="No" Removable="1" />
+																																																																																																																																																																																																																																																																			
+				</Section>
+																																																																																																																																																																																																									
+			</Set>
+			<Set Header="GCC" >
+				<Section Header="Defines" >
+					<Property Header="Defines" Value="USE_STM3210B_EVAL;VECT_TAB_FLASH" Removable="1" />
+																																																																																																																																																																																																																																																										
+				</Section>
+																																																																																																																																																																																																		
+			</Set>
+																																																																																																																																							
+		</Config>
+		<Config Header="STM3210E_EVAL" >
+			<Set Header="GCC" >
+				<Section Header="Defines" >
+					<Property Header="Defines" Value="USE_STM3210E_EVAL;VECT_TAB_FLASH" Removable="1" />
+																																																																																																																																																																																																																																																										
+				</Section>
+																																																																																																																																																																																																		
+			</Set>
+			<Set Header="LD" >
+				<Section Header="Startup" >
+					<Property Header="DEFAULTSTARTUP" Value="No" Removable="1" />
+					<Property Header="File" Value="" Removable="1" />
+																																																																																																																																																																																																																																																																			
+				</Section>
+				<Section Header="Scripts" >
+					<Property Header="StarterKitLimit" Value="No" Removable="1" />
+																																																																																																																																																																																																																																																																			
+				</Section>
+				<Section Header="LIB" >
+					<Property Header="SMALLP" Value="1" Removable="1" />
+																																																																																																																																																																																																																																																	
+				</Section>
+																																																																																																																																																																																											
+			</Set>
+			<Set Header="Target" >
+				<Section Header="ProcessorARM" >
+					<Property Header="Processor" Value="STM32F103ZET6" />
+																																																																																																																																																																																																																																																																			
+				</Section>
+																																																																																																																																																																																																									
+			</Set>
+																																																																																																																																		
+		</Config>
+		<Config Header="STM3210E-EVAL" >
+			<Set Header="Target" >
+				<Section Header="ProcessorARM" >
+					<Property Header="Processor" Value="STM32F103ZET6" />
+																																																																																																																																																																																																																						
+				</Section>
+				<Section Header="ToolSetARM" >
+					<Property Header="BuildToolSetARM" Value="ARM\GNU.config" />
+																																																																						
+				</Section>
+																																																						
+			</Set>
+			<Set Header="LD" >
+				<Section Header="Startup" >
+					<Property Header="DEFAULTSTARTUP" Value="No" Removable="1" />
+					<Property Header="File" Value="" Removable="1" />
+																																																																																																																																																																																																																						
+				</Section>
+				<Section Header="Scripts" >
+					<Property Header="StarterKitLimit" Value="No" Removable="1" />
+					<Property Header="SCRIPTFILES" Value="Yes" Removable="1" />
+					<Property Header="File" Value="" Removable="1" />
+																																																																																																																												
+				</Section>
+				<Section Header="LIB" >
+					<Property Header="SMALLP" Value="1" Removable="1" />
+																																																																																																																																																																																																																						
+				</Section>
+																																																																																																
+			</Set>
+			<Set Header="GCC" >
+				<Section Header="Defines" >
+					<Property Header="Defines" Value="USE_STDPERIPH_DRIVER;STM32F10X_HD;USE_STM3210E_EVAL" Removable="1" />
+																																																																																																																																																																																											
+				</Section>
+																																																																																																																																																	
+			</Set>
+			<Set Header="ApplicationBuild" >
+				<Section Header="Directories" >
+					<Property Header="IncDir" Value="..\inc;..\..\..\Libraries\CMSIS\Include;..\..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x;..\..\..\Libraries\STM32_USB-FS-Device_Driver\inc;..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\..\..\Utilities\STM32_EVAL;..\..\..\Utilities\STM32_EVAL\Common;..\..\..\Utilities\STM32_EVAL\STM3210E_EVAL;..\..\..\Libraries\CMSIS\Device\ST\STM32F10x\Include" Removable="1" />
+					<Property Header="OutDir" Value="$(ApplicationDir)\STM3210E-EVAL" Removable="1" />
+					<Property Header="ListDir" Value="$(ApplicationDir)\STM3210E-EVAL" Removable="1" />
+																																																																						
+				</Section>
+																																																						
+			</Set>
+																																			
+		</Config>
+		<Config Header="STM3210B-EVAL" >
+			<Set Header="GCC" >
+				<Section Header="Defines" >
+					<Property Header="Defines" Value="STM32F10X_MD;USE_STDPERIPH_DRIVER;USE_STM3210B_EVAL" Removable="1" />
+																																																																																																																																																																																		
+				</Section>
+				<Section Header="OPTIMIZE" >
+					<Property Header="Optimize" Value="-Os" Removable="1" />
+																																																																																																										
+				</Section>
+																																																																																		
+			</Set>
+			<Set Header="LD" >
+				<Section Header="Startup" >
+					<Property Header="DEFAULTSTARTUP" Value="No" Removable="1" />
+					<Property Header="File" Value="" Removable="1" />
+																																																																																																																																																																																																													
+				</Section>
+				<Section Header="Scripts" >
+					<Property Header="StarterKitLimit" Value="No" Removable="1" />
+					<Property Header="SCRIPTFILES" Value="Yes" Removable="1" />
+					<Property Header="File" Value="" Removable="1" />
+																																																																																																																												
+				</Section>
+				<Section Header="LIB" >
+					<Property Header="SMALLP" Value="1" Removable="1" />
+																																																																																																																																																																																																													
+				</Section>
+																																																																																																
+			</Set>
+			<Set Header="ApplicationBuild" >
+				<Section Header="Directories" >
+					<Property Header="IncDir" Value="..\inc;..\..\..\Libraries\CMSIS\Include;..\..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x;..\..\..\Libraries\STM32_USB-FS-Device_Driver\inc;..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\..\..\Utilities\STM32_EVAL;..\..\..\Utilities\STM32_EVAL\Common;..\..\..\Utilities\STM32_EVAL\STM3210B_EVAL;..\..\..\Libraries\CMSIS\Device\ST\STM32F10x\Include" Removable="1" />
+					<Property Header="OutDir" Value="$(ApplicationDir)\STM3210B-EVAL" Removable="1" />
+					<Property Header="ListDir" Value="$(ApplicationDir)\STM3210B-EVAL" Removable="1" />
+																																																																						
+				</Section>
+																																																						
+			</Set>
+			<Set Header="Target" >
+				<Section Header="ToolSetARM" >
+					<Property Header="BuildToolSetARM" Value="ARM\GNU.config" />
+																																																																						
+				</Section>
+																																																						
+			</Set>
+																																			
+		</Config>
+		<Config Header="STM3210E-EVAL_XL" >
+			<Set Header="ApplicationBuild" >
+				<Section Header="Directories" >
+					<Property Header="IncDir" Value="..\inc;..\..\..\Libraries\CMSIS\Include;..\..\..\Libraries\CMSIS\Device\ST\STM32F10x\Include;..\..\..\Libraries\STM32_USB-FS-Device_Driver\inc;..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\..\..\Utilities\STM32_EVAL;..\..\..\Utilities\STM32_EVAL\Common;..\..\..\Utilities\STM32_EVAL\STM3210E_EVAL" Removable="1" />
+					<Property Header="OutDir" Value="$(ApplicationDir)\STM3210E-EVAL_XL" Removable="1" />
+					<Property Header="ListDir" Value="$(ApplicationDir)\STM3210E-EVAL_XL" Removable="1" />
+																																																																						
+				</Section>
+																																																						
+			</Set>
+			<Set Header="Target" >
+				<Section Header="ProcessorARM" >
+					<Property Header="Processor" Value="STM32F103ZGT6" />
+																																																																																																										
+				</Section>
+				<Section Header="ToolSetARM" >
+					<Property Header="BuildToolSetARM" Value="ARM\GNU.config" />
+																																																																						
+				</Section>
+																																																						
+			</Set>
+			<Set Header="GCC" >
+				<Section Header="Defines" >
+					<Property Header="Defines" Value="USE_STDPERIPH_DRIVER;STM32F10X_HD;USE_STM3210E_EVAL" Removable="1" />
+																																																																																																										
+				</Section>
+				<Section Header="OPTIMIZE" >
+					<Property Header="Optimize" Value="-Os" Removable="1" />
+																																																																																																										
+				</Section>
+																																																																																		
+			</Set>
+			<Set Header="LD" >
+				<Section Header="Startup" >
+					<Property Header="DEFAULTSTARTUP" Value="No" Removable="1" />
+					<Property Header="File" Value="" Removable="1" />
+																																																																																																										
+				</Section>
+				<Section Header="Scripts" >
+					<Property Header="StarterKitLimit" Value="No" Removable="1" />
+																																																																																																										
+				</Section>
+																																																																																		
+			</Set>
+																																			
+		</Config>
+		<Config Header="STM32L152-EVAL" >
+			<Set Header="ApplicationBuild" >
+				<Section Header="Directories" >
+					<Property Header="IncDir" Value="..\inc;..\..\..\Libraries\CMSIS\Include;..\..\..\Libraries\CMSIS\Device\ST\STM32F10x\Include;..\..\..\Libraries\STM32_USB-FS-Device_Driver\inc;..\..\..\Libraries\STM32L1xx_StdPeriph_Driver\inc;..\..\..\Utilities\STM32_EVAL;..\..\..\Utilities\STM32_EVAL\Common;..\..\..\Utilities\STM32_EVAL\STM32L152_EVAL;..\..\..\Libraries\CMSIS\Device\ST\STM32L1xx\Include" Removable="1" />
+					<Property Header="OutDir" Value="$(ApplicationDir)\STM32L152-EVAL" Removable="1" />
+					<Property Header="ListDir" Value="$(ApplicationDir)\STM32L152-EVAL" Removable="1" />
+																																																																						
+				</Section>
+																																																						
+			</Set>
+			<Set Header="Target" >
+				<Section Header="ProcessorARM" >
+					<Property Header="Processor" Value="STM32L152VBT6" />
+																																																																																								
+				</Section>
+				<Section Header="ToolSetARM" >
+					<Property Header="BuildToolSetARM" Value="ARM\GNU.config" />
+																																																																						
+				</Section>
+																																																						
+			</Set>
+			<Set Header="GCC" >
+				<Section Header="Defines" >
+					<Property Header="Defines" Value="USE_STDPERIPH_DRIVER;STM32L1XX_MD;USE_STM32L152_EVAL" Removable="1" />
+																																																																																								
+				</Section>
+				<Section Header="OPTIMIZE" >
+					<Property Header="Optimize" Value="-Os" Removable="1" />
+																																																																															
+				</Section>
+																																																													
+			</Set>
+			<Set Header="LD" >
+				<Section Header="Scripts" >
+					<Property Header="SCRIPTFILES" Value="Yes" Removable="1" />
+					<Property Header="File" Value="" Removable="1" />
+					<Property Header="StarterKitLimit" Value="No" Removable="1" />
+																																																																																								
+				</Section>
+				<Section Header="Startup" >
+					<Property Header="DEFAULTSTARTUP" Value="No" Removable="1" />
+					<Property Header="File" Value="" Removable="1" />
+																																																																																								
+				</Section>
+																																																																				
+			</Set>
+																																			
+		</Config>
+		
+	</Options>
+</ApplicationBuild>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\VirtualComport_Loopback.ewp</path>
+  </project>
+  <batchBuild>
+    <batchDefinition>
+      <name>USB-Package-VCOMPort</name>
+      <member>
+        <project>CDC_LoopBack</project>
+        <configuration>STM3210B-EVAL</configuration>
+      </member>
+      <member>
+        <project>CDC_LoopBack</project>
+        <configuration>STM3210C-EVAL</configuration>
+      </member>
+      <member>
+        <project>CDC_LoopBack</project>
+        <configuration>STM3210E-EVAL</configuration>
+      </member>
+      <member>
+        <project>CDC_LoopBack</project>
+        <configuration>STM3210E-EVAL_XL</configuration>
+      </member>
+      <member>
+        <project>CDC_LoopBack</project>
+        <configuration>STM32L152-EVAL</configuration>
+      </member>
+    </batchDefinition>
+  </batchBuild>
+</workspace>
+
+

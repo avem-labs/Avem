@@ -1,0 +1,4 @@
+
+<Project Header="Project 'DFU'" Path=".\DFU.rprj" Project="Yes" OutputFile="" sate="96" ActiveApp="DFU" >
+	<ApplicationBuild Header="DFU" Extern=".\DFU.rapp" Path=".\DFU.rapp" OutputFile=".\STM32303C-EVAL\DFU.elf" Config="STM32303C_EVAL" sate="96" />
+</Project>

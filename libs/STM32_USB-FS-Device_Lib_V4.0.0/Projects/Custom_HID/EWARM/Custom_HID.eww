@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\Custom_HID.ewp</path>
+  </project>
+  <batchBuild>
+    <batchDefinition>
+      <name>USB-Package-Custom_HID</name>
+      <member>
+        <project>Custom_HID</project>
+        <configuration>STM3210B-EVAL</configuration>
+      </member>
+      <member>
+        <project>Custom_HID</project>
+        <configuration>STM3210C-EVAL</configuration>
+      </member>
+      <member>
+        <project>Custom_HID</project>
+        <configuration>STM3210E-EVAL</configuration>
+      </member>
+      <member>
+        <project>Custom_HID</project>
+        <configuration>STM3210E-EVAL_XL</configuration>
+      </member>
+      <member>
+        <project>Custom_HID</project>
+        <configuration>STM32L152-EVAL</configuration>
+      </member>
+    </batchDefinition>
+  </batchBuild>
+</workspace>
+
+

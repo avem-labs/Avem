@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="com.atollic.hardwaredebug.launch.launchConfigurationType">
+<stringAttribute key="com.atollic.hardwaredebug.launch.analyzeCommands" value="# Set flash parallelism mode to 32, 16, or 8 bit when using STM32 F2/F4 microcontrollers&#13;&#10;# Uncomment next line, 2=32 bit, 1=16 bit and 0=8 bit parallelism mode&#13;&#10;#monitor flash set_parallelism_mode 2&#13;&#10;&#13;&#10;# Load the program executable&#13;&#10;load&#13;&#10;&#13;&#10;# Reset to known state&#13;&#10;monitor reset&#13;&#10;&#13;&#10;# Start the executable.&#13;&#10;continue"/>
+<booleanAttribute key="com.atollic.hardwaredebug.launch.enable_swv" value="false"/>
+<intAttribute key="com.atollic.hardwaredebug.launch.formatVersion" value="2"/>
+<stringAttribute key="com.atollic.hardwaredebug.launch.initCommands" value=""/>
+<stringAttribute key="com.atollic.hardwaredebug.launch.ipAddress" value="localhost"/>
+<stringAttribute key="com.atollic.hardwaredebug.launch.jtagDevice" value="ST-LINK"/>
+<intAttribute key="com.atollic.hardwaredebug.launch.portNumber" value="61234"/>
+<stringAttribute key="com.atollic.hardwaredebug.launch.remoteCommand" value="target extended-remote"/>
+<stringAttribute key="com.atollic.hardwaredebug.launch.runCommands" value="# Set flash parallelism mode to 32, 16, or 8 bit when using STM32 F2/F4 microcontrollers&#13;&#10;# Uncomment next line, 2=32 bit, 1=16 bit and 0=8 bit parallelism mode&#13;&#10;#monitor flash set_parallelism_mode 2&#13;&#10;&#13;&#10;# Load the program executable&#13;&#10;load&#13;&#10;&#13;&#10;# Set a breakpoint at main().&#13;&#10;tbreak main&#13;&#10;&#13;&#10;# Reset to known state&#13;&#10;monitor reset&#13;&#10;&#13;&#10;# Run to the breakpoint.&#13;&#10;continue"/>
+<stringAttribute key="com.atollic.hardwaredebug.launch.serverParam" value="-p 61234 -l 1 -d"/>
+<booleanAttribute key="com.atollic.hardwaredebug.launch.startServer" value="true"/>
+<booleanAttribute key="com.atollic.hardwaredebug.launch.swd_mode" value="true"/>
+<stringAttribute key="com.atollic.hardwaredebug.launch.swv_port" value="61235"/>
+<stringAttribute key="com.atollic.hardwaredebug.launch.swv_trace_div" value="8"/>
+<stringAttribute key="com.atollic.hardwaredebug.launch.swv_trace_hclk" value="8000000"/>
+<booleanAttribute key="com.atollic.hardwaredebug.launch.swv_wait_for_sync" value="true"/>
+<booleanAttribute key="com.atollic.hardwaredebug.launch.useRemoteTarget" value="true"/>
+<stringAttribute key="com.atollic.hardwaredebug.launch.verifyCommands" value="# Set flash parallelism mode to 32, 16, or 8 bit when using STM32 F2/F4 microcontrollers&#13;&#10;# Uncomment next line, 2=32 bit, 1=16 bit and 0=8 bit parallelism mode&#13;&#10;#monitor flash set_parallelism_mode 2&#13;&#10;&#13;&#10;# Load the program executable&#13;&#10;load&#13;&#10;&#13;&#10;# Set a breakpoint at main().&#13;&#10;tbreak main&#13;&#10;&#13;&#10;# Reset to known state&#13;&#10;monitor reset&#13;&#10;&#13;&#10;# Run to the breakpoint.&#13;&#10;continue"/>
+<booleanAttribute key="com.atollic.hardwaredebug.stlink.enable_logging" value="false"/>
+<stringAttribute key="com.atollic.hardwaredebug.stlink.log_file" value="C:\VSS\BARRACUDA\INTRODUCTION PACKAGE\FIRMWARE\STM32_USB-FS-Device_Lib\Project\Device_Firmware_Upgrade\binary_template\TrueSTUDIO\STM32L152D-EVAL\Debug\st-link_gdbserver_log.txt"/>
+<booleanAttribute key="com.atollic.hardwaredebug.stlink.verify_flash" value="false"/>
+<stringAttribute key="org.eclipse.cdt.debug.mi.core.DEBUG_NAME" value="${TOOLCHAIN_PATH}/arm-atollic-eabi-gdb"/>
+<stringAttribute key="org.eclipse.cdt.debug.mi.core.commandFactory" value="Standard (Windows)"/>
+<stringAttribute key="org.eclipse.cdt.debug.mi.core.protocol" value="mi"/>
+<booleanAttribute key="org.eclipse.cdt.debug.mi.core.verboseMode" value="false"/>
+<stringAttribute key="org.eclipse.cdt.dsf.gdb.DEBUG_NAME" value="${TOOLCHAIN_PATH}/arm-atollic-eabi-gdb"/>
+<intAttribute key="org.eclipse.cdt.launch.ATTR_BUILD_BEFORE_LAUNCH_ATTR" value="2"/>
+<stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_REGISTER_GROUPS" value=""/>
+<stringAttribute key="org.eclipse.cdt.launch.FORMAT" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;contentList/&gt;"/>
+<stringAttribute key="org.eclipse.cdt.launch.GLOBAL_VARIABLES" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#13;&#10;&lt;globalVariableList/&gt;&#13;&#10;"/>
+<stringAttribute key="org.eclipse.cdt.launch.MEMORY_BLOCKS" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#13;&#10;&lt;memoryBlockExpressionList/&gt;&#13;&#10;"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="Debug/STM32L152D-EVAL.elf"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="STM32L152D-EVAL"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value=""/>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/STM32L152D-EVAL"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="4"/>
+</listAttribute>
+</launchConfiguration>

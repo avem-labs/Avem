@@ -1,0 +1,4 @@
+
+<Project Header="Project 'VirtualComport_Loopback'" Path=".\VirtualComport_Loopback.rprj" Project="Yes" OutputFile="" sate="96" ActiveApp="VirtualComport_Loopback" >
+	<ApplicationBuild Header="VirtualComport_Loopback" Extern=".\VirtualComport_Loopback.rapp" Path=".\VirtualComport_Loopback.rapp" OutputFile=".\STM32303-EVAL\VirtualComport_Loopback.elf" Config="STM32303C_EVAL" sate="98" />
+</Project>

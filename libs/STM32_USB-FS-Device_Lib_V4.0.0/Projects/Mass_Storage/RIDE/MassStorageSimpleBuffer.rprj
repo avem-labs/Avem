@@ -1,0 +1,4 @@
+
+<Project Header="Project 'MassStorageSimpleBuffer'" Path=".\MassStorageSimpleBuffer.rprj" Project="Yes" OutputFile="" sate="96" ActiveApp="MassStorageSimpleBuffer" >
+	<ApplicationBuild Header="MassStorageSimpleBuffer" Extern=".\MassStorageSimpleBuffer.rapp" Path=".\MassStorageSimpleBuffer.rapp" OutputFile=".\STM32303-EVAL\MassStorageSimpleBuffer.elf" Config="STM32303C_EVAL" sate="98" />
+</Project>

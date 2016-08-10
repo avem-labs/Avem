@@ -1,0 +1,4 @@
+
+<Project Header="Project 'Composite_Example'" Path=".\Composite_Example.rprj" Project="Yes" OutputFile="" sate="96" ActiveApp="Composite_Example" >
+	<ApplicationBuild Header="Composite_Example" Extern=".\Composite_Example.rapp" Path=".\Composite_Example.rapp" OutputFile=".\STM32303-EVAL\Composite_Example.elf" Config="STM32303C_EVAL" sate="98" />
+</Project>
