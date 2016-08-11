@@ -13,7 +13,7 @@
 
 ## PCB Layout
 
-![](rm_img/PCB/pcb.png)
+![](rm_img/PCB/PCB.png)
 
 ## Schematic
 
