@@ -7,6 +7,16 @@
 
 #Hardware
 
+## 3D Moudle
+
+![](rm_img/PCB/3D.png)
+
+## PCB Layout
+
+![](rm_img/PCB/pcb.png)
+
+## Schematic
+
 ### Microcontroller -- STM32F103
 ![](rm_img/stm32.png)
 
