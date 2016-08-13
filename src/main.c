@@ -14,7 +14,7 @@ float q0 = 1, q1 = 0, q2 = 0, q3 = 0;   //Quaternion
 float exInt = 0, eyInt = 0, ezInt = 0;
 float Yaw, Pitch, Roll;     //eular
 
-#define K_P 0.257f //0.257 * 0.83 0.255
+#define K_P 0.18f //0.257 * 0.83 0.255
 #define K_I 0
 #define K_D 0
 #define SUM_ERRO_MAX 900
@@ -22,12 +22,23 @@ float Yaw, Pitch, Roll;     //eular
 
 
 float iErro, sumErro = 0;
-short pid(float setPoint, float d) {
+void pid(float setPoint, float d) {
     iErro = Roll - setPoint;    //计算当前误差
     sumErro += iErro;       //对误差进行积分
+
     if(sumErro > SUM_ERRO_MAX) sumErro = SUM_ERRO_MAX;  //积分限幅
     else if(sumErro < SUM_ERRO_MIN) sumErro = SUM_ERRO_MIN;
-    return (short)(iErro * K_P + sumErro * K_I + d * K_D);  //PID输出
+
+    unsigned short resu = (short)(iErro * K_P + sumErro * K_I + d * K_D);  //PID输出
+
+    MOTOR1 += resu;
+    MOTOR2 -= resu;
+
+    if(MOTOR1 > 7199) MOTOR1 = 7199;
+    else if(MOTOR1 < 800) MOTOR1 = 800;
+
+    if(MOTOR2 > 7199) MOTOR2 = 7199;
+    else if(MOTOR2 < 800) MOTOR2 = 800;
 }
 
 //ms
@@ -203,22 +214,18 @@ int main() {
 
     SixAxis sourceData;
 
-    unsigned short motorVal = 6000;
-
+    MOTOR1 = 7000;
+    MOTOR2 = 7000;
     while(1) {
         MPU6050_getStructData(&sourceData);
         Comput(sourceData);
 
-        motorVal += pid(0, sourceData.gX);
-        if(motorVal > 7199) motorVal = 7199;
-        else if(motorVal < 800) motorVal = 800;
-        MOTOR1 = (unsigned short)motorVal;
-        Float2Char((float)pid(0, sourceData.gX));
+        pid(0, sourceData.gX);
         sendData_uart(' ');
         sendData_uart('M');
         sendData_uart(':');
 
-        showData(motorVal);
+        showData(MOTOR1);
 
         sendData_uart(' ');
         sendData_uart('r');
