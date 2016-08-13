@@ -6,13 +6,13 @@
 
 
 void initLED() {
-    //RCC->APB2ENR |= 1<<5;
-    //GPIOD->CRL &= 0xFFFFF0FF;
-    //GPIOD->CRL |= 0x00000300;
+    RCC->APB2ENR |= 1<<5;
+    GPIOD->CRL &= 0xFFFFF0FF;
+    GPIOD->CRL |= 0x00000300;
 
-    RCC->APB2ENR |= 1<<4;
-    GPIOC->CRH &= 0xFF0FFFFF;
-    GPIOC->CRH |= 0x00300000;
+    //RCC->APB2ENR |= 1<<4;
+    //GPIOC->CRH &= 0xFF0FFFFF;
+    //GPIOC->CRH |= 0x00300000;
 }
 
 void MPU_Sigle_Write(unsigned char reg_addr, unsigned char reg_data) {
@@ -62,8 +62,8 @@ void MPU_init() {
     MPU_Sigle_Write(GYRO_CONFIG, 0x18);
     MPU_Sigle_Write(ACCEL_CONFIG, 0x01);
 
-    //LED1 = MPU_Sigle_Read(WHO_AM_I) == 0x68?0:1;
-    LED1 = MPU_Sigle_Read(WHO_AM_I) == 0x68?1:0;
+    LED1 = MPU_Sigle_Read(WHO_AM_I) == 0x68?0:1;
+    //LED1 = MPU_Sigle_Read(WHO_AM_I) == 0x68?1:0;
 }
 
 void MPU6050_getStructData(pSixAxis cache) {

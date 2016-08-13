@@ -4,7 +4,7 @@
 
 //=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_
 #define LED0 BIT_ADDR((GPIOA_BASE+12), 8)
-#define LED1 BIT_ADDR((GPIOC_BASE+12), 13)
+#define LED1 BIT_ADDR((GPIOD_BASE+12), 2)
 //=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_
 
 void delay(volatile unsigned int count);

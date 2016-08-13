@@ -205,7 +205,7 @@ int main() {
 
     unsigned short motorVal = 7199;
 
-    while(0) {
+    while(1) {
         MPU6050_getStructData(&sourceData);
         Comput(sourceData);
 
