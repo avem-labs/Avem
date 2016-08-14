@@ -1,5 +1,6 @@
 language: c
 sudo: required
+before_install:"sudo apt-get update"
 compiler:
     - arm-none-eabi-gcc
 script: sudo apt-get install gcc-arm-none-eabi && rm Makefile.common && mv makeOnLinux Makefile.common && make
