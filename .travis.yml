@@ -1,7 +1,6 @@
 language: c
 install:
-    - gcc-arm-none-eabi
-    - make
+    - sudo apt-get install gcc-arm-none-eabi
 compiler:
-    - gcc-arm-none-eabi
+    - arm-none-eabi-gcc
 script: make clean && make
