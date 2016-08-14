@@ -1,0 +1,7 @@
+language: c
+install:
+    - gcc-arm-none-eabi
+    - make
+compiler:
+    - gcc-arm-none-eabi
+script: make clean && make
