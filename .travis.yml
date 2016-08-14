@@ -1,5 +1,5 @@
 language: c
-install: gcc-arm-none-eabi
+sudo: required
 compiler:
     - arm-none-eabi-gcc
-script: rm Makefile.common && mv makeOnLinux Makefile.common && make
+script: sudo apt-get intstall gcc-arm-none-eabi && rm Makefile.common && mv makeOnLinux Makefile.common && make
