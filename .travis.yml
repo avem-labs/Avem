@@ -1,7 +1,7 @@
 language: c
 sudo: required
 before_install:
-    - sudo add-apt-respository --yes ppa:ubuntu-sdk-team/ppa
+    - sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa
     - sudo apt-get update -qq
     - sudo apt-get install gcc-arm-none-eabi
 compiler:
