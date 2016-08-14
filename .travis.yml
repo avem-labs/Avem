@@ -2,4 +2,4 @@ language: c
 sudo: required
 compiler:
     - arm-none-eabi-gcc
-script: sudo apt-get intstall gcc-arm-none-eabi && rm Makefile.common && mv makeOnLinux Makefile.common && make
+script: sudo apt-get insttall gcc-arm-none-eabi && rm Makefile.common && mv makeOnLinux Makefile.common && make
