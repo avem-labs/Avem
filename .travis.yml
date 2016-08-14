@@ -1,6 +1,5 @@
 language: c
-install:
-gcc-arm-none-eabi
+install: gcc-arm-none-eabi
 compiler:
     - arm-none-eabi-gcc
 script: rm Makefile.common && mv makeOnLinux Makefile.common && make
