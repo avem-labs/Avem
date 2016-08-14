@@ -214,8 +214,9 @@ int main() {
 
     SixAxis sourceData;
 
-    MOTOR1 = 7000;
-    MOTOR2 = 7000;
+    MOTOR1 = 7190;
+    MOTOR2 = 7190;
+    delay(3000);
     while(1) {
         MPU6050_getStructData(&sourceData);
         Comput(sourceData);
