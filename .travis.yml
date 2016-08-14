@@ -1,12 +1,9 @@
 os: osx
 osx_image: xcode
 language: c
-sudo: required
 before_install:
     - brew update
     - brew install coreutils
     - brew tap px4/px4
     - brew install gcc-arm-none-eabi
-compiler:
-    - arm-none-eabi-gcc
 script: make
