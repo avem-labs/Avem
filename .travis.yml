@@ -4,6 +4,7 @@ language: c
 sudo: required
 before_install:
     - brew update
+    - brew install coreutils
     - brew install gcc-arm-none-eabi
 compiler:
     - arm-none-eabi-gcc
