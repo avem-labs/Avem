@@ -5,7 +5,7 @@ sudo: required
 before_install:
     - brew update
     - brew install coreutils
-    - brew install gcc-arm-none-eabi
+    - brew search gcc-arm-none-eabi
 compiler:
     - arm-none-eabi-gcc
 script: make
