@@ -1,6 +1,4 @@
 language: c
-install:
-    - sudo apt-get install gcc-arm-none-eabi
 compiler:
     - arm-none-eabi-gcc
 script: make clean && make
