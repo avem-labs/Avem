@@ -3,6 +3,24 @@
 
 [UAV] - [STM32F103] - 6 Axes sensor MPU6050 - Quaternion &amp; Euler Angles Compute - PID Controller
 
+# Todolist
+* Software **I2C**
+* Init **MPU6050**
+* Get 3 axes `Gryo` and 3 axes `Accel` data from MPU6050
+* Cumpute Quaternion and **Euler** Angles
+* **PWM** output
+* Driving motors with **L9110S**
+* **PID** Control
+* Schematic
+* PCB Layout (Watting for PCB)
+	* PCB Test
+	* PID debug
+	* Design **frame**
+	* 3D print or CNC cut
+	* ... ...
+
+----
+
 # Software
 
 :octocat:[but0n/MPU6050_stm32](https://github.com/but0n/MPU6050_stm32)
