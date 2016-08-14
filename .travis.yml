@@ -1,9 +1,9 @@
+osx_image: xcode
 language: c
 sudo: required
 before_install:
-    - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-    - sudo apt-get -qq update
-    - sudo apt-get install gcc-arm-none-eabi -y
+    - brew update
+    - brew install gcc-arm-none-eabi
 compiler:
     - arm-none-eabi-gcc
-script: rm Makefile.common && mv makeOnLinux Makefile.common && make
+script: make
