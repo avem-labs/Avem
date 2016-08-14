@@ -1,3 +1,4 @@
+os: osx
 osx_image: xcode
 language: c
 sudo: required
