@@ -1,4 +1,4 @@
 language: c
 compiler:
     - arm-none-eabi-gcc
-script: make clean && make
+script: rm Makefile.common && mv makeOnLinux Makefile.common && make
