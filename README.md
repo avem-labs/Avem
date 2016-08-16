@@ -13,6 +13,7 @@
 * **PID** Control
 * Schematic
 * PCB Layout (Watting for PCB)
+	* 使用PWM外接商品电调驱动无刷电机
 	* PCB Test
 	* PID debug
 	* Design **frame**
