@@ -17,6 +17,7 @@
 	* PCB Test
 	* PID debug
 	* Design **frame**
+	* GPS
 	* 3D print or CNC cut
 	* ... ...
 
