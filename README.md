@@ -62,5 +62,5 @@
 ### MPU6050
 ![](rm_img/mpu6050.png)
 
-### MOTORS
+### MOTORS 4-CHANNEL LEFT & 4-CHANNEL RIGHT
 ![](rm_img/motors.png)
