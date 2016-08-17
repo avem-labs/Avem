@@ -1,5 +1,5 @@
 #include "uart.h"
-#include "stm32f103.h"
+#include "stm32f10x.h"
 
 void initUART(unsigned int pclk2, unsigned int bound) {
     float temp;
