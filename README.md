@@ -41,7 +41,7 @@
 ## Schematic
 
 ### Microcontroller -- STM32F103
-![](rm_img/stm32.png)
+![](rm_img/stm.png)
 
 ### 3.3v Power supply (DC2DC)
 ![](rm_img/1117.png)
