@@ -11,20 +11,25 @@ void wifi_init() {
     fraction = (temp - mantissa) * 16;
     mantissa <<= 4;
     mantissa += fraction;
-    RCC->APB2ENR |= 1<<2;   //GPIOA Enable
-    RCC->APB2ENR |= 1<<14;  //USART1 Enable
 
-    GPIOA->CRH &= 0xFFFFF00F;
-    GPIOA->CRH |= 0x000008B0;
+    RCC->APB2ENR |= 1<<3;   //GPIOB Enable
+    RCC->APB1ENR |= 1<<18;  //USART3 Enable
 
-    RCC->APB2RSTR |= 1<<14;
-    RCC->APB2RSTR &= ~(1<<14);
+    GPIOB->CRH &= 0xFFFF00FF;
+    GPIOB->CRH |= 0x00008B00;
 
-    USART1->BRR = mantissa;
-    USART1->CR1 |= 0x200C;
+    RCC->APB1RSTR |= 1<<18;
+    RCC->APB1RSTR &= ~(1<<18);
 
-    USART1->CR1 |= 1<<8;
-    USART1->CR1 |= 1<<5;
+    USART3->BRR = mantissa;
+    USART3->CR1 |= 0x200C;
 
+    USART3->CR1 |= 1<<8;
+    USART3->CR1 |= 1<<5;
+}
+
+void wifi_sendData(unsigned char cmd) {
+    USART3->DR = cmd;
+    while((USART3->SR & 0x40) == 0);
 }
 
