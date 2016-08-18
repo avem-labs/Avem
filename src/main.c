@@ -11,9 +11,9 @@
 #define Ki      0.002f      //积分增益支配率
 #define halfT   0.001f      //采样周期的一半
 
-float q0 = 1, q1 = 0, q2 = 0, q3 = 0;   //Quaternion
-float exInt = 0, eyInt = 0, ezInt = 0;
-float Yaw, Pitch, Roll;     //eular
+float g_q0 = 1, g_q1 = 0, g_q2 = 0, g_q3 = 0;   //Quaternion
+float g_exInt = 0, g_eyInt = 0, g_ezInt = 0;
+float g_Yaw, g_Pitch, g_Roll;     //eular
 
 #define K_P 0.18f //0.257 * 0.83 0.255
 #define K_I 0
@@ -21,16 +21,19 @@ float Yaw, Pitch, Roll;     //eular
 #define SUM_ERRO_MAX 900
 #define SUM_ERRO_MIN -900
 
+void USART1_IRQHandler(void) {
+    LED1 = 0;
+}
 
-float iErro, sumErro = 0;
+float g_iErro, g_sumErro = 0;
 void pid(float setPoint, float d) {
-    iErro = Roll - setPoint;    //计算当前误差
-    sumErro += iErro;       //对误差进行积分
+    g_iErro = g_Roll - setPoint;    //计算当前误差
+    g_sumErro += g_iErro;       //对误差进行积分
 
-    if(sumErro > SUM_ERRO_MAX) sumErro = SUM_ERRO_MAX;  //积分限幅
-    else if(sumErro < SUM_ERRO_MIN) sumErro = SUM_ERRO_MIN;
+    if(g_sumErro > SUM_ERRO_MAX) g_sumErro = SUM_ERRO_MAX;  //积分限幅
+    else if(g_sumErro < SUM_ERRO_MIN) g_sumErro = SUM_ERRO_MIN;
 
-    unsigned short resu = (short)(iErro * K_P + sumErro * K_I + d * K_D);  //PID输出
+    unsigned short resu = (short)(g_iErro * K_P + g_sumErro * K_I + d * K_D);  //PID输出
 
     MOTOR1 += resu;
     MOTOR2 -= resu;
@@ -63,9 +66,9 @@ void Comput(SixAxis cache) {
 
 
     //估计方向的重力
-    vx = 2 * (q1 * q3 - q0 * q2);
-    vy = 2 * (q0 * q1 + q2 * q3);
-    vz = q0*q0 - q1*q1 - q2*q2 + q3*q3;
+    vx = 2 * (g_q1 * g_q3 - g_q0 * g_q2);
+    vy = 2 * (g_q0 * g_q1 + g_q2 * g_q3);
+    vz = g_q0*g_q0 - g_q1*g_q1 - g_q2*g_q2 + g_q3*g_q3;
 
     //错误的领域和方向传感器测量参考方向几件的交叉乘积的总和
     ex = (cache.aY * vz - cache.aZ * vy);
@@ -73,31 +76,31 @@ void Comput(SixAxis cache) {
     ez = (cache.aX * vy - cache.aY * vx);
 
     //积分误差比例积分增益
-    exInt = exInt + ex * Ki;
-    eyInt = eyInt + ey * Ki;
-    ezInt = ezInt + ez * Ki;
+    g_exInt += ex * Ki;
+    g_eyInt += ey * Ki;
+    g_ezInt += ez * Ki;
 
     //调整后的陀螺仪测量
-    cache.gX = cache.gX + Kp * ex + exInt;
-    cache.gY = cache.gY + Kp * ey + eyInt;
-    cache.gZ = cache.gZ + Kp * ez + ezInt;
+    cache.gX += Kp * ex + g_exInt;
+    cache.gY += Kp * ey + g_eyInt;
+    cache.gZ += Kp * ez + g_ezInt;
 
     //整合四元数率和正常化
-    q0 = q0 + (-q1 * cache.gX - q2 * cache.gY - q3 * cache.gZ) * halfT;
-    q1 = q1 + (q0 * cache.gX + q2 * cache.gZ - q3 * cache.gY) * halfT;
-    q2 = q2 + (q0 * cache.gY - q1 * cache.gZ + q3 * cache.gX) * halfT;
-    q3 = q3 + (q0 * cache.gZ + q1 * cache.gY - q2 * cache.gX) * halfT;
+    g_q0 += (-g_q1 * cache.gX - g_q2 * cache.gY - g_q3 * cache.gZ) * halfT;
+    g_q1 += (g_q0 * cache.gX + g_q2 * cache.gZ - g_q3 * cache.gY) * halfT;
+    g_q2 += (g_q0 * cache.gY - g_q1 * cache.gZ + g_q3 * cache.gX) * halfT;
+    g_q3 += (g_q0 * cache.gZ + g_q1 * cache.gY - g_q2 * cache.gX) * halfT;
 
     //正常化四元
-    norm = sqrt(q0*q0 + q1*q1 + q2*q2 + q3*q3);
-    q0 = q0 / norm;
-    q1 = q1 / norm;
-    q2 = q2 / norm;
-    q3 = q3 / norm;
+    norm = sqrt(g_q0*g_q0 + g_q1*g_q1 + g_q2*g_q2 + g_q3*g_q3);
+    g_q0 = g_q0 / norm;
+    g_q1 = g_q1 / norm;
+    g_q2 = g_q2 / norm;
+    g_q3 = g_q3 / norm;
 
-    Pitch = asin(-2 * q1 * q3 + 2 * q0 * q2) * 57.3;
-    Roll = atan2(2 * q2 * q3 + 2 * q0 * q1, -2 * q1*q1 - 2 * q2*q2 + 1) * 57.3;
-    Yaw = atan2(2 * (q1 * q2 + q0 * q3), q0*q0 + q1*q1 - q2*q2 - q3*q3) * 57.3;
+    g_Pitch = asin(-2 * g_q1 * g_q3 + 2 * g_q0 * g_q2) * 57.3;
+    g_Roll = atan2(2 * g_q2 * g_q3 + 2 * g_q0 * g_q1, -2 * g_q1*g_q1 - 2 * g_q2*g_q2 + 1) * 57.3;
+    g_Yaw = atan2(2 * (g_q1 * g_q2 + g_q0 * g_q3), g_q0*g_q0 + g_q1*g_q1 - g_q2*g_q2 - g_q3*g_q3) * 57.3;
 }
 
 
@@ -119,7 +122,7 @@ int main() {
 
     delay(3000);
 
-    while(1) {
+    while(0) {
         MPU6050_getStructData(&sourceData);
         Comput(sourceData);
 
@@ -133,7 +136,7 @@ int main() {
         uart_sendData(' ');
         uart_sendData('r');
         uart_sendData(':');
-        uart_Float2Char(Roll);
+        uart_Float2Char(g_Roll);
 
         uart_sendData(' ');
         uart_sendData('D');
@@ -158,7 +161,7 @@ int main() {
         uart_sendData(':');
         uart_sendData(' ');
 
-        uart_Float2Char(Pitch);
+        uart_Float2Char(g_Pitch);
         uart_sendData(' ');
 
         uart_sendData('R');
@@ -168,7 +171,7 @@ int main() {
         uart_sendData(':');
         uart_sendData(' ');
 
-        uart_Float2Char(Roll);
+        uart_Float2Char(g_Roll);
         uart_sendData(' ');
 
         uart_sendData('Y');
@@ -177,7 +180,7 @@ int main() {
         uart_sendData(':');
         uart_sendData(' ');
 
-        uart_Float2Char(Yaw);
+        uart_Float2Char(g_Yaw);
 
         uart_sendData(0x0D);
         uart_sendData(0x0A);
