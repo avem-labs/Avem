@@ -21,9 +21,6 @@ float g_Yaw, g_Pitch, g_Roll;     //eular
 #define SUM_ERRO_MAX 900
 #define SUM_ERRO_MIN -900
 
-void USART1_IRQHandler(void) {
-    LED1 = 0;
-}
 
 float g_iErro, g_sumErro = 0;
 void pid(float setPoint, float d) {
