@@ -5,6 +5,7 @@
 #include "motor.h"
 #include "uart.h"
 
+#include "wifi.h"
 
 #define Kp      100.0f      //比例增益支配率(常量)
 #define Ki      0.002f      //积分增益支配率
@@ -101,42 +102,45 @@ void Comput(SixAxis cache) {
 
 
 int main() {
-
     initLED();
 
     PWM_Init(7200,10);
 
-    initUART(72, 115200);
+    uart_init(72, 115200);
 
     MPU_init();
 
     SixAxis sourceData;
 
+    wifi_init();
+
     MOTOR1 = 7190;
     MOTOR2 = 7190;
+
     delay(3000);
+
     while(1) {
         MPU6050_getStructData(&sourceData);
         Comput(sourceData);
 
         pid(0, sourceData.gX);
-        sendData_uart(' ');
-        sendData_uart('M');
-        sendData_uart(':');
+        uart_sendData(' ');
+        uart_sendData('M');
+        uart_sendData(':');
 
-        showData(MOTOR1);
+        uart_showData(MOTOR1);
 
-        sendData_uart(' ');
-        sendData_uart('r');
-        sendData_uart(':');
-        Float2Char(Roll);
+        uart_sendData(' ');
+        uart_sendData('r');
+        uart_sendData(':');
+        uart_Float2Char(Roll);
 
-        sendData_uart(' ');
-        sendData_uart('D');
-        sendData_uart(':');
-        Float2Char(sourceData.gX);
-        sendData_uart(0x0D);
-        sendData_uart(0x0A);
+        uart_sendData(' ');
+        uart_sendData('D');
+        uart_sendData(':');
+        uart_Float2Char(sourceData.gX);
+        uart_sendData(0x0D);
+        uart_sendData(0x0A);
 
     }
     while(1) {
@@ -146,41 +150,39 @@ int main() {
 
         Comput(sourceData);
 
-        sendData_uart('P');
-        sendData_uart('i');
-        sendData_uart('t');
-        sendData_uart('c');
-        sendData_uart('h');
-        sendData_uart(':');
-        sendData_uart(' ');
+        uart_sendData('P');
+        uart_sendData('i');
+        uart_sendData('t');
+        uart_sendData('c');
+        uart_sendData('h');
+        uart_sendData(':');
+        uart_sendData(' ');
 
-        Float2Char(Pitch);
-        sendData_uart(' ');
+        uart_Float2Char(Pitch);
+        uart_sendData(' ');
 
-        sendData_uart('R');
-        sendData_uart('o');
-        sendData_uart('l');
-        sendData_uart('l');
-        sendData_uart(':');
-        sendData_uart(' ');
+        uart_sendData('R');
+        uart_sendData('o');
+        uart_sendData('l');
+        uart_sendData('l');
+        uart_sendData(':');
+        uart_sendData(' ');
 
-        Float2Char(Roll);
-        sendData_uart(' ');
+        uart_Float2Char(Roll);
+        uart_sendData(' ');
 
-        sendData_uart('Y');
-        sendData_uart('a');
-        sendData_uart('w');
-        sendData_uart(':');
-        sendData_uart(' ');
+        uart_sendData('Y');
+        uart_sendData('a');
+        uart_sendData('w');
+        uart_sendData(':');
+        uart_sendData(' ');
 
-        Float2Char(Yaw);
+        uart_Float2Char(Yaw);
 
-        sendData_uart(0x0D);
-        sendData_uart(0x0A);
+        uart_sendData(0x0D);
+        uart_sendData(0x0A);
 
         delay(100);
-
-
 
     }
 }

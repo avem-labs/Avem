@@ -1,7 +1,7 @@
 #include "uart.h"
 #include "stm32f10x.h"
 
-void initUART(unsigned int pclk2, unsigned int bound) {
+void uart_init(unsigned int pclk2, unsigned int bound) {
     float temp;
     unsigned short mantissa;
     unsigned short fraction;
@@ -25,14 +25,16 @@ void initUART(unsigned int pclk2, unsigned int bound) {
     USART1->CR1 |= 1<<8;
     USART1->CR1 |= 1<<5;
 }
-void sendData_uart(unsigned char data) {
+
+void uart_sendData(unsigned char data) {
     USART1->DR = data;
     while((USART1->SR & 0x40) == 0);
 }
-void showData(short k) {
+
+void uart_showData(short k) {
     unsigned char a, b, c, d, e;
 
-    sendData_uart(k<0?'-':'+');
+    uart_sendData(k<0?'-':'+');
     if(k<0) k=-k;
     e = (unsigned char)(k % 10);
     d = (unsigned char)(k/10) % 10;
@@ -40,15 +42,15 @@ void showData(short k) {
     b = (unsigned char)(k/1000) % 10;
     a = (unsigned char)(k/10000);
 
-    sendData_uart(a+0x30);
-    sendData_uart(b+0x30);
-    sendData_uart(c+0x30);
-    sendData_uart(d+0x30);
-    sendData_uart(e+0x30);
-    sendData_uart(' ');
+    uart_sendData(a+0x30);
+    uart_sendData(b+0x30);
+    uart_sendData(c+0x30);
+    uart_sendData(d+0x30);
+    uart_sendData(e+0x30);
+    uart_sendData(' ');
 }
 
-unsigned char Float2Char(float value) {
+unsigned char uart_Float2Char(float value) {
     unsigned char IntegerPart;
     float DecimalPart;
     unsigned char i = 0;
@@ -59,7 +61,7 @@ unsigned char Float2Char(float value) {
 
     if(value < 0 ) {
         value = value * -1;
-        sendData_uart('-');
+        uart_sendData('-');
     }
     if(value >= 1) {
         IntegerPart = (unsigned char)value;
@@ -97,7 +99,7 @@ unsigned char Float2Char(float value) {
     array[i++] = '\0';
 
     for(j = 0; j < i; j ++) {
-        sendData_uart(array[j]);
+        uart_sendData(array[j]);
     }
 
     return i;
