@@ -15,7 +15,7 @@ float g_q0 = 1, g_q1 = 0, g_q2 = 0, g_q3 = 0;   //Quaternion
 float g_exInt = 0, g_eyInt = 0, g_ezInt = 0;
 float g_Yaw, g_Pitch, g_Roll;     //eular
 
-#define K_P 0.18f //0.257 * 0.83 0.255
+#define K_P 0.257f //0.257 * 0.83 0.255
 #define K_I 0
 #define K_D 0
 #define SUM_ERRO_MAX 900
@@ -115,7 +115,10 @@ int main() {
     SixAxis sourceData;
 
 
-
+    while(0) {
+        MPU6050_getStructData(&sourceData);
+        MPU6050_debug(&sourceData);
+    }
 
     while(1) {
         MPU6050_getStructData(&sourceData);

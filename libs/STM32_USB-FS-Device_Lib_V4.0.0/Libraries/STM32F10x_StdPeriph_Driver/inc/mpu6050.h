@@ -41,6 +41,7 @@ void delay(volatile unsigned int count);
 
 #define A_Y_OFFSET 11
 #define G_X_OFFSET 4
+#define A_Z_OFFSET -9
 
 
 typedef struct{
@@ -60,4 +61,6 @@ unsigned char MPU_Sigle_Read(unsigned reg_addr);
 short MPU_GetData(unsigned char REG_Addr);
 void MPU_init();
 void MPU6050_getStructData(pSixAxis cache);
+void MPU6050_debug(pSixAxis cache);
+
 #endif

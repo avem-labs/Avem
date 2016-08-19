@@ -3,6 +3,7 @@
 #include "bit.h"
 #include "stm32f10x.h"
 #include "i2c.h"
+#include "uart.h"
 
 
 void initLED() {
@@ -77,5 +78,22 @@ void MPU6050_getStructData(pSixAxis cache) {
 
     cache->aY += A_Y_OFFSET;
     cache->gX += G_X_OFFSET;
+    cache->aZ += A_Z_OFFSET;
+}
+void MPU6050_debug(pSixAxis cache) {
+    uart_Float2Char((float)cache->gX);
+    uart_sendData(' ');
+    uart_Float2Char((float)cache->gY);
+    uart_sendData(' ');
+    uart_Float2Char((float)cache->gZ);
+    uart_sendData(' ');
 
+    uart_Float2Char((float)cache->aX);
+    uart_sendData(' ');
+    uart_Float2Char((float)cache->aY);
+    uart_sendData(' ');
+    uart_Float2Char((float)cache->aZ);
+    uart_sendData(' ');
+    uart_sendData(0x0D);
+    uart_sendData(0x0A);
 }
