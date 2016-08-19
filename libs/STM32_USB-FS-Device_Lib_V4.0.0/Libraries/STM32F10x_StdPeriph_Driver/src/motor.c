@@ -14,7 +14,7 @@ void PWM_Init(unsigned short arr, unsigned short psc) {
     TIM3->ARR = arr - 1;
     TIM3->PSC = psc - 1;
 
-    TIM3->CCMR1 |= 7<<12;   //CH2 Set OC2M[2:0]: PWM Mode
+    TIM3->CCMR1 |= 6<<12;   //CH2 Set OC2M[2:0]: PWM Mode
     TIM3->CCMR1 |= 1<<11;   //CH2 Set OC2PF: Enable
     TIM3->CCMR1 |= 7<<4;    //CH1 Set OC2M[2:0]: PWM Mode
     TIM3->CCMR1 |= 1<<3;    //CH1 Set OC2PF: Enable

@@ -13,8 +13,8 @@
 * **PID** Control
 * Schematic
 * PCB Layout (*Now I'm watting for PCB*)
+* 使用PWM外接商品电调驱动无刷电机
 	* **Wi-Fi**(`ESP8266`)
-	* 使用PWM外接商品电调驱动无刷电机
 	* PCB Test
 	* PID debug
 	* Design **frame**

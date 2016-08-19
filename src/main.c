@@ -5,7 +5,7 @@
 #include "motor.h"
 #include "uart.h"
 
-#include "wifi.h"
+#include "key.h"
 
 #define Kp      100.0f      //比例增益支配率(常量)
 #define Ki      0.002f      //积分增益支配率
@@ -30,16 +30,14 @@ void pid(float setPoint, float d) {
     if(g_sumErro > SUM_ERRO_MAX) g_sumErro = SUM_ERRO_MAX;  //积分限幅
     else if(g_sumErro < SUM_ERRO_MIN) g_sumErro = SUM_ERRO_MIN;
 
-    unsigned short resu = (short)(g_iErro * K_P + g_sumErro * K_I + d * K_D);  //PID输出
+    short resu = (short)(g_iErro * K_P + g_sumErro * K_I + d * K_D);  //PID输出
 
-    MOTOR1 += resu;
-    MOTOR2 -= resu;
 
-    if(MOTOR1 > 7199) MOTOR1 = 7199;
-    else if(MOTOR1 < 800) MOTOR1 = 800;
-
-    if(MOTOR2 > 7199) MOTOR2 = 7199;
-    else if(MOTOR2 < 800) MOTOR2 = 800;
+    if((MOTOR1 + resu) > MOTOR_MAX)
+        MOTOR1 = MOTOR_MAX;
+    else if((MOTOR1 + resu) < MOTOR_MIN)
+        MOTOR1 = MOTOR_MIN;
+    else MOTOR1 += resu;
 }
 
 //ms
@@ -100,11 +98,15 @@ void Comput(SixAxis cache) {
     g_Yaw = atan2(2 * (g_q1 * g_q2 + g_q0 * g_q3), g_q0*g_q0 + g_q1*g_q1 - g_q2*g_q2 - g_q3*g_q3) * 57.3;
 }
 
-
 int main() {
     initLED();
+    Key_init();
 
-    PWM_Init(7200,10);
+    PWM_Init(28800,5);
+    MOTOR1 = MOTOR_MAX;
+    PAUSE();
+    MOTOR1 = MOTOR_MIN;
+    PAUSE();
 
     uart_init(72, 115200);
 
@@ -112,14 +114,10 @@ int main() {
 
     SixAxis sourceData;
 
-    wifi_init();
 
-    MOTOR1 = 7190;
-    MOTOR2 = 7190;
 
-    delay(3000);
 
-    while(0) {
+    while(1) {
         MPU6050_getStructData(&sourceData);
         Comput(sourceData);
 
