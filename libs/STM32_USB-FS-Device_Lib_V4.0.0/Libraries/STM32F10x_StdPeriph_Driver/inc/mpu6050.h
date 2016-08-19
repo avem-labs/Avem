@@ -41,7 +41,7 @@ void delay(volatile unsigned int count);
 
 #define A_Y_OFFSET 11
 #define G_X_OFFSET 4
-#define A_Z_OFFSET -9
+#define A_Z_OFFSET 0
 
 
 typedef struct{

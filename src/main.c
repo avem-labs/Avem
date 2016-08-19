@@ -120,7 +120,7 @@ int main() {
         MPU6050_debug(&sourceData);
     }
 
-    while(1) {
+    while(0) {
         MPU6050_getStructData(&sourceData);
         Comput(sourceData);
 
