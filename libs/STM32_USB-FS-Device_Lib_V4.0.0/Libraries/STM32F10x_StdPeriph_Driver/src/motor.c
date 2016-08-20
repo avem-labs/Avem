@@ -2,7 +2,7 @@
 #include "motor.h"
 
 //A7
-void PWM_Init(unsigned short arr, unsigned short psc) {
+void motor_PWM_Init(unsigned short arr, unsigned short psc) {
     RCC->APB1ENR |= 1<<1;       //TIM3 enable
     RCC->APB2ENR |= 1<<2;       //GPIOA enable
 

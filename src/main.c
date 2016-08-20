@@ -101,12 +101,13 @@ void Comput(SixAxis cache) {
 int main() {
     initLED();
     Key_init();
+    motor_PWM_Init(28800,5);
 
-    PWM_Init(28800,5);
+//Brushless motor auto init
     MOTOR1 = MOTOR_MAX;
-    PAUSE();
+    delay(3000);
     MOTOR1 = MOTOR_MIN;
-    PAUSE();
+    delay(8000);
 
     uart_init(72, 115200);
 
