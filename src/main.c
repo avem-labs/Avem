@@ -110,9 +110,7 @@ int main() {
     delay(8000);
 
     uart_init(72, 115200);
-
     MPU_init();
-
     SixAxis sourceData;
 
 
