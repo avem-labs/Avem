@@ -6,7 +6,7 @@ void motor_PWM_Init(unsigned short arr, unsigned short psc) {
     RCC->APB1ENR |= 1<<1;       //TIM3 enable
     RCC->APB2ENR |= 1<<2;       //GPIOA enable
 
-    GPIOA->CRL &= 0x00FFFFFF;
+    GPIOA->CRL &= 0x00FFFFFF;   //Clean
     GPIOA->CRL |= 0xBB000000;   //复用推挽输出
     GPIOA->ODR |= 1<<7;     //CH2 GPIO Config
     GPIOA->ODR |= 1<<6;     //CH1 GPIO Config
@@ -24,5 +24,5 @@ void motor_PWM_Init(unsigned short arr, unsigned short psc) {
 
     TIM3->CR1 = 0x80;       //APRE Enable
     TIM3->CR1 |= 1;         //Set CEN, Allow to Count
-    //TIM1->BDTR |= 1<<15;
+    //TIM1->BDTR |= 1<<15;  //高级定时器需要使能BDTR寄存器
 }
