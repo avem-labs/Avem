@@ -42,11 +42,11 @@ void uart_showData(short k) {
     b = (unsigned char)(k/1000) % 10;
     a = (unsigned char)(k/10000);
 
-    uart_sendData(a+0x30);
-    uart_sendData(b+0x30);
-    uart_sendData(c+0x30);
-    uart_sendData(d+0x30);
-    uart_sendData(e+0x30);
+    uart_sendData(a+'0');
+    uart_sendData(b+'0');
+    uart_sendData(c+'0');
+    uart_sendData(d+'0');
+    uart_sendData(e+'0');
     uart_sendData(' ');
 }
 
