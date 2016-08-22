@@ -26,6 +26,8 @@ void wifi_init() {
 
     USART3->CR1 |= 1<<8;
     USART3->CR1 |= 1<<5;
+
+    USART3->SR;     //Read Reg SR to Clean TXE and TE,(Reset value: 0x00C0)
 }
 
 void wifi_sendSingleByte(unsigned char cmd) {
@@ -40,11 +42,11 @@ void wifi_sendData(char * cmd) {
         pointer++;
     }
 
-    wifi_sendSingleByte(0x0D);
-    wifi_sendSingleByte(0x0A);
 }
 
 void wifi_sendCmd(char * cmd) {
     wifi_sendData("AT+");
     wifi_sendData(cmd);
+    wifi_sendSingleByte(0x0D);
+    wifi_sendSingleByte(0x0A);
 }
