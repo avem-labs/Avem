@@ -24,6 +24,9 @@ void uart_init(unsigned int pclk2, unsigned int bound) {
 
     USART1->CR1 |= 1<<8;
     USART1->CR1 |= 1<<5;
+
+
+    USART1->SR;     //Read Reg SR to Clean TXE and TE,(Reset value: 0x00C0)
 }
 
 void uart_sendData(unsigned char data) {
@@ -105,3 +108,10 @@ unsigned char uart_Float2Char(float value) {
     return i;
 }
 
+void uart_sendStr(char * cmd) {
+    unsigned short pointer = 0;
+    while(*(cmd + pointer)) {
+        uart_sendData(*(cmd + pointer));
+        pointer++;
+    }
+}

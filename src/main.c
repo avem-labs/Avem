@@ -129,20 +129,14 @@ int main() {
         Comput(sourceData);
 
         pid(0, sourceData.gX);
-        uart_sendData(' ');
-        uart_sendData('M');
-        uart_sendData(':');
 
+        uart_sendStr(" Motor:");
         uart_showData(MOTOR1);
 
-        uart_sendData(' ');
-        uart_sendData('r');
-        uart_sendData(':');
+        uart_sendStr(" , Roll:");
         uart_Float2Char(g_Roll);
 
-        uart_sendData(' ');
-        uart_sendData('D');
-        uart_sendData(':');
+        uart_sendStr(" D: ");
         uart_Float2Char(sourceData.gX);
         uart_sendData(0x0D);
         uart_sendData(0x0A);
@@ -155,33 +149,15 @@ int main() {
 
         Comput(sourceData);
 
-        uart_sendData('P');
-        uart_sendData('i');
-        uart_sendData('t');
-        uart_sendData('c');
-        uart_sendData('h');
-        uart_sendData(':');
-        uart_sendData(' ');
 
+        uart_sendStr(" Pitch Angle: ");
         uart_Float2Char(g_Pitch);
-        uart_sendData(' ');
 
-        uart_sendData('R');
-        uart_sendData('o');
-        uart_sendData('l');
-        uart_sendData('l');
-        uart_sendData(':');
-        uart_sendData(' ');
 
+        uart_sendStr("; Roll Angle: ");
         uart_Float2Char(g_Roll);
-        uart_sendData(' ');
 
-        uart_sendData('Y');
-        uart_sendData('a');
-        uart_sendData('w');
-        uart_sendData(':');
-        uart_sendData(' ');
-
+        uart_sendStr("; Yaw Angle: ");
         uart_Float2Char(g_Yaw);
 
         uart_sendData(0x0D);
