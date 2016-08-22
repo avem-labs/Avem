@@ -6,6 +6,7 @@
 #define WIFI_BOUND 115200
 
 void wifi_init();
-void wifi_sendData(unsigned char cmd);
+void wifi_sendSingleByte(unsigned char cmd);
+void wifi_sendData();
 
 #endif

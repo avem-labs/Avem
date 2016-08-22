@@ -28,8 +28,11 @@ void wifi_init() {
     USART3->CR1 |= 1<<5;
 }
 
-void wifi_sendData(unsigned char cmd) {
+void wifi_sendSingleByte(unsigned char cmd) {
     USART3->DR = cmd;
     while((USART3->SR & 0x40) == 0);
+}
+
+void wifi_sendData() {
 }
 
