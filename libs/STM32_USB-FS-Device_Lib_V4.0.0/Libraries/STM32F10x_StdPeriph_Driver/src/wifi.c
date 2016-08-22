@@ -33,6 +33,18 @@ void wifi_sendSingleByte(unsigned char cmd) {
     while((USART3->SR & 0x40) == 0);
 }
 
-void wifi_sendData() {
+void wifi_sendData(char * cmd) {
+    unsigned short pointer = 0;
+    while(*(cmd + pointer)) {
+        wifi_sendSingleByte((unsigned char)*(cmd + pointer));
+        pointer++;
+    }
+
+    wifi_sendSingleByte(0x0D);
+    wifi_sendSingleByte(0x0A);
 }
 
+void wifi_sendCmd(char * cmd) {
+    wifi_sendData("AT+");
+    wifi_sendData(cmd);
+}

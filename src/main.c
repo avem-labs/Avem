@@ -4,7 +4,7 @@
 #include "mpu6050.h"
 #include "motor.h"
 #include "uart.h"
-
+#include "wifi.h"
 #include "key.h"
 
 #define Kp      100.0f      //比例增益支配率(常量)
@@ -111,6 +111,11 @@ int main() {
 
     uart_init(72, 115200);
     MPU_init();
+
+    wifi_init();
+
+    wifi_sendCmd("CWMODE=2");
+
     SixAxis sourceData;
 
 
