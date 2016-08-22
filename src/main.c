@@ -114,7 +114,8 @@ int main() {
 
     wifi_init();
 
-    wifi_sendCmd("CWMODE=2");
+    //wifi_sendCmd("CWMODE=2");
+    USART3->DR = 'A';
 
     SixAxis sourceData;
 
