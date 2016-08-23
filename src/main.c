@@ -114,7 +114,6 @@ int main() {
 
     wifi_init();
 
-    wifi_sendCmd("ATE0");
     wifi_sendCmd("AT+CWMODE=2");
 
     SixAxis sourceData;
