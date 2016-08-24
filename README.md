@@ -34,8 +34,6 @@
 
 ![](rm_img/PCB/3dpcb.png)
 
-![](rm_img/PCB/3D.png)
-
 ## PCB Layout
 
 ![](rm_img/PCB/pcb.png)
