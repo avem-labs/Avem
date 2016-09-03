@@ -15,7 +15,7 @@
 * PCB Layout (*Now I'm watting for PCB*)
 * 使用PWM外接商品电调驱动无刷电机-[Video on YouTube](https://youtu.be/iHYVgTmxoSw)
 	* **Wi-Fi**(`ESP8266`)
-	* PCB Test (Failed:sad:)
+	* PCB Test (Failed:flushed:)
 	* PID debug
 	* Design **frame**
 	* **GPS**
