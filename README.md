@@ -3,6 +3,15 @@
 
 [UAV] - [STM32F103] - 6 Axes sensor MPU6050 - Quaternion &amp; Euler Angles Compute - PID Controller
 
+# GPIO
+MPU6050 | BLDC | Wi-Fi | OLED Screen | LED
+:------:|:----:|:-----:|:-----------:|:---
+**`SCL`** PB15|**`PWM`** PA7|**`USART3_TX`** PB10|**`SDIN`** *TBD*|**`LED0`** PA8
+**`SDA`** PB13||**`USART3_RX`** PB11|**`SCLK`** *TBD*|**`LED1`** PD2
+**`AD0`** PC6	|||**`DC`** *TBD*
+||||**`RST`** *TBD*
+||||**`CS`** *TBD*
+
 # Todolist
 * Software **I2C**
 * Init **MPU6050**
