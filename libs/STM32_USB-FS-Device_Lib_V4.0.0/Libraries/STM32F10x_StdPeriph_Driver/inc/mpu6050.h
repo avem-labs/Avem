@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _MPU6050_H_
-#define _MPU6050_H_
+#ifndef MPU6050_H_
+#define MPU6050_H_
 
 //=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_
 #define LED0 BIT_ADDR((GPIOA_BASE+12), 8)

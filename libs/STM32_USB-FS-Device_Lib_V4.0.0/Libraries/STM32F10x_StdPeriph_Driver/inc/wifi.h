@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _WIFI_H
-#define _WIFI_H
+#ifndef WIFI_H_
+#define WIFI_H_
 //Only USART1 PCLK2 = 72
 #define WIFI_PCLK2 36
 #define WIFI_BOUND 115200

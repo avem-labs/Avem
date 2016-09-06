@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _MOTOR_H_
-#define _MOTOR_H_
+#ifndef MOTOR_H_
+#define MOTOR_H_
 
 
 #define MOTOR1 TIM3->CCR2
