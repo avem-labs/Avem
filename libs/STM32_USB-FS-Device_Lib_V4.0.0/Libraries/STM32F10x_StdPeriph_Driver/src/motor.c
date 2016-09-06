@@ -1,5 +1,5 @@
-#include "stm32f10x.h"
 #include "motor.h"
+#include "stm32f10x.h"
 
 //A7
 void motor_PWM_Init(unsigned short arr, unsigned short psc) {
