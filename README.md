@@ -6,11 +6,11 @@
 # GPIO
 MPU6050 | BLDC | Wi-Fi | OLED Screen | LED
 :------:|:----:|:-----:|:-----------:|:---
-**`SCL`** PB15|**`PWM`** PA7|**`USART3_TX`** PB10|**`SDIN`** *TBD*|**`LED0`** PA8
-**`SDA`** PB13||**`USART3_RX`** PB11|**`SCLK`** *TBD*|**`LED1`** PD2
-**`AD0`** PC6	|||**`DC`** *TBD*
-||||**`RST`** *TBD*
-||||**`CS`** *TBD*
+**`SCL`** PB15|**`PWM`** PA7|**`USART3_TX`** PB10|**`SDIN`** *3*|**`LED0`** PA8
+**`SDA`** PB13||**`USART3_RX`** PB11|**`SCLK`** *4*|**`LED1`** PD2
+**`AD0`** PC6	|||**`DC`** *5*
+||||**`RST`** *6*
+||||**`CS`** *7*
 
 # Todolist
 * Software **I2C**
