@@ -21,7 +21,7 @@ MPU6050 | BLDC | Wi-Fi | OLED Screen | LED
 * Driving motors with **L9110S**
 * **PID** Control
 * Schematic
-* PCB Layout (*Now I'm watting for PCB*)
+* PCB Layout
 * 使用PWM外接商品电调驱动无刷电机-[Video on YouTube](https://youtu.be/iHYVgTmxoSw)
 * **Wi-Fi**(`ESP8266`)
 	* PID debug
@@ -37,6 +37,7 @@ MPU6050 | BLDC | Wi-Fi | OLED Screen | LED
 :octocat:[but0n/MPU6050_stm32](https://github.com/but0n/MPU6050_stm32)
 
 #Hardware
+![](rm_img/PCB/pic.jpg)
 
 ## 3D Moudle
 
