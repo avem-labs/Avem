@@ -51,8 +51,7 @@ typedef struct{
     float aX;
     float aY;
     float aZ;
-}SixAxis;
-typedef SixAxis* pSixAxis;
+}SixAxis, *pSixAxis;
 
 
 void initLED();

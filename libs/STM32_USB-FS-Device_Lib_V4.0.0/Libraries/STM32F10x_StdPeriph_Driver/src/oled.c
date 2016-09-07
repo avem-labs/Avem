@@ -17,6 +17,13 @@ void oled_portInit() {
 
     GPIOB->CRL &= 0x00000FFF;
     GPIOB->CRL |= 0x33333FFF;
+
+    SDIN_OLED = 0;
+    SCLK_OLED = 0;
+    DC_OLED = 0;
+    RST_OLED = 0;
+    CS_OLED = 0;
+
 }
 
 void oled_sendData(unsigned char dat) {
@@ -25,13 +32,14 @@ void oled_sendData(unsigned char dat) {
 
     unsigned char i;
     for(i = 0; i < 8; i++) {
-        SCLK_OLED = 0;
         SDIN_OLED = (dat&0x80)>>7;
         dat <<= 1;
         delay_oled(10);
         SCLK_OLED = 1;
         delay_oled(10);
+        SCLK_OLED = 0;
     }
+    delay_oled(10);
     CS_OLED = 1;
 }
 
@@ -41,13 +49,14 @@ void oled_sendCmd(unsigned char cmd) {
 
     unsigned char i;
     for(i = 0; i < 8; i++) {
-        SCLK_OLED = 0;
         SDIN_OLED = (cmd&0x80)>>7;
         cmd <<= 1;
         delay_oled(10);
         SCLK_OLED = 1;
         delay_oled(10);
+        SCLK_OLED = 0;
     }
+    delay_oled(10);
     CS_OLED = 1;
 }
 
