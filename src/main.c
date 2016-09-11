@@ -6,7 +6,6 @@
 #include "uart.h"
 #include "wifi.h"
 #include "key.h"
-#include "oled.h"
 
 #define Kp      100.0f      //比例增益支配率(常量)
 #define Ki      0.002f      //积分增益支配率
@@ -100,7 +99,6 @@ void Comput(SixAxis cache) {
 }
 
 int main() {
-    oled_init();
     initLED();
     Key_init();
     motor_PWM_Init(28800,5);
