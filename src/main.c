@@ -100,16 +100,7 @@ void Comput(SixAxis cache) {
 
 int main() {
 
-    wifi_init();
-
-    wifi_sendCmd("AT");
-    delay(1000);
-    wifi_sendCmd("AT+CWMODE=2");
-    delay(1000);
-    wifi_sendCmd("AT+RST");
-
     initLED();
-    Key_init();
     motor_PWM_Init(28800,5);
 
 //Brushless motor auto init

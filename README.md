@@ -24,10 +24,10 @@ MPU6050 | BLDC | Wi-Fi | LED
 * **PID** Control
 * Schematic
 * PCB Layout
-* 使用PWM外接商品电调驱动无刷电机-[Video on YouTube](https://youtu.be/iHYVgTmxoSw)
+* Brushless DC motor-[Video on YouTube](https://youtu.be/iHYVgTmxoSw)
 * **Wi-Fi**(`ESP8266`)
+	* TCP/IP Socket connect with host
 	* PID debug
-	* Design **frame**
 	* **GPS**
 	* 3D print or CNC cut
 	* ... ...
