@@ -40,12 +40,13 @@ void wifi_sendData(char * cmd) {
     while(*(cmd + pointer)) {
         wifi_sendSingleByte(*(cmd + pointer));
         pointer++;
+        delay(50);
     }
 
 }
 
 void wifi_sendCmd(char * cmd) {
     wifi_sendData(cmd);
-    wifi_sendSingleByte(0x0A);
     wifi_sendSingleByte(0x0D);
+    wifi_sendSingleByte(0x0A);
 }

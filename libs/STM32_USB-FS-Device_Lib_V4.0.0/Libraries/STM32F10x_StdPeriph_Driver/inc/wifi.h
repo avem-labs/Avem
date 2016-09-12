@@ -10,4 +10,5 @@ void wifi_sendSingleByte(unsigned char cmd);
 void wifi_sendData(char * cmd);
 void wifi_sendCmd(char * cmd);
 
+extern void delay(volatile unsigned int count);
 #endif
