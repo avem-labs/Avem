@@ -100,6 +100,15 @@ void Comput(SixAxis cache) {
 
 int main() {
 
+    wifi_Config();
+
+     while(1) {
+         wifi_sendCmd("AT+CIPSEND=0,20");
+         delay(50);
+         wifi_sendCmd("<html>aki<br></html>");
+         delay(1000);
+     }
+
     initLED();
     motor_PWM_Init(28800,5);
 

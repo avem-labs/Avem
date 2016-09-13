@@ -65,12 +65,3 @@ MPU6050 | BLDC | Wi-Fi | LED
 
 ### USART In-System Programming
 ![](rm_img/usart.png)
-
-### Motor driver
-![](rm_img/l9110.png)
-
-### MPU6050
-![](rm_img/mpu6050.png)
-
-### MOTORS 4-CHANNEL LEFT & 4-CHANNEL RIGHT
-![](rm_img/motors.png)

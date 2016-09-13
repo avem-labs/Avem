@@ -49,3 +49,13 @@ void wifi_sendCmd(char * cmd) {
     wifi_sendSingleByte(0x0D);
     wifi_sendSingleByte(0x0A);
 }
+
+void wifi_Config() {
+     wifi_init();
+     wifi_sendCmd("AT+CWMODE=2");
+    delay(50);
+     wifi_sendCmd("AT+CIPMUX=1");
+    delay(50);
+     wifi_sendCmd("AT+CIPSERVER=1,80");
+    delay(50);
+}
