@@ -102,7 +102,7 @@ int main() {
 
     wifi_Config();
 
-     while(1) {
+     while(0) {
          wifi_sendCmd("AT+CIPSEND=0,20");
          delay(50);
          wifi_sendCmd("<html>aki<br></html>");
