@@ -110,13 +110,9 @@ int main() {
      }
 
     initLED();
-    motor_PWM_Init(28800,5);
 
 //Brushless motor auto init
-    MOTOR1 = MOTOR_MAX;
-    delay(3000);
-    MOTOR1 = MOTOR_MIN;
-    delay(8000);
+    MOTOR_SETTING();
 
     uart_init(72, 115200);
     MPU_init();
