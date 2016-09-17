@@ -38,30 +38,18 @@ MPU6050 | BLDC | Wi-Fi | LED
 
 :octocat:[but0n/MPU6050_stm32](https://github.com/but0n/MPU6050_stm32)
 
-#Hardware
-![](rm_img/PCB/pic.jpg)
+# Old Version Hardware
+![](rm_img/PCB/old_pic.jpg)
+
 
 ## 3D Moudle
 
-![](rm_img/PCB/3dpcb.png)
+![](rm_img/PCB/demoV2.png)
 
 ## PCB Layout
-
-![](rm_img/PCB/pcb.png)
+New Version
+![](rm_img/PCB/layout.png)
 
 ## Schematic
 
-### Microcontroller -- STM32F103
-![](rm_img/stm.png)
-
-### 3.3v Power supply (DC2DC)
-![](rm_img/1117.png)
-
-### RESET
-![](rm_img/reset.png)
-
-### OSC
-![](rm_img/osc.png)
-
-### USART In-System Programming
-![](rm_img/usart.png)
+![](rm_img/pcb.png)
