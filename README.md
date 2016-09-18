@@ -38,7 +38,9 @@ MPU6050 | BLDC | Wi-Fi | LED
 
 :octocat:[but0n/MPU6050_stm32](https://github.com/but0n/MPU6050_stm32)
 
-# Old Version Hardware
+# Hardware
+> OLD VERSION
+
 ![](rm_img/PCB/old_pic.jpg)
 
 
@@ -48,7 +50,8 @@ MPU6050 | BLDC | Wi-Fi | LED
 
 ## PCB Layout
 New Version
-![](rm_img/PCB/layout.png)
+![](rm_img/PCB/layoutF.png)
+![](rm_img/PCB/layoutB.png)
 
 ## Schematic
 
