@@ -50,6 +50,7 @@ MPU6050 | BLDC | Wi-Fi | LED
 
 ## PCB Layout
 New Version
+
 ![](rm_img/PCB/layoutF.png)
 ![](rm_img/PCB/layoutB.png)
 
