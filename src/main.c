@@ -98,6 +98,7 @@ void Comput(SixAxis cache) {
     g_Yaw = atan2(2 * (g_q1 * g_q2 + g_q0 * g_q3), g_q0*g_q0 + g_q1*g_q1 - g_q2*g_q2 - g_q3*g_q3) * 57.3;
 }
 
+#define DEBUG_WIFI
 int main() {
 
     wifi_Config();
@@ -121,12 +122,13 @@ int main() {
     SixAxis sourceData;
 
 
-    while(0) {
+    while(1) {
+#ifdef DEBUG_MPU6050_SOURCEDATA
         MPU6050_getStructData(&sourceData);
         MPU6050_debug(&sourceData);
-    }
+#endif
 
-    while(1) {
+#ifdef DEBUG_PID
         MPU6050_getStructData(&sourceData);
         Comput(sourceData);
 
@@ -143,10 +145,9 @@ int main() {
         uart_sendData(0x0D);
         uart_sendData(0x0A);
 
-    }
-    while(1) {
+#endif
 
-
+#ifdef DEBUG_MPU6050_EULER
         MPU6050_getStructData(&sourceData);
 
         Comput(sourceData);
@@ -166,6 +167,6 @@ int main() {
         uart_sendData(0x0A);
 
         delay(100);
-
+#endif
     }
 }

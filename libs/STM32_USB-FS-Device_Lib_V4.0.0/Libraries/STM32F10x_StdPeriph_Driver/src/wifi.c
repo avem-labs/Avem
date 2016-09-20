@@ -51,11 +51,11 @@ void wifi_sendCmd(char * cmd) {
 }
 
 void wifi_Config() {
-     wifi_init();
-     wifi_sendCmd("AT+CWMODE=2");
+    wifi_init();
+    wifi_sendCmd("AT+CWMODE=2");
     delay(50);
-     wifi_sendCmd("AT+CIPMUX=1");
+    wifi_sendCmd("AT+CIPMUX=1");
     delay(50);
-     wifi_sendCmd("AT+CIPSERVER=1,80");
+    wifi_sendCmd("AT+CIPSERVER=1,80");
     delay(50);
 }
