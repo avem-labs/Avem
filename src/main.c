@@ -98,17 +98,21 @@ void Comput(SixAxis cache) {
     g_Yaw = atan2(2 * (g_q1 * g_q2 + g_q0 * g_q3), g_q0*g_q0 + g_q1*g_q1 - g_q2*g_q2 - g_q3*g_q3) * 57.3;
 }
 
-#define DEBUG_WIFI
+//#define DEBUG_WIFI
+#define DEBUG_MPU6050_EULER     //Do not comment this, even not work
 int main() {
 
+    SixAxis sourceData;
     wifi_Config();
 
-     while(0) {
+#ifdef DEBUG_WIFI
+     while(1) {
          wifi_sendCmd("AT+CIPSEND=0,20");
          delay(50);
          wifi_sendCmd("<html>aki<br></html>");
          delay(1000);
      }
+#endif
 
     initLED();
 
@@ -119,7 +123,6 @@ int main() {
     MPU_init();
 
 
-    SixAxis sourceData;
 
 
     while(1) {
