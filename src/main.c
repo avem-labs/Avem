@@ -98,11 +98,14 @@ void Comput(SixAxis cache) {
     g_Yaw = atan2(2 * (g_q1 * g_q2 + g_q0 * g_q3), g_q0*g_q0 + g_q1*g_q1 - g_q2*g_q2 - g_q3*g_q3) * 57.3;
 }
 
-//#define DEBUG_WIFI
-#define DEBUG_MPU6050_EULER     //Do not comment this, even not work
+#define DEBUG_MPU6050_EULER
+//#define DEBUG_MPU6050_EULER
 int main() {
-
+#ifndef DEBUG_WIFI
     SixAxis sourceData;
+#endif
+
+
     wifi_Config();
 
 #ifdef DEBUG_WIFI
@@ -117,11 +120,16 @@ int main() {
     initLED();
 
 //Brushless motor auto init
+#ifdef DEBUG_BLDC
     MOTOR_SETTING();
+#endif
 
     uart_init(72, 115200);
+    uart_sendStr("Config MPU6050...");
+    UART_CR();
     MPU_init();
-
+    uart_sendStr("MPU6050 Connect Success!");
+    UART_CR();
 
 
 
@@ -145,8 +153,7 @@ int main() {
 
         uart_sendStr(" D: ");
         uart_Float2Char(sourceData.gX);
-        uart_sendData(0x0D);
-        uart_sendData(0x0A);
+        UART_CR();
 
 #endif
 
@@ -156,7 +163,7 @@ int main() {
         Comput(sourceData);
 
 
-        uart_sendStr(" Pitch Angle: ");
+        uart_sendStr("Pitch Angle: ");
         uart_Float2Char(g_Pitch);
 
 
@@ -166,8 +173,7 @@ int main() {
         uart_sendStr("; Yaw Angle: ");
         uart_Float2Char(g_Yaw);
 
-        uart_sendData(0x0D);
-        uart_sendData(0x0A);
+        UART_CR();
 
         delay(100);
 #endif
