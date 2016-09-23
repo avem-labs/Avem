@@ -98,25 +98,11 @@ void Comput(SixAxis cache) {
     g_Yaw = atan2(2 * (g_q1 * g_q2 + g_q0 * g_q3), g_q0*g_q0 + g_q1*g_q1 - g_q2*g_q2 - g_q3*g_q3) * 57.3;
 }
 
-#define DEBUG_MPU6050_EULER
-//#define DEBUG_MPU6050_EULER
+#define DEBUG_BLDC
 int main() {
-#ifndef DEBUG_WIFI
+#if defined (DEBUG_PID) || defined (DEBUG_MPU6050_EULER) || defined (DEBUG_MPU6050_SOURCEDATA) || defined (DEBUG_BLDC)
     SixAxis sourceData;
 #endif
-
-
-    wifi_Config();
-
-#ifdef DEBUG_WIFI
-     while(1) {
-         wifi_sendCmd("AT+CIPSEND=0,20");
-         delay(50);
-         wifi_sendCmd("<html>aki<br></html>");
-         delay(1000);
-     }
-#endif
-
     initLED();
 
 //Brushless motor auto init
@@ -134,12 +120,21 @@ int main() {
 
 
     while(1) {
+#ifdef DEBUG_WIFI
+        wifi_Config();
+         while(1) {
+             wifi_sendCmd("AT+CIPSEND=0,20");
+             delay(50);
+             wifi_sendCmd("<html>aki<br></html>");
+             delay(1000);
+         }
+#endif
 #ifdef DEBUG_MPU6050_SOURCEDATA
         MPU6050_getStructData(&sourceData);
         MPU6050_debug(&sourceData);
 #endif
 
-#ifdef DEBUG_PID
+#if defined (DEBUG_PID) || defined (DEBUG_BLDC)
         MPU6050_getStructData(&sourceData);
         Comput(sourceData);
 
@@ -154,7 +149,6 @@ int main() {
         uart_sendStr(" D: ");
         uart_Float2Char(sourceData.gX);
         UART_CR();
-
 #endif
 
 #ifdef DEBUG_MPU6050_EULER
