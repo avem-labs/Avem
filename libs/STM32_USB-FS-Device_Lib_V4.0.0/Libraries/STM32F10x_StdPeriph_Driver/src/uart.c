@@ -10,14 +10,14 @@ void uart_init(unsigned int pclk2, unsigned int bound) {
     fraction = (temp - mantissa) * 16;
     mantissa <<= 4;
     mantissa += fraction;
-    RCC->APB2ENR |= 1<<2;   //GPIOA Enable
-    RCC->APB2ENR |= 1<<14;  //USART1 Enable
+    RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;   //GPIOA Enable
+    RCC->APB2ENR |= RCC_APB2ENR_USART1EN;  //USART1 Enable
 
     GPIOA->CRH &= 0xFFFFF00F;
     GPIOA->CRH |= 0x000008B0;
 
-    RCC->APB2RSTR |= 1<<14;
-    RCC->APB2RSTR &= ~(1<<14);
+    RCC->APB2RSTR |= RCC_APB2RSTR_USART1RST;
+    RCC->APB2RSTR &= ~RCC_APB2RSTR_USART1RST;
 
     USART1->BRR = mantissa;
     USART1->CR1 |= 0x200C;

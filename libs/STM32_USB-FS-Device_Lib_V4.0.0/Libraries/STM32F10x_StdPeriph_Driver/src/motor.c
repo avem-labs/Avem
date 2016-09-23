@@ -3,8 +3,11 @@
 
 //A7
 void motor_PWM_Init(unsigned short arr, unsigned short psc) {
-    RCC->APB1ENR |= 1<<1;       //TIM3 enable
-    RCC->APB2ENR |= 1<<2;       //GPIOA enable
+    //RCC->APB1ENR |= 1<<1;       //TIM3 enable
+    //RCC->APB2ENR |= 1<<2;       //GPIOA enable
+
+    RCC->APB1ENR |= RCC_APB1ENR_TIM3EN;   //TIM3 Enable
+    RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;   //IO Port A Enable
 
     GPIOA->CRL &= 0x00FFFFFF;   //Clean
     GPIOA->CRL |= 0xBB000000;   //复用推挽输出

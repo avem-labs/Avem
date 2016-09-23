@@ -7,7 +7,7 @@
 
 
 void initLED() {
-    RCC->APB2ENR |= 1<<5;
+    RCC->APB2ENR |= RCC_APB2ENR_IOPDEN;
     GPIOD->CRL &= 0xFFFFF0FF;
     GPIOD->CRL |= 0x00000300;
 
