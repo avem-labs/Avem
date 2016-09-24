@@ -9,7 +9,7 @@
 MPU6050 | BLDC | Wi-Fi | LED
 :------:|:----:|:-----:|:-----------:|:---
 **`SCL`** PB15|**`PWM`** PA7|**`USART3_TX`** PB10|**`LED0`** PA8
-**`SDA`** PB13||**`USART3_RX`** PB11|**`LED1`** PD2
+**`SDA`** PB14||**`USART3_RX`** PB11|**`LED1`** PD2
 **`AD0`** PC6	|
 
 
@@ -39,9 +39,13 @@ MPU6050 | BLDC | Wi-Fi | LED
 :octocat:[but0n/MPU6050_stm32](https://github.com/but0n/MPU6050_stm32)
 
 # Hardware
-> OLD VERSION
+> Old Version
 
 ![](rm_img/PCB/old_pic.jpg)
+
+> New Version
+
+![](rm_img/FinalVersion.jpg)
 
 
 ## 3D Moudle
