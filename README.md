@@ -42,7 +42,7 @@ MPU6050 | BLDC | Wi-Fi | LED
 
 > New Version
 
-![](rm_img/FinalVersion.jpg)
+![](rm_img/FinalVersion.JPG)
 
 
 ## 3D Moudle
