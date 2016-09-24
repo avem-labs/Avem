@@ -4,13 +4,15 @@
 #define I2C_H_
 
 
-#define SCL BIT_ADDR((GPIOB_BASE+12), 15)
-#define SDA BIT_ADDR((GPIOB_BASE+12), 13)
-#define AD0 BIT_ADDR((GPIOC_BASE+12), 6)
+#define SCL_PINNUM 15
+#define SDA_PINNUM 14
+#define SCL BIT_ADDR((GPIOB_BASE+12), SCL_PINNUM)
+#define SDA BIT_ADDR((GPIOB_BASE+12), SDA_PINNUM)
+//#define AD0 BIT_ADDR((GPIOC_BASE+12), 6)
 
 
 #define GPIOB_IDR_Addr (GPIOB_BASE + 8)
-#define READ_SDA BIT_ADDR(GPIOB_IDR_Addr, 13)
+#define READ_SDA BIT_ADDR(GPIOB_IDR_Addr, SDA_PINNUM)
 
 #define IIC_DELAY() {delay_us(1);}
 
