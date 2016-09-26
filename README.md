@@ -6,11 +6,12 @@
 [UAV] - [STM32F103] - 6 Axes sensor MPU6050 - Quaternion &amp; Euler Angles Compute - PID Controller
 
 # GPIO List
-MPU6050 | BLDC | Wi-Fi | LED
-:------:|:----:|:-----:|:-----------:|:---
-**`SCL`** PB15|**`PWM`** PA7|**`USART3_TX`** PB10|**`LED0`** PA8
-**`SDA`** PB14||**`USART3_RX`** PB11|**`LED1`** PD2
-
+MPU6050 			| BLDC 			| Wi-Fi | GPS
+:----:				|:----:			|:----: |:---:
+**`SCL`** PB15	|**`CH1`** PA6	|**`USART3_TX`** PB10|*TBD*
+**`SDA`** PB14	|**`CH2`** PA7	|**`USART3_RX`** PB11|*TBD*
+					|**`CH3`** PB0
+					|**`CH4`** PB1
 # Todolist
 * Software **I2C**
 * Init **MPU6050**
@@ -31,10 +32,6 @@ MPU6050 | BLDC | Wi-Fi | LED
 
 ----
 
-# Software
-
-:octocat:[but0n/MPU6050_stm32](https://github.com/but0n/MPU6050_stm32)
-
 # Hardware
 > Old Version
 
@@ -50,9 +47,11 @@ MPU6050 | BLDC | Wi-Fi | LED
 ![](rm_img/PCB/demoV2.png)
 
 ## PCB Layout
-New Version
+Front
 
 ![](rm_img/PCB/layoutF.png)
+
+Back
 ![](rm_img/PCB/layoutB.png)
 
 ## Schematic
