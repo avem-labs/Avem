@@ -52,6 +52,7 @@ Front
 ![](rm_img/PCB/layoutF.png)
 
 Back
+
 ![](rm_img/PCB/layoutB.png)
 
 ## Schematic
