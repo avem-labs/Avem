@@ -53,7 +53,7 @@ void MPU_init() {
         MPU_Sigle_Write(CONFIG, 0x06);
         MPU_Sigle_Write(GYRO_CONFIG, 0x18);
         MPU_Sigle_Write(ACCEL_CONFIG, 0x01);
-    } while(IMU_CONNECTED);
+    } while(IMU_NOT_CONNECTED);
 }
 
 void MPU6050_getStructData(pSixAxis cache) {
