@@ -47,14 +47,13 @@ short MPU_GetData(unsigned char REG_Addr) {
 
 void MPU_init() {
     IIC_init();
-    //delay(500);
-    MPU_Sigle_Write(PWR_MGMT_1, 0x00);
-    MPU_Sigle_Write(SMPLRT_DIV, 0x07);
-    MPU_Sigle_Write(CONFIG, 0x06);
-    MPU_Sigle_Write(GYRO_CONFIG, 0x18);
-    MPU_Sigle_Write(ACCEL_CONFIG, 0x01);
-
-    //LED1 = MPU_Sigle_Read(WHO_AM_I) == 0x68?0:1;
+    do {
+        MPU_Sigle_Write(PWR_MGMT_1, 0x00);
+        MPU_Sigle_Write(SMPLRT_DIV, 0x07);
+        MPU_Sigle_Write(CONFIG, 0x06);
+        MPU_Sigle_Write(GYRO_CONFIG, 0x18);
+        MPU_Sigle_Write(ACCEL_CONFIG, 0x01);
+    } while(IMU_CONNECTED);
 }
 
 void MPU6050_getStructData(pSixAxis cache) {

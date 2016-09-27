@@ -5,7 +5,6 @@
 #include "motor.h"
 #include "uart.h"
 #include "wifi.h"
-#include "key.h"
 
 #define Kp      100.0f      //比例增益支配率(常量)
 #define Ki      0.002f      //积分增益支配率
@@ -102,7 +101,6 @@ int main() {
 #if defined (DEBUG_PID) || defined (DEBUG_MPU6050_EULER) || defined (DEBUG_MPU6050_SOURCEDATA) || defined (DEBUG_BLDC)
     SixAxis sourceData;
 #endif
-    initLED();
 
 //Brushless motor auto init
 #ifdef DEBUG_BLDC

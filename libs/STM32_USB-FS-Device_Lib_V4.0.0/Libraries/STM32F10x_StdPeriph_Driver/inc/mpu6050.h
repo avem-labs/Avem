@@ -43,6 +43,8 @@ void delay(volatile unsigned int count);
 #define G_X_OFFSET 4
 #define A_Z_OFFSET 0
 
+#define IMU_ADDRESS 0x68
+#define IMU_CONNECTED (MPU_Sigle_Read(WHO_AM_I)==IMU_ADDRESS)
 
 typedef struct{
     float gX;
