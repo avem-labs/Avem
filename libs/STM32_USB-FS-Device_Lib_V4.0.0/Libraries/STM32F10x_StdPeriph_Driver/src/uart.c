@@ -40,10 +40,10 @@ void uart_showData(short k) {
     uart_sendData(k<0?'-':'+');
     if(k<0) k=-k;
     e = (unsigned char)(k % 10);
-    d = (unsigned char)(k/10) % 10;
-    c = (unsigned char)(k/100) % 10;
-    b = (unsigned char)(k/1000) % 10;
-    a = (unsigned char)(k/10000);
+    d = (unsigned char)(k / 10 % 10);
+    c = (unsigned char)(k / 100 % 10);
+    b = (unsigned char)(k / 1000 % 10);
+    a = (unsigned char)(k / 10000);
 
     uart_sendData(a+'0');
     uart_sendData(b+'0');

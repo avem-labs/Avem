@@ -32,7 +32,6 @@ void pid(float setPoint, float d) {
 
     short resu = (short)(g_iErro * K_P + g_sumErro * K_I + d * K_D);  //PID输出
 
-
     if((MOTOR1 + resu) > MOTOR_MAX)
         MOTOR1 = MOTOR_MAX;
     else if((MOTOR1 + resu) < MOTOR_MIN)
