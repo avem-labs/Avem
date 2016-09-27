@@ -5,17 +5,6 @@
 #include "i2c.h"
 #include "uart.h"
 
-
-void initLED() {
-    RCC->APB2ENR |= RCC_APB2ENR_IOPDEN;
-    GPIOD->CRL &= 0xFFFFF0FF;
-    GPIOD->CRL |= 0x00000300;
-
-    //RCC->APB2ENR |= 1<<4;
-    //GPIOC->CRH &= 0xFF0FFFFF;
-    //GPIOC->CRH |= 0x00300000;
-}
-
 void MPU_Sigle_Write(unsigned char reg_addr, unsigned char reg_data) {
     IIC_Start();
     IIC_Send(MPU6050_ADDR);
@@ -28,8 +17,8 @@ void MPU_Sigle_Write(unsigned char reg_addr, unsigned char reg_data) {
     IIC_Wait_Ack();
 
     IIC_Stop();
-
 }
+
 unsigned char MPU_Sigle_Read(unsigned reg_addr) {
     unsigned char reg_data;
     IIC_Start();
@@ -48,12 +37,14 @@ unsigned char MPU_Sigle_Read(unsigned reg_addr) {
     IIC_Stop();
     return reg_data;
 }
+
 short MPU_GetData(unsigned char REG_Addr) {
     unsigned char H, L;
     H = MPU_Sigle_Read(REG_Addr);
     L = MPU_Sigle_Read(REG_Addr+1);
     return (short)(H<<8)+L;
 }
+
 void MPU_init() {
     IIC_init();
     //delay(500);
@@ -63,8 +54,7 @@ void MPU_init() {
     MPU_Sigle_Write(GYRO_CONFIG, 0x18);
     MPU_Sigle_Write(ACCEL_CONFIG, 0x01);
 
-    LED1 = MPU_Sigle_Read(WHO_AM_I) == 0x68?0:1;
-    //LED1 = MPU_Sigle_Read(WHO_AM_I) == 0x68?1:0;
+    //LED1 = MPU_Sigle_Read(WHO_AM_I) == 0x68?0:1;
 }
 
 void MPU6050_getStructData(pSixAxis cache) {
