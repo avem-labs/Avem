@@ -13,7 +13,7 @@ void delay(volatile unsigned int count);
 #define MPU6050_ADDR 0xD0 //    0x68 >> 1
 
 #define SMPLRT_DIV      0x19
-#define CONFIG 0x1A
+#define CONFIG          0x1A
 #define GYRO_CONFIG     0x1B
 #define ACCEL_CONFIG    0x1C
 
@@ -38,9 +38,14 @@ void delay(volatile unsigned int count);
 #define WHO_AM_I        0x75
 
 //=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_
+#define IMU_SOFTWARE_FIXED
 
-#define A_Y_OFFSET 11
-#define G_X_OFFSET 4
+#define G_X_OFFSET 5.2439f
+#define G_Y_OFFSET -0.7926f
+#define G_Z_OFFSET -0.3048f
+
+#define A_X_OFFSET 0
+#define A_Y_OFFSET 11.3f
 #define A_Z_OFFSET 0
 
 #define IMU_ADDRESS 0x68

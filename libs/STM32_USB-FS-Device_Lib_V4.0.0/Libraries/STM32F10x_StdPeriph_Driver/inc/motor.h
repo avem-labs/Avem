@@ -8,6 +8,7 @@
 
 #define MOTOR_MAX (unsigned short)27360
 #define MOTOR_MIN (unsigned short)10080
+#define MOTOR_LOW (unsigned short)15000
 #define MOTOR_SETTING() {\
     motor_PWM_Init(28800,5);\
     MOTOR1 = MOTOR_MAX;\

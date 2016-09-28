@@ -20,10 +20,9 @@ float g_Yaw, g_Pitch, g_Roll;     //eular
 #define SUM_ERRO_MAX 900
 #define SUM_ERRO_MIN -900
 
-
 float g_iErro, g_sumErro = 0;
 void pid(float setPoint, float d) {
-    g_iErro = g_Roll - setPoint;    //计算当前误差
+    g_iErro = g_Pitch - setPoint;    //计算当前误差
     g_sumErro += g_iErro;       //对误差进行积分
 
     if(g_sumErro > SUM_ERRO_MAX) g_sumErro = SUM_ERRO_MAX;  //积分限幅
@@ -33,8 +32,8 @@ void pid(float setPoint, float d) {
 
     if((MOTOR1 + resu) > MOTOR_MAX)
         MOTOR1 = MOTOR_MAX;
-    else if((MOTOR1 + resu) < MOTOR_MIN)
-        MOTOR1 = MOTOR_MIN;
+    else if((MOTOR1 + resu) < MOTOR_LOW)
+        MOTOR1 = MOTOR_LOW;
     else MOTOR1 += resu;
 }
 

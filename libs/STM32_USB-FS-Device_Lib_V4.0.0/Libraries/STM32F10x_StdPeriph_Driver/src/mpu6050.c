@@ -65,9 +65,15 @@ void MPU6050_getStructData(pSixAxis cache) {
     cache->aY = (float)MPU_GetData(ACCEL_YOUT_H)/1671.83f;
     cache->aZ = (float)MPU_GetData(ACCEL_ZOUT_H)/1671.83f;
 
-    cache->aY += A_Y_OFFSET;
+#ifdef IMU_SOFTWARE_FIXED
     cache->gX += G_X_OFFSET;
+    cache->gY += G_Y_OFFSET;
+    cache->gZ += G_Z_OFFSET;
+
+    cache->aX += A_X_OFFSET;
+    cache->aY += A_Y_OFFSET;
     cache->aZ += A_Z_OFFSET;
+#endif
 }
 void MPU6050_debug(pSixAxis cache) {
     uart_Float2Char((float)cache->gX);
