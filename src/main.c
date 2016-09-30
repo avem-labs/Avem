@@ -30,11 +30,17 @@ void pid(float setPoint, float d) {
 
     short resu = (short)(g_iErro * K_P + g_sumErro * K_I + d * K_D);  //PID输出
 
-    if((MOTOR1 + resu) > MOTOR_MAX)
-        MOTOR1 = MOTOR_MAX;
-    else if((MOTOR1 + resu) < MOTOR_LOW)
-        MOTOR1 = MOTOR_LOW;
-    else MOTOR1 += resu;
+    if((MOTOR2 + resu) > MOTOR_MAX)
+        MOTOR2 = MOTOR_MAX;
+    else if((MOTOR2 + resu) < MOTOR_LOW)
+        MOTOR2 = MOTOR_LOW;
+    else MOTOR2 += resu;
+
+    if((MOTOR4 + resu) > MOTOR_MAX)
+        MOTOR4 = MOTOR_MAX;
+    else if((MOTOR4 + resu) < MOTOR_LOW)
+        MOTOR4 = MOTOR_LOW;
+    else MOTOR4 += resu;
 }
 
 //ms
