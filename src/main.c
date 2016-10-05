@@ -5,6 +5,7 @@
 #include "motor.h"
 #include "uart.h"
 #include "wifi.h"
+#include "pid.h"
 
 #define Kp      100.0f      //比例增益支配率(常量)
 #define Ki      0.002f      //积分增益支配率
@@ -12,36 +13,8 @@
 
 float g_q0 = 1, g_q1 = 0, g_q2 = 0, g_q3 = 0;   //Quaternion
 float g_exInt = 0, g_eyInt = 0, g_ezInt = 0;
-float g_Yaw, g_Pitch, g_Roll;     //eular
+float g_Yaw, g_Pitch, g_Roll;
 
-#define K_P 2.57f //0.257 * 0.83 0.255
-#define K_I 0
-#define K_D 0
-#define SUM_ERRO_MAX 900
-#define SUM_ERRO_MIN -900
-
-float g_iErro, g_sumErro = 0;
-void pid(float setPoint, float d) {
-    g_iErro = g_Pitch - setPoint;    //计算当前误差
-    g_sumErro += g_iErro;       //对误差进行积分
-
-    if(g_sumErro > SUM_ERRO_MAX) g_sumErro = SUM_ERRO_MAX;  //积分限幅
-    else if(g_sumErro < SUM_ERRO_MIN) g_sumErro = SUM_ERRO_MIN;
-
-    short resu = (short)(g_iErro * K_P + g_sumErro * K_I + d * K_D);  //PID输出
-
-    if((MOTOR2 + resu) > MOTOR_MAX)
-        MOTOR2 = MOTOR_MAX;
-    else if((MOTOR2 + resu) < MOTOR_LOW)
-        MOTOR2 = MOTOR_LOW;
-    else MOTOR2 += resu;
-
-    if((MOTOR4 + resu) > MOTOR_MAX)
-        MOTOR4 = MOTOR_MAX;
-    else if((MOTOR4 + resu) < MOTOR_LOW)
-        MOTOR4 = MOTOR_LOW;
-    else MOTOR4 += resu;
-}
 
 //ms
 void delay(volatile unsigned int count) {
