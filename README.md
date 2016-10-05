@@ -5,6 +5,7 @@
 
 [UAV] - [STM32F103] - 6 Axes sensor MPU6050 - Quaternion &amp; Euler Angles Compute - PID Controller
 
+[Detials & Videos](http://bbs.5imx.com/forum.php?mod=viewthread&tid=1227960&extra=page%3D1)
 
 # GPIO List
 MPU6050 			| BLDC 			| Wi-Fi | GPS
