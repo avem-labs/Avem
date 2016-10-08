@@ -10,6 +10,15 @@ extern float g_Yaw, g_Pitch, g_Roll;     //eular
 #define SUM_ERRO_MAX 900
 #define SUM_ERRO_MIN -900
 
+typedef struct {
+    float Cache;
+    float Erro;
+    float p;
+    float i;
+    float d;
+    short output;
+} pid_st, *pid_pst;
+
 void pid(float setPoint, float d);
 
 #endif

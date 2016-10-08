@@ -42,29 +42,16 @@
 
 - 存储角速度
 
+## Code
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+先定义结构体以及结构体指针, 把运算过程使用的大量变量封装起来, 在专属函数中对其解析和利用
+``` c
+typedef struct {
+    float Cache;
+    float Erro;
+    float p;
+    float i;
+    float d;
+    short output;
+} pid_st, *pid_pst;
+```
