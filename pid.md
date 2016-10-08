@@ -47,11 +47,11 @@
 先定义结构体以及结构体指针, 把运算过程使用的大量变量封装起来, 在专属函数中对其解析和利用
 ``` c
 typedef struct {
-    float Cache;
-    float Erro;
-    float p;
-    float i;
-    float d;
-    short output;
+    float Cache; 	//缓存数据, 保存上一次的值以便于向后差分
+    float Erro; 		//误差值
+    float p;			//比例项
+    float i;			//积分项
+    float d;			//微分项
+    short output;	//PID输出, 用来修改PWM值, 2字节
 } pid_st, *pid_pst;
 ```
