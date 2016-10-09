@@ -10,8 +10,16 @@ extern float g_Yaw, g_Pitch, g_Roll;     //eular
 #define SUM_ERRO_MAX 900
 #define SUM_ERRO_MIN -900
 
+#define PID_IMAX 300
+#define PID_IMIN -300
+
+#define KP 1
+#define KI 1
+#define KD 1
+
 typedef struct {
     float Cache;
+    float *RealTime;
     float Erro;
     float p;
     float i;
@@ -19,6 +27,7 @@ typedef struct {
     short output;
 } pid_st, *pid_pst;
 
+void pid_SingleAxis(pid_pst package, float setPoint);
 void pid(float setPoint, float d);
 
 #endif

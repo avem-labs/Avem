@@ -2,25 +2,38 @@
 #include "stm32f10x.h"
 #include "motor.h"
 
-float g_iErro, g_sumErro = 0;
-void pid(float setPoint, float d) {
-    g_iErro = g_Pitch - setPoint;    //计算当前误差
-    g_sumErro += g_iErro;       //对误差进行积分
+void pid_SingleAxis(pid_pst temp, float setPoint) {
+    temp->Erro = *temp->RealTime - setPoint;
 
-    if(g_sumErro > SUM_ERRO_MAX) g_sumErro = SUM_ERRO_MAX;  //积分限幅
-    else if(g_sumErro < SUM_ERRO_MIN) g_sumErro = SUM_ERRO_MIN;
+    temp->i += temp->Erro;
+    if (temp->i > PID_IMAX) temp->i = PID_IMAX;
+    else if (temp->i < PID_IMIN) temp->i = PID_IMIN;
 
-    short resu = (short)(g_iErro * K_P + g_sumErro * K_I + d * K_D);  //PID输出
+    temp->d = *temp->RealTime - temp->Cache;
 
-    if((MOTOR2) > MOTOR_MAX)
-        MOTOR2 = MOTOR_MAX;
-    else if((MOTOR2) < MOTOR_LOW)
-        MOTOR2 = MOTOR_LOW;
-    else MOTOR2 = resu;
-
-    if((MOTOR4) > MOTOR_MAX)
-        MOTOR4 = MOTOR_MAX;
-    else if((MOTOR4) < MOTOR_LOW)
-        MOTOR4 = MOTOR_LOW;
-    else MOTOR4 = resu;
+    temp->output = (short)(KP * (temp->Erro) + KI * temp->i + KD * temp->d);
+    temp->Cache = *temp->RealTime;
 }
+
+// float g_iErro, g_sumErro = 0;
+// void pid(float setPoint, float d) {
+//     g_iErro = g_Pitch - setPoint;    //计算当前误差
+//     g_sumErro += g_iErro;       //对误差进行积分
+//
+//     if(g_sumErro > SUM_ERRO_MAX) g_sumErro = SUM_ERRO_MAX;  //积分限幅
+//     else if(g_sumErro < SUM_ERRO_MIN) g_sumErro = SUM_ERRO_MIN;
+//
+//     short resu = (short)(g_iErro * K_P + g_sumErro * K_I + d * K_D);  //PID输出
+//
+//     if((MOTOR2) > MOTOR_MAX)
+//         MOTOR2 = MOTOR_MAX;
+//     else if((MOTOR2) < MOTOR_LOW)
+//         MOTOR2 = MOTOR_LOW;
+//     else MOTOR2 = resu;
+//
+//     if((MOTOR4) > MOTOR_MAX)
+//         MOTOR4 = MOTOR_MAX;
+//     else if((MOTOR4) < MOTOR_LOW)
+//         MOTOR4 = MOTOR_LOW;
+//     else MOTOR4 = resu;
+// }

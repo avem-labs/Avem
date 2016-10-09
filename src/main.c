@@ -15,6 +15,20 @@ float g_q0 = 1, g_q1 = 0, g_q2 = 0, g_q3 = 0;   //Quaternion
 float g_exInt = 0, g_eyInt = 0, g_ezInt = 0;
 float g_Yaw, g_Pitch, g_Roll;
 
+// float Cache;
+// float *RealTime;
+// float Erro;
+// float p;
+// float i;
+// float d;
+// short output;
+pid_st g_pid_pitch = {
+    .Cache = 0.01,
+    .RealTime = &g_Yaw,
+    .p = 0,
+    .i = 0,
+    .d = 0
+};
 
 //ms
 void delay(volatile unsigned int count) {
@@ -74,7 +88,8 @@ void Comput(SixAxis cache) {
     g_Yaw = atan2(2 * (g_q1 * g_q2 + g_q0 * g_q3), g_q0*g_q0 + g_q1*g_q1 - g_q2*g_q2 - g_q3*g_q3) * 57.3;
 }
 
-#define DEBUG_BLDC
+#define DEBUG_MPU6050_SOURCEDATA
+
 int main() {
 #if defined (DEBUG_PID) || defined (DEBUG_MPU6050_EULER) || defined (DEBUG_MPU6050_SOURCEDATA) || defined (DEBUG_BLDC)
     SixAxis sourceData;

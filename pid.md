@@ -55,3 +55,20 @@ typedef struct {
     short output;	//PID输出, 用来修改PWM值, 2字节
 } pid_st, *pid_pst;
 ```
+
+``` c
+void pid_SingleAxis(pid_pst temp, float setPoint) {
+    temp->Erro = *temp->RealTime - setPoint;
+
+    temp->i += temp->Erro;
+    if (temp->i > PID_IMAX) temp->i = PID_IMAX;
+    else if (temp->i < PID_IMIN) temp->i = PID_IMIN;
+
+    temp->d = *temp->RealTime - temp->Cache;
+
+    temp->output = (short)(KP * (temp->Erro) + KI * temp->i + KD * temp->d);
+    temp->Cache = *temp->RealTime;
+}
+```
+
+睡觉了...明天再更
