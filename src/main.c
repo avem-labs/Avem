@@ -168,6 +168,7 @@ int main() {
         TTY_RED();
         uart_showData(g_pid_roll.output);
         TTY_NONE();
+        uart_sendStr("\n\r");
 
 #endif
 

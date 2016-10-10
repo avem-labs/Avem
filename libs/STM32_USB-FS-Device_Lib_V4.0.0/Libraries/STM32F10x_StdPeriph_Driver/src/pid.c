@@ -16,15 +16,15 @@ void pid_SingleAxis(pid_pst temp, float setPoint) {
 //Inner Loop PD
     temp->p = temp->output + *temp->Gyro * 3.5f;
     temp->d = *temp->Gyro - temp->InnerLast;
-    temp->output = (short)INNER_LOOP_KP * temp->p + INNER_LOOP_KD * temp->d;
+    temp->output = (short)(INNER_LOOP_KP * temp->p + INNER_LOOP_KD * temp->d);
 
     if (*temp->Channel1+temp->output > MOTOR_MAX) *temp->Channel1 = MOTOR_MAX;
     else if (*temp->Channel1+temp->output < MOTOR_LOW) *temp->Channel1 = MOTOR_LOW;
-    else *temp->Channel1 += temp->output;
+    else *temp->Channel1 += (short)temp->output;
 
     if (*temp->Channel2-temp->output > MOTOR_MAX) *temp->Channel2 = MOTOR_MAX;
     else if (*temp->Channel2-temp->output < MOTOR_LOW) *temp->Channel2 = MOTOR_LOW;
-    else *temp->Channel2 -= temp->output;
+    else *temp->Channel2 -= (short)temp->output;
 
     temp->InnerLast = *temp->Gyro;
 }
