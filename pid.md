@@ -45,30 +45,48 @@
 ## Code
 
 先定义结构体以及结构体指针, 把运算过程使用的大量变量封装起来, 在专属函数中对其解析和利用
+
 ``` c
 typedef struct {
-    float Last;			//保存上一次的值以便后向差分
-    float *Feedback;	//反馈数据, 实时的角度数据
-    float Erro;			//误差值
-    float p;				//比例项
-    float i;				//积分项
-    float d;				//微分项
-    short output;		//PID输出, 用来修改PWM值, 2字节
+    float InnerLast;		//保存内环旧值以便后向差分
+    float OutterLast;		//保存外环旧值以便后向差分
+    float *Feedback;		//反馈数据, 实时的角度数据
+    float *Gyro;				//角速度
+    float Error;				//误差值
+    float p;					//比例项(内环外环共用)
+    float i;					//积分项(仅用于外环)
+    float d;					//微分项(内环外环共用)
+    short output;			//PID输出, 用来修改PWM值, 2字节
+    __IO uint16_t *Channel1;//PWM输出, 通道1
+    __IO uint16_t *Channel2;//PWM输出, 通道2
 } pid_st, *pid_pst;
 ```
 
-
 ``` c
 void pid_SingleAxis(pid_pst temp, float setPoint) {
-    temp->Erro = setPoint - *temp->Feedback;
-
-    temp->i += temp->Erro;
+    temp->Error = setPoint - *temp->Feedback;
+//Outter Loop PID
+    temp->i += temp->Error;
     if (temp->i > PID_IMAX) temp->i = PID_IMAX;
     else if (temp->i < PID_IMIN) temp->i = PID_IMIN;
 
-    temp->d = *temp->Feedback - temp->Last;
+    temp->d = *temp->Feedback - temp->OutterLast;
 
-    temp->output = (short)(KP * (temp->Erro) + KI * temp->i + KD * temp->d);
-    temp->Last = *temp->Feedback;
+    temp->output = (short)(OUTTER_LOOP_KP * (temp->Error) + OUTTER_LOOP_KI * temp->i + OUTTER_LOOP_KD * temp->d);
+    temp->OutterLast = *temp->Feedback; //Save Old Data
+//Inner Loop PD
+    temp->p = temp->output + *temp->Gyro * 3.5f;
+    temp->d = *temp->Gyro - temp->InnerLast;
+    temp->output = INNER_LOOP_KP * temp->p + INNER_LOOP_KD * temp->d;
+
+    if (*temp->Channel1+temp->output > MOTOR_MAX) *temp->Channel1 = MOTOR_MAX;
+    else if (*temp->Channel1+temp->output < MOTOR_LOW) *temp->Channel1 = MOTOR_LOW;
+    else *temp->Channel1 += (short)temp->output;
+
+    if (*temp->Channel2-temp->output > MOTOR_MAX) *temp->Channel2 = MOTOR_MAX;
+    else if (*temp->Channel2-temp->output < MOTOR_LOW) *temp->Channel2 = MOTOR_LOW;
+    else *temp->Channel2 -= (short)temp->output;
+
+    temp->InnerLast = *temp->Gyro;
 }
 ```
