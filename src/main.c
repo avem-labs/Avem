@@ -87,7 +87,7 @@ void Comput(SixAxis cache) {
     g_Yaw = atan2(2 * (g_q1 * g_q2 + g_q0 * g_q3), g_q0*g_q0 + g_q1*g_q1 - g_q2*g_q2 - g_q3*g_q3) * 57.3;
 }
 
-#define DEBUG_MPU6050_SOURCEDATA
+#define DEBUG_BLDC
 
 int main() {
 #if defined (DEBUG_PID) || defined (DEBUG_MPU6050_EULER) || defined (DEBUG_MPU6050_SOURCEDATA) || defined (DEBUG_BLDC)
@@ -127,13 +127,13 @@ int main() {
         MPU6050_getStructData(&sourceData);
         Comput(sourceData);
 
-        pid_SingleAxis(g_pid_roll, 0);
+        pid_SingleAxis(&g_pid_roll, 0);
 
         uart_sendStr("\n\nMotor占空比:\t\t");
         uart_showData(MOTOR1);
 
         uart_sendStr("\n\nRoll:\t\t");
-        uart_Float2Char(g_pid_roll.Feedback);
+        uart_Float2Char(*g_pid_roll.Feedback);
 
         uart_sendStr("\n\nP:\t\t");
         uart_Float2Char(g_pid_roll.p);
