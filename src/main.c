@@ -94,8 +94,8 @@ int main() {
         .OutterLast = 0,
         .Feedback = &g_Roll,
         .i = 0,
-        .Channel1 = &MOTOR2,
-        .Channel2 = &MOTOR4,
+        .Channel1 = &MOTOR4,
+        .Channel2 = &MOTOR2,
         .Gyro = &sourceData.gX,
     };
 
