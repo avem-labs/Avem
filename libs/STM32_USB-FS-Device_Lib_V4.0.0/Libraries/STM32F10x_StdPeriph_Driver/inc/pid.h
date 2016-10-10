@@ -25,6 +25,7 @@ typedef struct {
     float i;
     float d;
     short output;
+    __IO uint16_t *Channel1;
 } pid_st, *pid_pst;
 
 void pid_SingleAxis(pid_pst package, float setPoint);

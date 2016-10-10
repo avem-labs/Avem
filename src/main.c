@@ -22,12 +22,11 @@ float g_Yaw, g_Pitch, g_Roll;
 // float i;
 // float d;
 // short output;
-pid_st g_pid_pitch = {
-    .Last = 0.01,
-    .Feedback = &g_Yaw,
-    .p = 0,
+pid_st g_pid_roll = {
+    .Last = 0,
+    .Feedback = &g_Roll,
     .i = 0,
-    .d = 0
+    .Channel1 = &MOTOR1,
 };
 
 //ms
@@ -128,16 +127,16 @@ int main() {
         MPU6050_getStructData(&sourceData);
         Comput(sourceData);
 
-        pid(0, sourceData.gX);
+        pid_SingleAxis(g_pid_roll, 0);
 
-        uart_sendStr(" Motor:");
+        uart_sendStr("\n\nMotor占空比:\t\t");
         uart_showData(MOTOR1);
 
-        uart_sendStr(" , Roll:");
-        uart_Float2Char(g_Roll);
+        uart_sendStr("\n\nRoll:\t\t");
+        uart_Float2Char(g_pid_roll.Feedback);
 
-        uart_sendStr(" D: ");
-        uart_Float2Char(sourceData.gX);
+        uart_sendStr("\n\nP:\t\t");
+        uart_Float2Char(g_pid_roll.p);
         UART_CR();
 #endif
 

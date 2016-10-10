@@ -1,5 +1,5 @@
-#include "pid.h"
 #include "stm32f10x.h"
+#include "pid.h"
 #include "motor.h"
 
 void pid_SingleAxis(pid_pst temp, float setPoint) {
@@ -13,6 +13,7 @@ void pid_SingleAxis(pid_pst temp, float setPoint) {
 
     temp->output = (short)(KP * (temp->Erro) + KI * temp->i + KD * temp->d);
     temp->Last = *temp->Feedback;
+    *temp->Channel1 = temp->output;
 }
 
 // float g_iErro, g_sumErro = 0;
