@@ -6,6 +6,7 @@
 #include "uart.h"
 #include "wifi.h"
 #include "pid.h"
+#include "tty.h"
 
 #define Kp      100.0f      //比例增益支配率(常量)
 #define Ki      0.002f      //积分增益支配率
@@ -15,19 +16,7 @@ float g_q0 = 1, g_q1 = 0, g_q2 = 0, g_q3 = 0;   //Quaternion
 float g_exInt = 0, g_eyInt = 0, g_ezInt = 0;
 float g_Yaw, g_Pitch, g_Roll;
 
-// float Last;
-// float *Feedback;
-// float Erro;
-// float p;
-// float i;
-// float d;
-// short output;
-pid_st g_pid_roll = {
-    .Last = 0,
-    .Feedback = &g_Roll,
-    .i = 0,
-    .Channel1 = &MOTOR1,
-};
+
 
 //ms
 void delay(volatile unsigned int count) {
@@ -93,6 +82,21 @@ int main() {
 #if defined (DEBUG_PID) || defined (DEBUG_MPU6050_EULER) || defined (DEBUG_MPU6050_SOURCEDATA) || defined (DEBUG_BLDC)
     SixAxis sourceData;
 #endif
+// float Last;
+// float *Feedback;
+// float Erro;
+// float p;
+// float i;
+// float d;
+// short output;
+    pid_st g_pid_roll = {
+        .InnerLast = 0,
+        .OutterLast = 0,
+        .Feedback = &g_Roll,
+        .i = 0,
+        .Channel1 = &MOTOR1,
+        .Gyro = &sourceData.gX,
+    };
 
 //Brushless motor auto init
 #ifdef DEBUG_BLDC
@@ -128,16 +132,36 @@ int main() {
         Comput(sourceData);
 
         pid_SingleAxis(&g_pid_roll, 0);
-
-        uart_sendStr("\n\nMotor占空比:\t\t");
+        TTY_CLEAR();
+        TTY_RED();
+        uart_sendStr(" Motor占空比: ");
+        TTY_NONE();
+        TTY_BLUE();
         uart_showData(MOTOR1);
+        TTY_NONE();
 
-        uart_sendStr("\n\nRoll:\t\t");
+        uart_sendStr("\n\rRoll:\t");
         uart_Float2Char(*g_pid_roll.Feedback);
 
-        uart_sendStr("\n\nP:\t\t");
+        uart_sendStr("\tGyro:\t");
+        uart_Float2Char(*g_pid_roll.Gyro);
+
+        uart_sendStr("\n\rP:\t");
         uart_Float2Char(g_pid_roll.p);
+
+        uart_sendStr("\n\rI:\t");
+        uart_Float2Char(g_pid_roll.i);
+
+        uart_sendStr("\n\rD:\t");
+        uart_Float2Char(g_pid_roll.d);
+
+        uart_sendStr("\n\r=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=\n\rInner Cache:\t");
+        uart_Float2Char(g_pid_roll.InnerLast);
+        uart_sendStr("\n\rOutter Cache:\t");
+        uart_Float2Char(g_pid_roll.OutterLast);
+
         UART_CR();
+
 #endif
 
 #ifdef DEBUG_MPU6050_EULER

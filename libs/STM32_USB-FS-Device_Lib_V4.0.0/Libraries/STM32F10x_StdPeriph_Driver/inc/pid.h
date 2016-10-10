@@ -4,23 +4,26 @@
 
 extern float g_Yaw, g_Pitch, g_Roll;     //eular
 
-#define K_P 2.57f //0.257 * 0.83 0.255
-#define K_I 0
-#define K_D 0
+#define OUTTER_LOOP_KP 2.57f //0.257 * 0.83 0.255
+#define OUTTER_LOOP_KI 0.1f
+#define OUTTER_LOOP_KD 0.5f
+
+#define INNER_LOOP_KP 0.1f
+#define INNER_LOOP_KI 0.1f
+#define INNER_LOOP_KD 0.1f
+
 #define SUM_ERRO_MAX 900
 #define SUM_ERRO_MIN -900
 
-#define PID_IMAX 300
-#define PID_IMIN -300
-
-#define KP 1
-#define KI 1
-#define KD 1
+#define PID_IMAX 30
+#define PID_IMIN -30
 
 typedef struct {
-    float Last;
+    float InnerLast;
+    float OutterLast;
     float *Feedback;
-    float Erro;
+    float *Gyro;
+    float Error;
     float p;
     float i;
     float d;

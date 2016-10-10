@@ -3,17 +3,26 @@
 #include "motor.h"
 
 void pid_SingleAxis(pid_pst temp, float setPoint) {
-    temp->Erro = setPoint - *temp->Feedback;
-
-    temp->i += temp->Erro;
+    temp->Error = setPoint - *temp->Feedback;
+//Outter Loop PID
+    temp->i += temp->Error;
     if (temp->i > PID_IMAX) temp->i = PID_IMAX;
     else if (temp->i < PID_IMIN) temp->i = PID_IMIN;
 
-    temp->d = *temp->Feedback - temp->Last;
+    temp->d = *temp->Feedback - temp->OutterLast;
 
-    temp->output = (short)(KP * (temp->Erro) + KI * temp->i + KD * temp->d);
-    temp->Last = *temp->Feedback;
-    *temp->Channel1 = temp->output;
+    temp->output = (short)(OUTTER_LOOP_KP * (temp->Error) + OUTTER_LOOP_KI * temp->i + OUTTER_LOOP_KD * temp->d);
+    temp->OutterLast = *temp->Feedback; //Save Old Data
+//Inner Loop PD
+    temp->p = temp->output + *temp->Gyro * 3.5f;
+    temp->d = *temp->Gyro - temp->InnerLast;
+    temp->output = INNER_LOOP_KP * temp->p + INNER_LOOP_KD * temp->d;
+
+    if (*temp->Channel1+temp->output > MOTOR_MAX) *temp->Channel1 = MOTOR_MAX;
+    else if (*temp->Channel1 + temp->output < MOTOR_LOW) *temp->Channel1 = MOTOR_LOW;
+    temp->InnerLast = *temp->Gyro;
+
+    *temp->Channel1 += (short)temp->output;
 }
 
 // float g_iErro, g_sumErro = 0;
