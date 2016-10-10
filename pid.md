@@ -47,28 +47,28 @@
 先定义结构体以及结构体指针, 把运算过程使用的大量变量封装起来, 在专属函数中对其解析和利用
 ``` c
 typedef struct {
-    float Cache; 	//缓存数据, 保存上一次的值以便于后向差分
-    float Erro; 		//误差值
-    float p;			//比例项
-    float i;			//积分项
-    float d;			//微分项
-    short output;	//PID输出, 用来修改PWM值, 2字节
+    float Last;			//保存上一次的值以便后向差分
+    float *Feedback;	//反馈数据, 实时的角度数据
+    float Erro;			//误差值
+    float p;				//比例项
+    float i;				//积分项
+    float d;				//微分项
+    short output;		//PID输出, 用来修改PWM值, 2字节
 } pid_st, *pid_pst;
 ```
 
+
 ``` c
 void pid_SingleAxis(pid_pst temp, float setPoint) {
-    temp->Erro = *temp->RealTime - setPoint;
+    temp->Erro = setPoint - *temp->Feedback;
 
     temp->i += temp->Erro;
     if (temp->i > PID_IMAX) temp->i = PID_IMAX;
     else if (temp->i < PID_IMIN) temp->i = PID_IMIN;
 
-    temp->d = *temp->RealTime - temp->Cache;
+    temp->d = *temp->Feedback - temp->Last;
 
     temp->output = (short)(KP * (temp->Erro) + KI * temp->i + KD * temp->d);
-    temp->Cache = *temp->RealTime;
+    temp->Last = *temp->Feedback;
 }
 ```
-
-睡觉了...明天再更
