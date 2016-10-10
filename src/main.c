@@ -164,7 +164,7 @@ int main() {
         uart_sendStr("\n\rOutter Cache:\t");
         uart_Float2Char(g_pid_roll.OutterLast);
 
-        uart_sendStr("\nOutput:\t\t");
+        uart_sendStr("\n\rOutput:\t\t");
         TTY_RED();
         uart_showData(g_pid_roll.output);
         TTY_NONE();
