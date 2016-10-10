@@ -15,16 +15,16 @@ float g_q0 = 1, g_q1 = 0, g_q2 = 0, g_q3 = 0;   //Quaternion
 float g_exInt = 0, g_eyInt = 0, g_ezInt = 0;
 float g_Yaw, g_Pitch, g_Roll;
 
-// float Cache;
-// float *RealTime;
+// float Last;
+// float *Feedback;
 // float Erro;
 // float p;
 // float i;
 // float d;
 // short output;
 pid_st g_pid_pitch = {
-    .Cache = 0.01,
-    .RealTime = &g_Yaw,
+    .Last = 0.01,
+    .Feedback = &g_Yaw,
     .p = 0,
     .i = 0,
     .d = 0
