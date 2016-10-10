@@ -3,16 +3,16 @@
 #include "motor.h"
 
 void pid_SingleAxis(pid_pst temp, float setPoint) {
-    temp->Erro = *temp->RealTime - setPoint;
+    temp->Erro = setPoint - *temp->Feedback;
 
     temp->i += temp->Erro;
     if (temp->i > PID_IMAX) temp->i = PID_IMAX;
     else if (temp->i < PID_IMIN) temp->i = PID_IMIN;
 
-    temp->d = *temp->RealTime - temp->Cache;
+    temp->d = *temp->Feedback - temp->Last;
 
     temp->output = (short)(KP * (temp->Erro) + KI * temp->i + KD * temp->d);
-    temp->Cache = *temp->RealTime;
+    temp->Last = *temp->Feedback;
 }
 
 // float g_iErro, g_sumErro = 0;

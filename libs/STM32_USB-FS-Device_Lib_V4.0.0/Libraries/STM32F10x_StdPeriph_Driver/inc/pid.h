@@ -18,8 +18,8 @@ extern float g_Yaw, g_Pitch, g_Roll;     //eular
 #define KD 1
 
 typedef struct {
-    float Cache;
-    float *RealTime;
+    float Last;
+    float *Feedback;
     float Erro;
     float p;
     float i;
