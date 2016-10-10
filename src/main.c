@@ -94,7 +94,8 @@ int main() {
         .OutterLast = 0,
         .Feedback = &g_Roll,
         .i = 0,
-        .Channel1 = &MOTOR1,
+        .Channel1 = &MOTOR2,
+        .Channel2 = &MOTOR4,
         .Gyro = &sourceData.gX,
     };
 
@@ -133,11 +134,14 @@ int main() {
 
         pid_SingleAxis(&g_pid_roll, 0);
         TTY_CLEAR();
+
         TTY_RED();
         uart_sendStr(" Motor占空比: ");
         TTY_NONE();
         TTY_BLUE();
-        uart_showData(MOTOR1);
+        uart_showData(*g_pid_roll.Channel1);
+        uart_sendStr("\t");
+        uart_showData(*g_pid_roll.Channel2);
         TTY_NONE();
 
         uart_sendStr("\n\rRoll:\t");

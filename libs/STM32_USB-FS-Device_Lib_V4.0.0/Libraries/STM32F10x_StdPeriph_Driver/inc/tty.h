@@ -2,7 +2,7 @@
 #define TTY_H
 
 #define TTY_NONE()          uart_sendStr("\033[m")
-#define TTY_RED()           uart_sendStr("\033[0;32;31m")
+#define TTY_RED()           uart_sendStr("\033[41;30m")
 #define TTY_LIGHT_RED()     uart_sendStr("\033[1;31m")
 #define TTY_GREEN()         uart_sendStr("\033[0;32;32m")
 #define TTY_LIGHT_GREEN()   uart_sendStr("\033[1;32m")
