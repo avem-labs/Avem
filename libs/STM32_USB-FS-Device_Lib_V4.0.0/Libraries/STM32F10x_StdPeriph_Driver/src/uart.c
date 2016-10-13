@@ -86,7 +86,7 @@ unsigned char uart_Float2Char(float value) {
             i++;
         }
         i--;
-        for(j = 0; j < i; j++) {
+        for(unsigned char j = 0; j < i; j++) {
             temp = array[j];
             array[j] = array[i-j];
             array[i-j] = temp;

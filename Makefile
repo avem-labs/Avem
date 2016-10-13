@@ -1,5 +1,5 @@
 # general Makefile
-# make OptLIB=0 OptSRC=0 all tshow  
+# make OptLIB=0 OptSRC=0 all tshow
 include Makefile.common
 LDFLAGS=$(COMMONFLAGS) -fno-exceptions -ffunction-sections -fdata-sections -L$(LIBDIR) -nostartfiles -Wl,--gc-sections,-Tlinker.ld
 
