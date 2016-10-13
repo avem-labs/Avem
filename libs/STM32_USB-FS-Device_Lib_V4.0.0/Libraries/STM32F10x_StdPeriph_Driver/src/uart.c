@@ -57,7 +57,6 @@ unsigned char uart_Float2Char(float value) {
     unsigned char IntegerPart;
     float DecimalPart;
     unsigned char i = 0;
-    unsigned char j = 0;
     char temp;
 
     char array[8] = {0,0,0,0,0,0,0};
@@ -101,7 +100,7 @@ unsigned char uart_Float2Char(float value) {
     array[i++] = (unsigned int)(DecimalPart * 10000)%10 + '0';
     array[i++] = '\0';
 
-    for(j = 0; j < i; j ++) {
+    for(unsigned char j = 0; j < i; j ++) {
         uart_sendData(array[j]);
     }
 
