@@ -2,7 +2,7 @@
 #ifndef MOTOR_H_
 #define MOTOR_H_
 
-#define MOTOR_NORMAL_STARTUP
+// #define MOTOR_NORMAL_STARTUP
 
 
 #define MOTOR1 TIM3->CCR1
@@ -16,6 +16,7 @@
 
 #ifdef MOTOR_NORMAL_STARTUP
     #define MOTOR_SETTING() {\
+        motor_PWM_Init(28800,5);\
         MOTOR1 = MOTOR_MIN;\
         MOTOR2 = MOTOR_MIN;\
         MOTOR3 = MOTOR_MIN;\
