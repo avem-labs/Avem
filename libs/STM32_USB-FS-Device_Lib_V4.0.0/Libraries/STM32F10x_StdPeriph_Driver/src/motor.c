@@ -41,5 +41,3 @@ void motor_PWM_Init(unsigned short arr, unsigned short psc) {
     TIM3->CR1 |= 1;         //Set CEN, Allow to Count
     //TIM1->BDTR |= 1<<15;  //高级定时器需要使能BDTR寄存器
 }
-
-
