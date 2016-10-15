@@ -90,13 +90,13 @@ int main() {
 // float d;
 // short output;
     pid_st g_pid_roll = {
-        .InnerLast = 0,
+        .InnerLast  = 0,
         .OutterLast = 0,
-        .Feedback = &g_Roll,
-        .i = 0,
-        .Channel1 = &MOTOR2,
-        .Channel2 = &MOTOR4,
-        .Gyro = &sourceData.gX,
+        .Feedback   = &g_Roll,
+        .i          = 0,
+        .Channel1   = &MOTOR2,
+        .Channel2   = &MOTOR4,
+        .Gyro       = &sourceData.gX,
     };
 
 //Brushless motor auto init
