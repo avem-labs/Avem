@@ -2,7 +2,7 @@
 #ifndef MOTOR_H_
 #define MOTOR_H_
 
-// #define MOTOR_NORMAL_STARTUP
+#define MOTOR_NORMAL_STARTUP
 
 
 #define MOTOR1 TIM3->CCR1
@@ -21,7 +21,7 @@
         MOTOR2 = MOTOR_MIN;\
         MOTOR3 = MOTOR_MIN;\
         MOTOR4 = MOTOR_MIN;\
-        delay(3000);\
+        delay(10000);\
     }
 #else
     #define MOTOR_SETTING() {\
