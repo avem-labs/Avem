@@ -1,6 +1,6 @@
 #pragma once
-#ifndef UART_H_
-#define UART_H_
+#ifndef UART_H
+#define UART_H
 
 void uart_init(unsigned int pclk2, unsigned int bound);
 void uart_sendData(unsigned char data);

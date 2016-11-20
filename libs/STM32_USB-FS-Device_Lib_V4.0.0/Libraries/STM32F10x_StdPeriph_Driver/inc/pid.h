@@ -1,6 +1,6 @@
 #pragma once
-#ifndef PID_H_
-#define PID_H_
+#ifndef PID_H
+#define PID_H
 
 extern float g_Yaw, g_Pitch, g_Roll;     //eular
 
