@@ -56,6 +56,7 @@ INCLUDE+=-I$(STMLIB)/CMSIS/Device/ST/STM32F10x/Include
 INCLUDE+=-I$(STMLIB)/CMSIS/Device/ST/STM32F10x/Source/Templates
 INCLUDE+=-I$(STMLIB)/STM32F10x_StdPeriph_Driver/inc
 INCLUDE+=-I$(STMLIB)/STM32_USB-FS-Device_Driver/inc
+INCLUDE+=-I$(LIBDIR)/include
 COMMONFLAGS=-g -mcpu=cortex-m3 -mthumb -std=c99
 COMMONFLAGSlib=$(COMMONFLAGS)
 #Commands for general Makefile and src Makefile
