@@ -15,22 +15,23 @@ MPU6050 			| BLDC 			| Wi-Fi | GPS
 					|**`CH3`** PB0
 					|**`CH4`** PB1
 # Todolist
-* Software **I2C**
-* Init **MPU6050**
-* Get 3 axes `Gryo` and 3 axes `Accel` data from MPU6050
-* Cumpute Quaternion and **Euler** Angles
-* **PWM** output
-* Driving motors with **L9110S**
-* **PID** Control
-* Schematic
-* PCB Layout
-* Brushless DC motor-[Video on YouTube](https://youtu.be/iHYVgTmxoSw)
-* **Wi-Fi**(`ESP8266`)
-	* TCP/IP Socket connect with host
-	* PID debug
-	* **GPS**
-	* 3D print or CNC cut
-	* ... ...
+ - [x] Software **I2C**
+ - [x] Init **MPU6050**
+ - [x] Get 3 axes `Gryo` and 3 axes `Accel` data from MPU6050
+ - [x] Cumpute Quaternion and **Euler** Angles
+ - [x] **PWM** output
+ - [x] Driving motors with **L9110S**
+ - [x] **PID** Control
+ - [x] Schematic
+ - [x] PCB Layout
+ - [x] Brushless DC motor-[Video on YouTube](https://youtu.be/iHYVgTmxoSw)
+ - [x] **Wi-Fi**(`ESP8266`)
+ - [x] FreeRTOS
+ - [ ] TCP/IP Socket connect with host
+ - [ ] PID debug
+ - [ ] **GPS**
+ - [ ] 3D print or CNC cut
+ - [ ] ... ...
 
 ----
 
