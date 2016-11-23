@@ -26,6 +26,7 @@ MPU6050 			| BLDC 			| Wi-Fi | GPS
  - [x] PCB Layout
  - [x] Brushless DC motor-[Video on YouTube](https://youtu.be/iHYVgTmxoSw)
  - [x] **Wi-Fi**(`ESP8266`)
+ - [x] [PID](https://github.com/but0n/Avem/blob/master/pid.md)
  - [x] FreeRTOS
  - [ ] TCP/IP Socket connect with host
  - [ ] PID debug
