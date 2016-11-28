@@ -1,4 +1,3 @@
-#pragma once
 #ifndef BIT_H
 #define BIT_H
 

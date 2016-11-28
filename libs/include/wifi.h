@@ -1,4 +1,3 @@
-#pragma once
 #ifndef WIFI_H
 #define WIFI_H
 //Only USART1 PCLK2 = 72
