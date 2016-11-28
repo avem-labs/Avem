@@ -9,8 +9,8 @@ void delay_us(volatile unsigned int nus) {
 
 void IIC_init() {
     RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;       //GPIOB enable
-    GPIOB->CRH &= 0x00FFFFFF;   //reset B14 & B15
-    GPIOB->CRH |= 0x77000000;   //Set B14 & B15 b0111
+    GPIOB->CRH &= 0x0F0FFFFF;   //reset B13 & B15
+    GPIOB->CRH |= 0x70700000;   //Set B13 & B15 b0111
     SDA = 1;
     SCL = 1;
 

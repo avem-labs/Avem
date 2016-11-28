@@ -123,10 +123,10 @@ int main() {
     uart_sendStr("MPU6050 Connect Success!");
     UART_CR();
 
-	xTaskCreate(uart_task, "UART_TASK", 100, NULL, 1, NULL);
-	vTaskStartScheduler();
-	uart_sendStr("Stack Overflow...");
-	while(1);
+	// xTaskCreate(uart_task, "UART_TASK", 100, NULL, 1, NULL);
+	// vTaskStartScheduler();
+	// uart_sendStr("Stack Overflow...");
+	// while(1);
 
 
 
