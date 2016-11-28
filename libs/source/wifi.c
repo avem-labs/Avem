@@ -36,12 +36,8 @@ void wifi_sendSingleByte(unsigned char cmd) {
 }
 
 void wifi_sendData(char * cmd) {
-    unsigned short pointer = 0;
-    while(*(cmd + pointer)) {
-        wifi_sendSingleByte(*(cmd + pointer));
-        pointer++;
-    }
-
+	while(*cmd)
+		wifi_sendSingleByte(*cmd++);
 }
 
 void wifi_sendCmd(char * cmd) {

@@ -77,7 +77,7 @@ void Comput(SixAxis cache) {
     g_Yaw = atan2(2 * (g_q1 * g_q2 + g_q0 * g_q3), g_q0*g_q0 + g_q1*g_q1 - g_q2*g_q2 - g_q3*g_q3) * 57.3;
 }
 
-#define DEBUG_MPU6050_EULER		//Config
+#define DEBUG_BLDC		//Config
 
 #if defined (DEBUG_MPU6050_EULER) || defined (DEBUG_MPU6050_SOURCEDATA) || defined (DEBUG_BLDC)
     SixAxis sourceData;
@@ -114,12 +114,12 @@ void mpu_task() {
 	}
 }
 
-// void pid_task() {
-// 	while(1) {
-// 		pid_SingleAxis(&g_pid_roll, 0);
-// 		vTaskDelay(10);
-// 	}
-// }
+void pid_task() {
+	while(1) {
+		pid_SingleAxis(&g_pid_roll, 0);
+		vTaskDelay(10);
+	}
+}
 
 void uart_task() {
 	while(1) {
