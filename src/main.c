@@ -125,6 +125,7 @@ int main() {
 
 	xTaskCreate(uart_task, "UART_TASK", 100, NULL, 1, NULL);
 	vTaskStartScheduler();
+	uart_sendStr("Stack Overflow...")
 	while(1);
 
 
