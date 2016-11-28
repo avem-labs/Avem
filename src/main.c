@@ -34,12 +34,10 @@ void Comput(SixAxis cache) {
 
     norm = sqrt(cache.aX*cache.aX + cache.aY*cache.aY + cache.aZ*cache.aZ);     //取模
 
-
     //向量化
     cache.aX = cache.aX / norm;
     cache.aY = cache.aY / norm;
     cache.aZ = cache.aZ / norm;
-
 
     //估计方向的重力
     vx = 2 * (g_q1 * g_q3 - g_q0 * g_q2);
@@ -84,7 +82,6 @@ void uart_task() {
 		uart_sendStr("Pitch Angle: ");
         uart_Float2Char(g_Pitch);
 
-
         uart_sendStr("; Roll Angle: ");
         uart_Float2Char(g_Roll);
 
@@ -98,6 +95,7 @@ void uart_task() {
 }
 
 #define DEBUG_MPU6050_EULER		//Config
+
 #if defined (DEBUG_PID) || defined (DEBUG_MPU6050_EULER) || defined (DEBUG_MPU6050_SOURCEDATA) || defined (DEBUG_BLDC)
     SixAxis sourceData;
 #endif
@@ -111,7 +109,6 @@ void mpu_task() {
 }
 
 int main() {
-
 // float Last;
 // float *Feedback;
 // float Erro;
@@ -148,7 +145,6 @@ int main() {
 	vTaskStartScheduler();
 	uart_sendStr("Stack Overflow...");
 	while(1);
-
 
 
     while(1) {
