@@ -24,18 +24,18 @@ void Init_led() {
 void LedTask0() {
 	while(1) {
 		LED0 = 0;
-		vTaskDelay(100);
+		vTaskDelay(50);
 		LED0 = 1;
-		vTaskDelay(400);
+		vTaskDelay(150);
 	}
 }
 
 void LedTask1() {
 	while(1) {
 		LED1 = 0;
-		vTaskDelay(100);
+		vTaskDelay(50);
 		LED1 = 1;
-		vTaskDelay(600);
+		vTaskDelay(320);
 	}
 }
 
@@ -44,8 +44,8 @@ int main() {
 	RCC->APB2ENR |= RCC_APB2ENR_AFIOEN;
 	Init_led();
 
-	xTaskCreate(LedTask0, "LED_TASK0", 40, NULL, 1, NULL);
-	xTaskCreate(LedTask1, "LED_TASK1", 40, NULL, 2, NULL);
+	xTaskCreate(LedTask0, "LED_TASK0", 100, NULL, 1, NULL);
+	xTaskCreate(LedTask1, "LED_TASK1", 100, NULL, 2, NULL);
 	vTaskStartScheduler();
 	while(1);
 }
