@@ -96,7 +96,7 @@ void uart_task() {
 
 #define DEBUG_MPU6050_EULER		//Config
 
-#if defined (DEBUG_PID) || defined (DEBUG_MPU6050_EULER) || defined (DEBUG_MPU6050_SOURCEDATA) || defined (DEBUG_BLDC)
+#if defined (DEBUG_MPU6050_EULER) || defined (DEBUG_MPU6050_SOURCEDATA) || defined (DEBUG_BLDC)
     SixAxis sourceData;
 #endif
 
@@ -116,7 +116,7 @@ int main() {
 // float i;
 // float d;
 // short output;
-#ifdef DEBUG_PID
+#ifdef DEBUG_BLDC
     pid_st g_pid_roll = {
         .InnerLast  = 0,
         .OutterLast = 0,
@@ -126,10 +126,8 @@ int main() {
         .Channel2   = &MOTOR4,
         .Gyro       = &sourceData.gX,
     };
-#endif
 
 //Brushless motor auto init
-#ifdef DEBUG_BLDC
     MOTOR_SETTING();
 #endif
 
@@ -162,7 +160,7 @@ int main() {
         MPU6050_debug(&sourceData);
 #endif
 
-#if defined (DEBUG_PID) || defined (DEBUG_BLDC)
+#if defined (DEBUG_BLDC)
         MPU6050_getStructData(&sourceData);
         Comput(sourceData);
 
