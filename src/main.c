@@ -77,24 +77,7 @@ void Comput(SixAxis cache) {
     g_Yaw = atan2(2 * (g_q1 * g_q2 + g_q0 * g_q3), g_q0*g_q0 + g_q1*g_q1 - g_q2*g_q2 - g_q3*g_q3) * 57.3;
 }
 
-void uart_task() {
-	while(1) {
-		uart_sendStr("Pitch Angle: ");
-        uart_Float2Char(g_Pitch);
-
-        uart_sendStr("; Roll Angle: ");
-        uart_Float2Char(g_Roll);
-
-        uart_sendStr("; Yaw Angle: ");
-        uart_Float2Char(g_Yaw);
-
-        UART_CR();
-
-		vTaskDelay(100);
-	}
-}
-
-#define DEBUG_MPU6050_EULER		//Config
+#define DEBUG_BLDC		//Config
 
 #if defined (DEBUG_MPU6050_EULER) || defined (DEBUG_MPU6050_SOURCEDATA) || defined (DEBUG_BLDC)
     SixAxis sourceData;
@@ -121,6 +104,7 @@ void uart_task() {
         .Channel2   = &MOTOR4,
         .Gyro       = &sourceData.gX,
     };
+#endif
 
 void mpu_task() {
 	while(1) {
@@ -130,9 +114,33 @@ void mpu_task() {
 	}
 }
 
+void pid_task() {
+	while(1) {
+		pid_SingleAxis(&g_pid_roll, 0);
+		vTaskDelay(10);
+	}
+}
+
+void uart_task() {
+	while(1) {
+		uart_sendStr("Pitch Angle: ");
+        uart_Float2Char(g_Pitch);
+
+        uart_sendStr("; Roll Angle: ");
+        uart_Float2Char(g_Roll);
+
+        uart_sendStr("; Yaw Angle: ");
+        uart_Float2Char(g_Yaw);
+
+        UART_CR();
+
+		vTaskDelay(100);
+	}
+}
+
 int main() {
 
-
+#ifdef DEBUG_BLDC
 //Brushless motor auto init
     MOTOR_SETTING();
 #endif
