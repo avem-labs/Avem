@@ -109,13 +109,17 @@ void mpu_task() {
 }
 
 int main() {
-// float Last;
-// float *Feedback;
-// float Erro;
-// float p;
-// float i;
-// float d;
-// short output;
+// float InnerLast;			//保存内环旧值以便后向差分
+// float OutterLast;		//保存外环旧值以便后向差分
+// float *Feedback;			//反馈数据, 实时的角度数据
+// float *Gyro;				//角速度
+// float Error;				//误差值
+// float p;					//比例项(内环外环共用)
+// float i;					//积分项(仅用于外环)
+// float d;					//微分项(内环外环共用)
+// short output;			//PID输出, 用来修改PWM值, 2字节
+// __IO uint16_t *Channel1;	//PWM输出, 通道1
+// __IO uint16_t *Channel2;	//PWM输出, 通道2
 #ifdef DEBUG_BLDC
     pid_st g_pid_roll = {
         .InnerLast  = 0,
