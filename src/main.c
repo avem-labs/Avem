@@ -114,12 +114,14 @@ void mpu_task() {
 	}
 }
 
+#ifdef DEBUG_BLDC
 void pid_task() {
 	while(1) {
 		pid_SingleAxis(&g_pid_roll, 0);
 		vTaskDelay(10);
 	}
 }
+#endif
 
 void uart_task() {
 	while(1) {
@@ -138,6 +140,48 @@ void uart_task() {
 	}
 }
 
+void uart_debugPID() {
+	while(1) {
+		TTY_CLEAR();
+
+		TTY_RED();
+		uart_sendStr(" Motor占空比: ");
+		TTY_NONE();
+		TTY_BLUE();
+		uart_showData(*g_pid_roll.Channel1);
+		uart_sendStr("\t");
+		uart_showData(*g_pid_roll.Channel2);
+		TTY_NONE();
+
+		uart_sendStr("\n\rRoll:\t");
+		uart_Float2Char(*g_pid_roll.Feedback);
+
+		uart_sendStr("\tGyro:\t");
+		uart_Float2Char(*g_pid_roll.Gyro);
+
+		uart_sendStr("\n\rP:\t");
+		uart_Float2Char(g_pid_roll.p);
+
+		uart_sendStr("\n\rI:\t");
+		uart_Float2Char(g_pid_roll.i);
+
+		uart_sendStr("\n\rD:\t");
+		uart_Float2Char(g_pid_roll.d);
+
+		uart_sendStr("\n\r=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=\n\rInner Cache:\t");
+		uart_Float2Char(g_pid_roll.InnerLast);
+		uart_sendStr("\n\rOutter Cache:\t");
+		uart_Float2Char(g_pid_roll.OutterLast);
+
+		uart_sendStr("\n\rOutput:\t\t");
+		TTY_RED();
+		uart_showData(g_pid_roll.output);
+		TTY_NONE();
+		uart_sendStr("\n\r");
+		vTaskDelay(100);
+	}
+}
+
 int main() {
 
 #ifdef DEBUG_BLDC
@@ -152,8 +196,9 @@ int main() {
     uart_sendStr("MPU6050 Connect Success!");
     UART_CR();
 
-	xTaskCreate(uart_task, "UART_TASK", 100, NULL, 1, NULL);
-	xTaskCreate(mpu_task, "MPU_TASK", 100, NULL, 2, NULL);
+	xTaskCreate(uart_debugPID, "UART_TASK", 100, NULL, 1, NULL);
+	xTaskCreate(mpu_task, "MPU_TASK", 100, NULL, 3, NULL);
+	xTaskCreate(pid_task, "PID_TASK", 100, NULL, 2, NULL);
 	vTaskStartScheduler();
 	uart_sendStr("Stack Overflow...");
 	while(1);

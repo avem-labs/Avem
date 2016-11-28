@@ -60,7 +60,6 @@ typedef struct{
 }SixAxis, *pSixAxis;
 
 
-void initLED();
 void MPU_Sigle_Write(unsigned char reg_addr, unsigned char reg_data);
 unsigned char MPU_Sigle_Read(unsigned reg_addr);
 short MPU_GetData(unsigned char REG_Addr);

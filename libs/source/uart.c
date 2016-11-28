@@ -108,15 +108,6 @@ unsigned char uart_Float2Char(float value) {
 }
 
 void uart_sendStr(char *cmd) {
-    // unsigned short pointer = 0;
-    // while(*(cmd + pointer)) {
-    //     uart_sendData(*(cmd + pointer));
-    //     pointer++;
-    // }
-
-	// for(;*cmd;)
-	// 	uart_sendData(*cmd++);
-
 	while(*cmd)
 		uart_sendData(*cmd++);
 }
