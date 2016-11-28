@@ -8,7 +8,7 @@ LDLIBS+=-lstm32
 
 STARTUP=startup.c
 
-all: libs src
+all: clean libs src
 	$(CC) -o $(PROGRAM).elf $(LDFLAGS) \
 		-Wl,--whole-archive \
 			src/app.a \
