@@ -100,15 +100,6 @@ void uart_task() {
     SixAxis sourceData;
 #endif
 
-void mpu_task() {
-	while(1) {
-		MPU6050_getStructData(&sourceData);
-        Comput(sourceData);
-		vTaskDelay(50);
-	}
-}
-
-int main() {
 // float InnerLast;			//保存内环旧值以便后向差分
 // float OutterLast;		//保存外环旧值以便后向差分
 // float *Feedback;			//反馈数据, 实时的角度数据
@@ -130,6 +121,17 @@ int main() {
         .Channel2   = &MOTOR4,
         .Gyro       = &sourceData.gX,
     };
+
+void mpu_task() {
+	while(1) {
+		MPU6050_getStructData(&sourceData);
+        Comput(sourceData);
+		vTaskDelay(10);
+	}
+}
+
+int main() {
+
 
 //Brushless motor auto init
     MOTOR_SETTING();
