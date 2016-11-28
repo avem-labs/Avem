@@ -81,18 +81,37 @@ void Comput(SixAxis cache) {
 
 void uart_task() {
 	while(1) {
-		delay(1000);
-		uart_sendStr("Test...");
+		uart_sendStr("Pitch Angle: ");
+        uart_Float2Char(g_Pitch);
+
+
+        uart_sendStr("; Roll Angle: ");
+        uart_Float2Char(g_Roll);
+
+        uart_sendStr("; Yaw Angle: ");
+        uart_Float2Char(g_Yaw);
+
+        UART_CR();
+
 		vTaskDelay(100);
 	}
 }
 
 #define DEBUG_MPU6050_EULER		//Config
-
-int main() {
 #if defined (DEBUG_PID) || defined (DEBUG_MPU6050_EULER) || defined (DEBUG_MPU6050_SOURCEDATA) || defined (DEBUG_BLDC)
     SixAxis sourceData;
 #endif
+
+void mpu_task() {
+	while(1) {
+		MPU6050_getStructData(&sourceData);
+        Comput(sourceData);
+		vTaskDelay(50);
+	}
+}
+
+int main() {
+
 // float Last;
 // float *Feedback;
 // float Erro;
@@ -124,7 +143,8 @@ int main() {
     uart_sendStr("MPU6050 Connect Success!");
     UART_CR();
 
-	xTaskCreate(uart_task, "UART_TASK", 1, NULL, 1, NULL);
+	xTaskCreate(uart_task, "UART_TASK", 100, NULL, 1, NULL);
+	xTaskCreate(mpu_task, "MPU_TASK", 100, NULL, 2, NULL);
 	vTaskStartScheduler();
 	uart_sendStr("Stack Overflow...");
 	while(1);
