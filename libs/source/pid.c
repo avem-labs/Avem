@@ -3,7 +3,7 @@
 #include "motor.h"
 
 void pid_SingleAxis(pid_pst temp, float setPoint) {
-    temp->Error = setPoint - *temp->Feedback;
+    temp->Error = *temp->Feedback - setPoint;
 //Outter Loop PID
     temp->i += temp->Error;
     if (temp->i > PID_IMAX) temp->i = PID_IMAX;
