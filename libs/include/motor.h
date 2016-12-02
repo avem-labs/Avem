@@ -9,31 +9,25 @@
 #define MOTOR3 TIM3->CCR3
 #define MOTOR4 TIM3->CCR4
 
-#define MOTOR_MAX (unsigned short)3600
-#define MOTOR_MIN (unsigned short)1620
-#define MOTOR_LOW (unsigned short)1620
+#define MOTOR_ALL MOTOR1 = MOTOR2 = MOTOR3 = MOTOR4
+
+#define THROTTLE_MAX (unsigned short)3600
+#define THROTTLE_MIN (unsigned short)1620
+#define THROTTLE_MID (unsigned short)2000
 
 #ifdef MOTOR_NORMAL_STARTUP
     #define MOTOR_SETTING() {\
         motor_PWM_Init(36000,40);\
-		MOTOR1 = MOTOR_MIN;\
-        MOTOR2 = MOTOR_MIN;\
-        MOTOR3 = MOTOR_MIN;\
-        MOTOR4 = MOTOR_MIN;\
-        delay(10000);\
+		MOTOR_ALL = THROTTLE_MIN;\
+        delay(4000);\
+		MOTOR_ALL = THROTTLE_MID;\
     }
 #else
     #define MOTOR_SETTING() {\
         motor_PWM_Init(36000,40);\
-        MOTOR1 = MOTOR_MAX;\
-        MOTOR2 = MOTOR_MAX;\
-        MOTOR3 = MOTOR_MAX;\
-        MOTOR4 = MOTOR_MAX;\
+		MOTOR_ALL = THROTTLE_MAX;\
         delay(3000);\
-        MOTOR1 = MOTOR_MIN;\
-        MOTOR2 = MOTOR_MIN;\
-        MOTOR3 = MOTOR_MIN;\
-        MOTOR4 = MOTOR_MIN;\
+		MOTOR_ALL = THROTTLE_MIN;\
         delay(8000);\
     }
 #endif
