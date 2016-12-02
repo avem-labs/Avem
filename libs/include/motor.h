@@ -1,7 +1,7 @@
 #ifndef MOTOR_H
 #define MOTOR_H
 
-#define MOTOR_NORMAL_STARTUP
+// #define MOTOR_NORMAL_STARTUP
 
 
 #define MOTOR1 TIM3->CCR1
@@ -10,8 +10,8 @@
 #define MOTOR4 TIM3->CCR4
 
 #define MOTOR_MAX (unsigned short)36000
-#define MOTOR_MIN (unsigned short)18000
-#define MOTOR_LOW (unsigned short)18000
+#define MOTOR_MIN (unsigned short)1800
+#define MOTOR_LOW (unsigned short)1800
 
 #ifdef MOTOR_NORMAL_STARTUP
     #define MOTOR_SETTING() {\
@@ -24,7 +24,7 @@
     }
 #else
     #define MOTOR_SETTING() {\
-        motor_PWM_Init(36000,4);\
+        motor_PWM_Init(36000,40);\
         MOTOR1 = MOTOR_MAX;\
         MOTOR2 = MOTOR_MAX;\
         MOTOR3 = MOTOR_MAX;\
