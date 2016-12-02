@@ -11,8 +11,8 @@
 
 #define MOTOR_ALL MOTOR1 = MOTOR2 = MOTOR3 = MOTOR4
 
-#define THROTTLE_MAX (unsigned short)3600
-#define THROTTLE_MIN (unsigned short)1620
+#define THROTTLE_MAX (unsigned short)3600	//2ms	-	top position of throttle
+#define THROTTLE_MIN (unsigned short)1620	//0.9ms	-	bottom position of throttle
 #define THROTTLE_MID (unsigned short)2000
 
 #ifdef MOTOR_NORMAL_STARTUP
