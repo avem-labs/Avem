@@ -13,7 +13,7 @@
 
 #define THROTTLE_MAX (unsigned short)3600	//2ms	-	top position of throttle
 #define THROTTLE_MIN (unsigned short)1620	//0.9ms	-	bottom position of throttle
-#define THROTTLE_MID (unsigned short)2000
+#define THROTTLE_MID (unsigned short)2200
 
 #ifdef MOTOR_NORMAL_STARTUP
     #define MOTOR_SETTING() {\
