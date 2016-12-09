@@ -14,7 +14,7 @@ void pid_SingleAxis(pid_pst temp, float setPoint) {
     temp->output = (short)(OUTTER_LOOP_KP * (temp->Error) + OUTTER_LOOP_KI * temp->i + OUTTER_LOOP_KD * temp->d);
     temp->OutterLast = *temp->Feedback; //Save Old Data
 //Inner Loop PD
-    temp->p = temp->output + *temp->Gyro * 3.5f;
+    temp->p = temp->output + *temp->Gyro;
     temp->d = *temp->Gyro - temp->InnerLast;
     temp->output = (short)(INNER_LOOP_KP * temp->p + INNER_LOOP_KD * temp->d);
 

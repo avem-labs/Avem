@@ -9,7 +9,7 @@ extern float g_Yaw, g_Pitch, g_Roll;     //eular
 
 #define INNER_LOOP_KP 0.018f
 #define INNER_LOOP_KI 0
-#define INNER_LOOP_KD 0.4f
+#define INNER_LOOP_KD 0
 
 #define SUM_ERRO_MAX 900
 #define SUM_ERRO_MIN -900
