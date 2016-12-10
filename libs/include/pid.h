@@ -7,7 +7,7 @@ extern float g_Yaw, g_Pitch, g_Roll;     //eular
 #define OUTTER_LOOP_KI 0
 #define OUTTER_LOOP_KD 0
 
-#define INNER_LOOP_KP 0.018f
+#define INNER_LOOP_KP 0.03f
 #define INNER_LOOP_KI 0
 #define INNER_LOOP_KD 0
 
