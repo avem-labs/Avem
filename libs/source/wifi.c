@@ -35,12 +35,12 @@ void wifi_sendSingleByte(unsigned char cmd) {
     while((USART3->SR & 0x40) == 0);
 }
 
-void wifi_sendData(char * cmd) {
+void wifi_sendData(char *cmd) {
 	while(*cmd)
 		wifi_sendSingleByte(*cmd++);
 }
 
-void wifi_sendCmd(char * cmd) {
+void wifi_sendCmd(char *cmd) {
     wifi_sendData(cmd);
     wifi_sendSingleByte(0x0D);
     wifi_sendSingleByte(0x0A);
