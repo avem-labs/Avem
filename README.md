@@ -17,7 +17,7 @@ MPU6050 			| BLDC 				| Wi-Fi 				| GPS
 					|**`Channel 4`** PB1
 
 
-# Todolist
+# To-do list
 
 - [x] Software **I2C**
 - [x] Init **MPU6050**
@@ -28,9 +28,9 @@ MPU6050 			| BLDC 				| Wi-Fi 				| GPS
 - [x] **PID** Control
 - [x] Schematic
 - [x] PCB Layout
-- [x] Brushless DC motor-[Video on YouTube](https://youtu.be/iHYVgTmxoSw)
-- [x] **Wi-Fi**(`ESP8266`)
-- [x] [PID](https://github.com/but0n/Avem/blob/master/pid.md)
+- [x] Brushless DC motor-[Video via YouTube](https://youtu.be/iHYVgTmxoSw)
+- [ ] **Wi-Fi**(`ESP8266`)
+- [x] [Cascade PID control](https://github.com/but0n/Avem/blob/master/docs/README.md)
 - [x] FreeRTOS
 - [ ] TCP/IP Socket connect with host
 - [ ] PID debug
