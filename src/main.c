@@ -115,12 +115,12 @@ void mpu_task() {
 }
 
 #ifdef DEBUG_BLDC
-void pid_task() {
-	while(1) {
-		pid_SingleAxis(&g_pid_roll, 0);
-		vTaskDelay(10);
+	void pid_task() {
+		while(1) {
+			pid_SingleAxis(&g_pid_roll, 0);
+			vTaskDelay(10);
+		}
 	}
-}
 #endif
 
 void uart_task() {
@@ -184,10 +184,10 @@ void uart_debugPID() {
 
 int main() {
 
-#ifdef DEBUG_BLDC
-//Brushless motor auto init
-    MOTOR_SETTING();
-#endif
+	#ifdef DEBUG_BLDC
+		//Brushless motor auto init
+	    MOTOR_SETTING();
+	#endif
 
     uart_init(72, 115200);
     uart_sendStr("Config MPU6050...");
@@ -203,85 +203,85 @@ int main() {
 	uart_sendStr("Stack Overflow...");
 	while(1);
 
-
+//	Main Loop
     while(1) {
-#ifdef DEBUG_WIFI
-        wifi_Config();
-         while(1) {
-             wifi_sendCmd("AT+CIPSEND=0,20");
-             delay(50);
-             wifi_sendCmd("<html>aki<br></html>");
-             delay(1000);
-         }
-#endif
-#ifdef DEBUG_MPU6050_SOURCEDATA
-        MPU6050_getStructData(&sourceData);
-        MPU6050_debug(&sourceData);
-#endif
+		#ifdef DEBUG_WIFI
+			wifi_Config();
+			while(1) {
+				wifi_sendCmd("AT+CIPSEND=0,20");
+				delay(50);
+				wifi_sendCmd("<html>aki<br></html>");
+				delay(1000);
+			}
+		#endif
+		#ifdef DEBUG_MPU6050_SOURCEDATA
+			MPU6050_getStructData(&sourceData);
+			MPU6050_debug(&sourceData);
+		#endif
 
-#if defined (DEBUG_BLDC)
-        MPU6050_getStructData(&sourceData);
-        Comput(sourceData);
+		#if defined (DEBUG_BLDC)
+			MPU6050_getStructData(&sourceData);
+			Comput(sourceData);
 
-        pid_SingleAxis(&g_pid_roll, 0);
-        TTY_CLEAR();
+			pid_SingleAxis(&g_pid_roll, 0);
+			TTY_CLEAR();
 
-        TTY_RED();
-        uart_sendStr(" Motor占空比: ");
-        TTY_NONE();
-        TTY_BLUE();
-        uart_showData(*g_pid_roll.Channel1);
-        uart_sendStr("\t");
-        uart_showData(*g_pid_roll.Channel2);
-        TTY_NONE();
+			TTY_RED();
+			uart_sendStr(" Motor占空比: ");
+			TTY_NONE();
+			TTY_BLUE();
+			uart_showData(*g_pid_roll.Channel1);
+			uart_sendStr("\t");
+			uart_showData(*g_pid_roll.Channel2);
+			TTY_NONE();
 
-        uart_sendStr("\n\rRoll:\t");
-        uart_Float2Char(*g_pid_roll.Feedback);
+			uart_sendStr("\n\rRoll:\t");
+			uart_Float2Char(*g_pid_roll.Feedback);
 
-        uart_sendStr("\tGyro:\t");
-        uart_Float2Char(*g_pid_roll.Gyro);
+			uart_sendStr("\tGyro:\t");
+			uart_Float2Char(*g_pid_roll.Gyro);
 
-        uart_sendStr("\n\rP:\t");
-        uart_Float2Char(g_pid_roll.p);
+			uart_sendStr("\n\rP:\t");
+			uart_Float2Char(g_pid_roll.p);
 
-        uart_sendStr("\n\rI:\t");
-        uart_Float2Char(g_pid_roll.i);
+			uart_sendStr("\n\rI:\t");
+			uart_Float2Char(g_pid_roll.i);
 
-        uart_sendStr("\n\rD:\t");
-        uart_Float2Char(g_pid_roll.d);
+			uart_sendStr("\n\rD:\t");
+			uart_Float2Char(g_pid_roll.d);
 
-        uart_sendStr("\n\r=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=\n\rInner Cache:\t");
-        uart_Float2Char(g_pid_roll.InnerLast);
-        uart_sendStr("\n\rOutter Cache:\t");
-        uart_Float2Char(g_pid_roll.OutterLast);
+			uart_sendStr("\n\r=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=\n\rInner Cache:\t");
+			uart_Float2Char(g_pid_roll.InnerLast);
+			uart_sendStr("\n\rOutter Cache:\t");
+			uart_Float2Char(g_pid_roll.OutterLast);
 
-        uart_sendStr("\n\rOutput:\t\t");
-        TTY_RED();
-        uart_showData(g_pid_roll.output);
-        TTY_NONE();
-        uart_sendStr("\n\r");
+			uart_sendStr("\n\rOutput:\t\t");
+			TTY_RED();
+			uart_showData(g_pid_roll.output);
+			TTY_NONE();
+			uart_sendStr("\n\r");
 
-#endif
+		#endif
 
-#ifdef DEBUG_MPU6050_EULER
-        MPU6050_getStructData(&sourceData);
+		#ifdef DEBUG_MPU6050_EULER
+			MPU6050_getStructData(&sourceData);
 
-        Comput(sourceData);
-
-
-        uart_sendStr("Pitch Angle: ");
-        uart_Float2Char(g_Pitch);
+			Comput(sourceData);
 
 
-        uart_sendStr("; Roll Angle: ");
-        uart_Float2Char(g_Roll);
+			uart_sendStr("Pitch Angle: ");
+			uart_Float2Char(g_Pitch);
 
-        uart_sendStr("; Yaw Angle: ");
-        uart_Float2Char(g_Yaw);
 
-        UART_CR();
+			uart_sendStr("; Roll Angle: ");
+			uart_Float2Char(g_Roll);
 
-        delay(100);
-#endif
+			uart_sendStr("; Yaw Angle: ");
+			uart_Float2Char(g_Yaw);
+
+			UART_CR();
+
+			delay(100);
+		#endif
     }
 }
