@@ -43,7 +43,7 @@ tshow:
 flash:
 	stm32flash -w $(TOP)/main.bin -v -g 0 /dev/tty.SLAB_USBtoUART
 dump:
-	arm-none-eabi-objdump -D main.elf > DUMP.s
+	$(OBJDUMP) -D main.elf > DUMP.s
 	open DUMP.s
 tty: flash
 	screen /dev/tty.SLAB_USBtoUART 115200
