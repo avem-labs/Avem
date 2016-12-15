@@ -45,6 +45,5 @@ flash:
 dump:
 	arm-none-eabi-objdump -D main.elf > DUMP.s
 	open DUMP.s
-	say "Bazinga"
 tty: flash
 	screen /dev/tty.SLAB_USBtoUART 115200
