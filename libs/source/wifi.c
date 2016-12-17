@@ -12,8 +12,8 @@ void wifi_init() {
     mantissa <<= 4;
     mantissa += fraction;
 
-    RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;   //GPIOB Enable
-    RCC->APB1ENR |= RCC_APB1ENR_USART3EN;  //USART3 Enable
+    RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;		//GPIOB Enable
+    RCC->APB1ENR |= RCC_APB1ENR_USART3EN;	//USART3 Enable
 
     GPIOB->CRH &= 0xFFFF00FF;
     GPIOB->CRH |= 0x00008B00;

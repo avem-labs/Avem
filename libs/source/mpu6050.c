@@ -8,7 +8,8 @@
 void MPU_Sigle_Write(unsigned char reg_addr, unsigned char reg_data) {
     IIC_Start();
     IIC_Send(MPU6050_ADDR);
-    if(!IIC_Wait_Ack()) LED1 = 1;
+    if(!IIC_Wait_Ack())
+		LED1 = 1;
 
     IIC_Send(reg_addr);
     IIC_Wait_Ack();
