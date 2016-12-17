@@ -65,20 +65,20 @@ unsigned char uart_Float2Char(float value) {
         value = value * -1;
         uart_sendData('-');
     }
+
     if(value >= 1) {
         IntegerPart = (unsigned char)value;
         DecimalPart = value - IntegerPart;
-    }
-    else {
+    } else {
         IntegerPart = 0;
         DecimalPart = value - IntegerPart;
     }
+
     if(IntegerPart == 0) {
         array[0] = '0';
         array[1] = '.';
         i = 1;
-    }
-    else {
+    } else {
         while(IntegerPart > 0) {
             array[i] = IntegerPart%10 + '0';
             IntegerPart/=10;

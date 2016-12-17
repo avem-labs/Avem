@@ -6,8 +6,10 @@ void pid_SingleAxis(pid_pst temp, float setPoint) {
     temp->Error = *temp->Feedback - setPoint;
 //Outter Loop PID
     temp->i += temp->Error;
-    if (temp->i > PID_IMAX) temp->i = PID_IMAX;
-    else if (temp->i < PID_IMIN) temp->i = PID_IMIN;
+    if (temp->i > PID_IMAX)
+		temp->i = PID_IMAX;
+    else if (temp->i < PID_IMIN)
+		temp->i = PID_IMIN;
 
     temp->d = *temp->Feedback - temp->OutterLast;
 
@@ -18,13 +20,19 @@ void pid_SingleAxis(pid_pst temp, float setPoint) {
     temp->d = *temp->Gyro - temp->InnerLast;
     temp->output = (short)(INNER_LOOP_KP * temp->p + INNER_LOOP_KD * temp->d);
 
-    if (*temp->Channel1+temp->output > THROTTLE_MAX) *temp->Channel1 = THROTTLE_MAX;
-    else if (*temp->Channel1+temp->output < THROTTLE_MIN) *temp->Channel1 = THROTTLE_MIN;
-    else *temp->Channel1 += (short)temp->output;
+    if (*temp->Channel1+temp->output > THROTTLE_MAX)
+		*temp->Channel1 = THROTTLE_MAX;
+    else if (*temp->Channel1+temp->output < THROTTLE_MIN)
+		*temp->Channel1 = THROTTLE_MIN;
+    else
+		*temp->Channel1 += (short)temp->output;
 
-    if (*temp->Channel2-temp->output > THROTTLE_MAX) *temp->Channel2 = THROTTLE_MAX;
-    else if (*temp->Channel2-temp->output < THROTTLE_MIN) *temp->Channel2 = THROTTLE_MIN;
-    else *temp->Channel2 -= (short)temp->output;
+    if (*temp->Channel2-temp->output > THROTTLE_MAX)
+		*temp->Channel2 = THROTTLE_MAX;
+    else if
+		(*temp->Channel2-temp->output < THROTTLE_MIN) *temp->Channel2 = THROTTLE_MIN;
+    else
+		*temp->Channel2 -= (short)temp->output;
 
     temp->InnerLast = *temp->Gyro;
 }

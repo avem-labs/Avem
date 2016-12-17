@@ -24,6 +24,7 @@ void IIC_init() {
 //    GPIOC->CRL |= 0x03000000;   //推挽输出, AD0 ----> PC6
 //    AD0 = 0;
 }
+
 void IIC_Start() {
     SDA = 1;
     SCL = 1;
@@ -32,6 +33,7 @@ void IIC_Start() {
     IIC_DELAY();
     SCL = 0;
 }
+
 void IIC_Stop() {
     SCL = 0;
     IIC_DELAY();
@@ -42,8 +44,8 @@ void IIC_Stop() {
     SDA = 1;
     IIC_DELAY();
 }
-void IIC_Ack(unsigned char ack) {
 
+void IIC_Ack(unsigned char ack) {
     SCL = 0;
     IIC_DELAY();
     SDA = ack;
@@ -53,8 +55,8 @@ void IIC_Ack(unsigned char ack) {
     SCL = 0;
     IIC_DELAY();
 }
-unsigned char IIC_Wait_Ack() {
 
+unsigned char IIC_Wait_Ack() {
     SCL = 0;
     IIC_DELAY();
     SDA = 1;
@@ -69,7 +71,6 @@ unsigned char IIC_Wait_Ack() {
 
     SCL = 0;
     return 1;
-
 }
 
 void IIC_Send(unsigned char dat) {
