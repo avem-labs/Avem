@@ -35,22 +35,19 @@ void uart_sendData(unsigned char data) {
 }
 
 void uart_showData(short k) {
-    unsigned char a, b, c, d, e;
+	char tem[] = "00000";
+	char *result = tem;
 
-    uart_sendData(k<0?'-':'+');
-    if(k<0) k=-k;
-    e = (unsigned char)(k % 10);
-    d = (unsigned char)(k / 10 % 10);
-    c = (unsigned char)(k / 100 % 10);
-    b = (unsigned char)(k / 1000 % 10);
-    a = (unsigned char)(k / 10000);
-
-    uart_sendData(a+'0');
-    uart_sendData(b+'0');
-    uart_sendData(c+'0');
-    uart_sendData(d+'0');
-    uart_sendData(e+'0');
-    uart_sendData(' ');
+	uart_sendData(k<0 ? '-':'+');
+	if(k<0)
+		k = -k;
+	unsigned short bit = 1;
+	while(*result) {
+		(*result++) = (char)(k / bit % 10 + '0');
+		bit = bit * 10;
+	}
+	for(unsigned char i = 0; i < 5; i++)
+		uart_sendData(tem[4-i]);
 }
 
 unsigned char uart_Float2Char(float value) {
