@@ -44,7 +44,7 @@ void uart_showData(short k) {
 	unsigned short bit = 1;
 	while(*result) {
 		(*result++) = (char)(k / bit % 10 + '0');
-		bit = bit * 10;
+		bit *= 10;
 	}
 	for(unsigned char i = 0; i < 5; i++)
 		uart_sendData(tem[4-i]);
