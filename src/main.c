@@ -185,7 +185,7 @@ void uart_debugPID() {
 
 void drawille_task() {
 	while(1) {
-		draw((unsigned char)(PIX(1)|PIX(2)|PIX(3)|PIX(4)|PIX(5)|PIX(6)|PIX(7)|PIX(8)));
+		draw((unsigned char)(PIX(0)|(PIX(1)|PIX(2)|PIX(3)|PIX(4)|PIX(5)|PIX(6)|PIX(7)));
 	}
 }
 
