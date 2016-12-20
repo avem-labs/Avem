@@ -10,7 +10,7 @@
 #include "wifi.h"
 #include "pid.h"
 #include "tty.h"
-#include "drawille.h"
+#include "cli.h"
 
 #define Kp      100.0f      //比例增益支配率(常量)
 #define Ki      0.002f      //积分增益支配率
@@ -185,7 +185,11 @@ void uart_debugPID() {
 
 void drawille_task() {
 	while(1) {
-		draw((PIX(0)|PIX(1)|PIX(2)|PIX(3)|PIX(4)|PIX(5)|PIX(6)|PIX(7)));
+		TTY_CLEAR();
+		cli_drawSpot(0,0);
+		cli_drawSpot(0,1);
+		cli_drawSpot(0,2);
+		cli_fresh();
 	}
 }
 
