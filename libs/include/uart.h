@@ -11,5 +11,6 @@ void uart_sendStr(char * cmd);
     uart_sendData(0x0D);\
     uart_sendData(0x0A);\
 }
+#define UART_CLEAR() {uart_sendStr("\033[H\033[J");}
 
 #endif

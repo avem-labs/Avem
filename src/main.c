@@ -185,7 +185,7 @@ void uart_debugPID() {
 
 void drawille_task() {
 	while(1) {
-		TTY_CLEAR();
+		UART_CLEAR();
 		cli_drawSpot(0,0);
 		cli_drawSpot(0,1);
 		cli_drawSpot(0,2);
