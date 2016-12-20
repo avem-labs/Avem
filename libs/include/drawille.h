@@ -9,8 +9,10 @@
 // |2 5|
 // |6 7|
 //  ---
-#define BRAILLE_OFFSET	0x2800
-#define PIXEL(x)		1<<(x)
-#define DRAW(bit)		BRAILLE_OFFSET + (bit)
+// #define BRAILLE_OFFSET	0x2800
+#define PIX(x)			(1<<(x))
+// #define MAP(bit)		BRAILLE_OFFSET + (bit)
+
+void draw(char uni);
 
 #endif

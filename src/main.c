@@ -10,6 +10,7 @@
 #include "wifi.h"
 #include "pid.h"
 #include "tty.h"
+#include "drawille.h"
 
 #define Kp      100.0f      //比例增益支配率(常量)
 #define Ki      0.002f      //积分增益支配率
@@ -182,6 +183,12 @@ void uart_debugPID() {
 	}
 }
 
+void drawille_task() {
+	while(1) {
+		draw(PIX(1));
+	}
+}
+
 int main() {
 
 	#ifdef DEBUG_BLDC
@@ -196,7 +203,8 @@ int main() {
     uart_sendStr("MPU6050 Connect Success!");
     UART_CR();
 
-	xTaskCreate(uart_debugPID, "UART_TASK", 100, NULL, 1, NULL);
+	// xTaskCreate(uart_debugPID, "UART_TASK", 100, NULL, 1, NULL);
+	xTaskCreate(drawille_task, "UART_TASK", 100, NULL, 1, NULL);
 	xTaskCreate(mpu_task, "MPU_TASK", 100, NULL, 3, NULL);
 	xTaskCreate(pid_task, "PID_TASK", 100, NULL, 2, NULL);
 	vTaskStartScheduler();
