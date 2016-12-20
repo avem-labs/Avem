@@ -13,6 +13,6 @@
 #define PIX(x)			(1<<(x))
 // #define MAP(bit)		BRAILLE_OFFSET + (bit)
 
-void draw(char uni);
+void draw(unsigned char uni);
 
 #endif
