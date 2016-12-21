@@ -6,19 +6,19 @@
 //		0x2800 - braille unicode offset
 //		0010 1000 : 0000 0000
 
-const char cli_bitmap[4][2] = {
+const char cli_bitmap[BLOCK_HEIGHT][BLOCK_WIDTH] = {
 	{0x01, 0x08},
 	{0x02, 0x10},
 	{0x04, 0x20},
 	{0x40, 0x80}
 };
 
-unsigned char cli_cache[HEIGHT][WIDTH] = {};
+unsigned char cli_cache[CACHE_HEIGHT][CACHE_WIDTH] = {};
 
 
 void cli_fresh() {
-	for(unsigned char x = 0; x < WIDTH; x++) {
-		for(unsigned char y = 0; y < HEIGHT; y++) {
+	for(unsigned char x = 0; x < CACHE_WIDTH; x++) {
+		for(unsigned char y = 0; y < CACHE_HEIGHT; y++) {
 			cli_drawBlock(&cli_cache[y][x]);
 		}
 		UART_CR();
