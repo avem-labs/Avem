@@ -5,10 +5,12 @@
 
 #define BLOCK_WIDTH		2
 #define BLOCK_HEIGHT	8
-#define WIDTH			40
-#define HEIGHT			40
-#define CACHE_WIDTH		WIDTH/BLOCK_WIDTH
-#define CACHE_HEIGHT	HEIGHT/BLOCK_HEIGHT
+#define WIDTH			200
+#define HEIGHT			160
+#define GET_WIDTH(x)	(x)/BLOCK_WIDTH
+#define GET_HEIGHT(x)	(x)/BLOCK_HEIGHT
+#define CACHE_WIDTH		GET_WIDTH(WIDTH)
+#define CACHE_HEIGHT	GET_HEIGHT(HEIGHT)
 
 //  ---
 // |0 3|
