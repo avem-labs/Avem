@@ -10,7 +10,6 @@
 #include "wifi.h"
 #include "pid.h"
 #include "tty.h"
-#include "cli.h"
 
 #define Kp      100.0f      //比例增益支配率(常量)
 #define Ki      0.002f      //积分增益支配率
@@ -183,24 +182,7 @@ void uart_debugPID() {
 	}
 }
 
-void drawille_task() {
-	while(1) {
-		cli_fresh();
-		vTaskDelay(1000);
-	}
-}
-
 int main() {
-	RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
-	GPIOB->CRH &= 0xFFFFF0FF;
-	GPIOB->CRH |= 0x00000300;
-	while(1) {
-		GPIOB->ODR &= 0b11111111111111111111101111111111;
-		delay(50);
-		GPIOB->ODR |= 0b00000000000000000000010000000000;
-		delay(850);
-	}
-
 	#ifdef DEBUG_BLDC
 		//Brushless motor auto init
 	    MOTOR_SETTING();
@@ -213,8 +195,7 @@ int main() {
     uart_sendStr("MPU6050 Connect Success!");
     UART_CR();
 
-	// xTaskCreate(uart_debugPID, "UART_TASK", 100, NULL, 1, NULL);
-	xTaskCreate(drawille_task, "UART_TASK", 100, NULL, 1, NULL);
+	xTaskCreate(uart_debugPID, "UART_TASK", 100, NULL, 1, NULL);
 	xTaskCreate(mpu_task, "MPU_TASK", 100, NULL, 3, NULL);
 	xTaskCreate(pid_task, "PID_TASK", 100, NULL, 2, NULL);
 	vTaskStartScheduler();
