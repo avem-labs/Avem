@@ -191,6 +191,15 @@ void drawille_task() {
 }
 
 int main() {
+	RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
+	GPIOB->CRH &= 0xFFFFF0FF;
+	GPIOB->CRH |= 0x00000300;
+	while(1) {
+		GPIOB->ODR &= 0b11111111111111111111101111111111;
+		delay(1000);
+		GPIOB->ODR |= 0b00000000000000000000010000000000;
+		delay(1000);
+	}
 
 	#ifdef DEBUG_BLDC
 		//Brushless motor auto init
