@@ -196,9 +196,9 @@ int main() {
 	GPIOB->CRH |= 0x00000300;
 	while(1) {
 		GPIOB->ODR &= 0b11111111111111111111101111111111;
-		delay(1000);
+		delay(50);
 		GPIOB->ODR |= 0b00000000000000000000010000000000;
-		delay(1000);
+		delay(850);
 	}
 
 	#ifdef DEBUG_BLDC
