@@ -17,8 +17,9 @@ unsigned char cli_cache[CACHE_HEIGHT][CACHE_WIDTH] = {};
 
 
 void cli_fresh() {
-	for(unsigned char x = 0; x < CACHE_WIDTH; x++) {
-		for(unsigned char y = 0; y < CACHE_HEIGHT; y++) {
+	UART_CLEAR();
+	for(unsigned char y = 0; y < CACHE_HEIGHT; y++) {
+		for(unsigned char x = 0; x < CACHE_WIDTH; x++) {
 			cli_drawBlock(&cli_cache[y][x]);
 		}
 		UART_CR();
@@ -37,8 +38,6 @@ void cli_drawSpot(unsigned char x, unsigned char y) {
 		unsigned char x_offset = x % BLOCK_WIDTH;
 		unsigned char y_offset = y % BLOCK_HEIGHT;
 		//	Get position of block
-		x /= BLOCK_WIDTH;
-		y /= BLOCK_HEIGHT;
-		cli_cache[y][x] |= cli_bitmap[y_offset][x_offset];
+		cli_cache[GET_HEIGHT(y)][GET_WIDTH(x)] |= cli_bitmap[y_offset][x_offset];
 	}
 }
