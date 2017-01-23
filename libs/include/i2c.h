@@ -13,7 +13,7 @@
 #define GPIOB_IDR_Addr (GPIOB_BASE + 8)
 #define READ_SDA BIT_ADDR(GPIOB_IDR_Addr, SDA_PINNUM)
 
-#define IIC_DELAY() {delay_us(1);}
+#define IIC_DELAY() delay_us(1)
 
 
 
