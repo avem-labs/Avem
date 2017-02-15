@@ -1,0 +1,35 @@
+Reference, Value, Footprint, Datasheet
+U2,STM32F103RCT6,LQFP-64_10x10mm_Pitch0.5mm,
+U1,APE8865N-33-HF-3,SOT-23,
+"C3
+C4
+C10
+C13
+C14
+C12
+C5
+C9",104,C_0603,
+"C1
+C2",106,C_0805,
+"R4
+R1
+R2",10K,R_0603,
+"C8
+C11",12pF,C_0603,
+R3,1M,R_0603,
+"C6
+C7",20pF,C_0603,
+Y2,32.768k,Crystals:Crystal_Round_Vertical_2mm,
+Y1,8MHz,DSX321G 8Mhz,
+"P3
+P4
+P7
+P8",CONN_01X01,单排正弯针_1x01,
+"P1
+P2
+P5
+P6",CONN_01X02,接线端子 5mm间距-1*2,
+"P10
+P11",CONN_01X04,单排正弯针_1x04,
+P9,CONN_01X08,单排弯母座_1x08,
+P12,CONN_02X04,双排弯母座_2x04,
