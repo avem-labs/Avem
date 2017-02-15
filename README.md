@@ -1,11 +1,15 @@
 # Avem :bird:
-[![Build Status](https://travis-ci.org/but0n/Avem.png)](https://travis-ci.org/but0n/Avem)
+[![Build Status](https://travis-ci.org/but0n/Avem.png)](https://travis-ci.org/but0n/Avem)  [![License](https://img.shields.io/github/license/but0n/Avem.svg)](#)  [![Releases](https://img.shields.io/github/release/but0n/Avem.svg)](https://github.com/but0n/Avem/releases)  [![platform](https://img.shields.io/badge/platform-MacOS | Linux-orange.svg)](#)
+
 
 ![](docs/images/PF.png)
 
 [UAV] - [STM32F103] - 6 Axes sensor MPU6050 - Quaternion &amp; Euler Angles Compute - PID Controller
 
 [Detials & Videos](http://bbs.5imx.com/forum.php?mod=viewthread&tid=1227960&extra=page%3D1)
+
+Terminal demo
+![](docs/images/HUD.PNG)
 
 # GPIO List
 
