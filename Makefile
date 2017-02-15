@@ -45,7 +45,7 @@ flash:
 dump:
 	$(OBJDUMP) -D main.elf > DUMP.s
 	open DUMP.s
-tty: flash
+tty:
 	screen /dev/tty.SLAB_USBtoUART 115200
 dfu:
 	dfu-util -d 0483:df11 -c 1 -a 0 -s 0x08000000:leave -D main.bin
