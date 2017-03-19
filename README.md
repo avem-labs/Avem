@@ -1,5 +1,5 @@
 # Avem :bird:
-[![Build Status](https://travis-ci.org/but0n/Avem.png)](https://travis-ci.org/but0n/Avem)  [![License](https://img.shields.io/github/license/but0n/Avem.svg)](#)  [![Releases](https://img.shields.io/github/release/but0n/Avem.svg)](https://github.com/but0n/Avem/releases)  [![platform](https://img.shields.io/badge/platform-MacOS | Linux-orange.svg)](#)
+[![Build Status](https://travis-ci.org/but0n/Avem.png)](https://travis-ci.org/but0n/Avem)  [![License](https://img.shields.io/github/license/but0n/Avem.svg)](#)  [![Releases](https://img.shields.io/github/release/but0n/Avem.svg)](https://github.com/but0n/Avem/releases)  [![platform](https://img.shields.io/badge/platform-MacOS%20%7C%20Linux-orange.svg)](#)
 
 
 ![](docs/images/PF.png)
