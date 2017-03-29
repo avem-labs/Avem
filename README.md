@@ -17,8 +17,8 @@ MPU6050 			| BLDC 				| Wi-Fi 				| GPS
 :----:				|:----:				|:----: 				|:---:
 **`SCL`** PB15		|**`Channel 1`** PA6|**`USART3_TX`** PB10	|*TBD*
 **`SDA`** PB14		|**`Channel 2`** PA7|**`USART3_RX`** PB11	|*TBD*
-					|**`Channel 3`** PB0| | |
-					|**`Channel 4`** PB1| | |
+ ||**`Channel 3`** PB0| | |
+ ||**`Channel 4`** PB1| | |
 
 
 # To-do list
