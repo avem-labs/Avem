@@ -195,92 +195,10 @@ int main() {
     uart_sendStr("MPU6050 Connect Success!");
     UART_CR();
 
-	xTaskCreate(uart_task, "UART_TASK", 100, NULL, 1, NULL);
+	// xTaskCreate(uart_task, "UART_TASK", 100, NULL, 1, NULL);
 	xTaskCreate(mpu_task, "MPU_TASK", 100, NULL, 3, NULL);
 	xTaskCreate(pid_task, "PID_TASK", 100, NULL, 2, NULL);
 	vTaskStartScheduler();
 	uart_sendStr("Stack Overflow...");
 	while(1);
-
-//	Main Loop
-    while(1) {
-		#ifdef DEBUG_WIFI
-			wifi_Config();
-			while(1) {
-				wifi_sendCmd("AT+CIPSEND=0,20");
-				delay(50);
-				wifi_sendCmd("<html>aki<br></html>");
-				delay(1000);
-			}
-		#endif
-		#ifdef DEBUG_MPU6050_SOURCEDATA
-			MPU6050_getStructData(&sourceData);
-			MPU6050_debug(&sourceData);
-		#endif
-
-		#if defined (DEBUG_BLDC)
-			MPU6050_getStructData(&sourceData);
-			Comput(sourceData);
-
-			pid_SingleAxis(&g_pid_roll, 0);
-			TTY_CLEAR();
-
-			TTY_RED();
-			uart_sendStr(" Motor占空比: ");
-			TTY_NONE();
-			TTY_BLUE();
-			uart_showData(*g_pid_roll.Channel1);
-			uart_sendStr("\t");
-			uart_showData(*g_pid_roll.Channel2);
-			TTY_NONE();
-
-			uart_sendStr("\n\rRoll:\t");
-			uart_Float2Char(*g_pid_roll.Feedback);
-
-			uart_sendStr("\tGyro:\t");
-			uart_Float2Char(*g_pid_roll.Gyro);
-
-			uart_sendStr("\n\rP:\t");
-			uart_Float2Char(g_pid_roll.p);
-
-			uart_sendStr("\n\rI:\t");
-			uart_Float2Char(g_pid_roll.i);
-
-			uart_sendStr("\n\rD:\t");
-			uart_Float2Char(g_pid_roll.d);
-
-			uart_sendStr("\n\r=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=\n\rInner Cache:\t");
-			uart_Float2Char(g_pid_roll.InnerLast);
-			uart_sendStr("\n\rOutter Cache:\t");
-			uart_Float2Char(g_pid_roll.OutterLast);
-
-			uart_sendStr("\n\rOutput:\t\t");
-			TTY_RED();
-			uart_showData(g_pid_roll.output);
-			TTY_NONE();
-			uart_sendStr("\n\r");
-
-		#endif
-
-		#ifdef DEBUG_MPU6050_EULER
-			MPU6050_getStructData(&sourceData);
-
-			Comput(sourceData);
-
-
-			uart_sendStr("Pitch Angle: ");
-			uart_Float2Char(g_Pitch);
-
-
-			uart_sendStr("; Roll Angle: ");
-			uart_Float2Char(g_Roll);
-
-			uart_sendStr("; Yaw Angle: ");
-			uart_Float2Char(g_Yaw);
-
-			UART_CR();
-
-			delay(100);
-		#endif
-    }
 }

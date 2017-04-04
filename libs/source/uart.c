@@ -1,6 +1,8 @@
 #include "uart.h"
 #include "stm32f10x.h"
 
+int top = -1;	//Stack Pointer
+
 void uart_init(unsigned int pclk2, unsigned int bound) {
     float temp;
     unsigned short mantissa;
@@ -27,6 +29,41 @@ void uart_init(unsigned int pclk2, unsigned int bound) {
 
 
     USART1->SR;     //Read Reg SR to Clean TXE and TE,(Reset value: 0x00C0)
+
+	SCB->AIRCR &= 0x05FAF8FF;	// AIRCE Key: 0x05FA
+	SCB->AIRCR |= 0x05FA0400;	// Set up group value
+
+	NVIC_EnableIRQ(USART1_IRQn);
+	NVIC_SetPriority(USART1_IRQn, 3);
+
+}
+
+void USART1_IRQHandler(void) {
+	if(USART1->SR & USART_SR_RXNE) {
+		char cmd = USART1->DR;
+		switch (cmd) {
+			case 0x0D:
+			case 0x0A:
+				UART_CR();
+				uart_sendStr("Handle Command:\t");
+				uart_sendStr(gCmdCache);
+				UART_CR();
+				clrCache();
+				break;
+			case 0x08:
+			case 0x7F:
+				pop = '\0';
+				uart_sendData(0x7F);
+				uart_sendData(0x08);
+				break;
+			case '$':
+				clrCache();
+			default:
+				push(cmd);
+				uart_sendData(cmd);
+				break;
+		}
+	}
 }
 
 void uart_sendData(unsigned char data) {

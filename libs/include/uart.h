@@ -13,4 +13,16 @@ void uart_sendStr(char * cmd);
 } while(0)
 #define UART_CLEAR() uart_sendStr("\033[H\033[J")
 
+#define CMD_MAX_LENGTH	32
+char gCmdCache[CMD_MAX_LENGTH];
+int top;	//Stack Pointer
+#define pop		gCmdCache[top--]
+#define push(s)	gCmdCache[++top] = s
+#define clrCache()	{\
+	while (top > -1) {\
+		pop = '\0';\
+	}\
+}
+
+
 #endif
