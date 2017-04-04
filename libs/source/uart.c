@@ -20,10 +20,10 @@ void uart_init(unsigned int pclk2, unsigned int bound) {
     RCC->APB2RSTR &= ~RCC_APB2RSTR_USART1RST;
 
     USART1->BRR = mantissa;
-    USART1->CR1 |= 0x200C;
+    USART1->CR1 |= 0x200C;	//Set up UE, TE and RE
 
-    USART1->CR1 |= 1<<8;
-    USART1->CR1 |= 1<<5;
+    USART1->CR1 |= 1<<8;	//PE Interrup Enable
+    USART1->CR1 |= 1<<5;	//RX Not Empty Interrup Enable
 
 
     USART1->SR;     //Read Reg SR to Clean TXE and TE,(Reset value: 0x00C0)
