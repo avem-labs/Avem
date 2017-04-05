@@ -1,8 +1,7 @@
 # Avem :bird:
 [![Build Status](https://travis-ci.org/but0n/Avem.png)](https://travis-ci.org/but0n/Avem)  [![License](https://img.shields.io/github/license/but0n/Avem.svg)](#)  [![Releases](https://img.shields.io/github/release/but0n/Avem.svg)](https://github.com/but0n/Avem/releases)  [![platform](https://img.shields.io/badge/platform-MacOS%20%7C%20Linux-orange.svg)](#)
 
-
-![](docs/images/PF.png)
+![](docs/images/header.jpg)
 
 [UAV] - [STM32F103] - 6 Axes sensor MPU6050 - Quaternion &amp; Euler Angles Compute - PID Controller
 
@@ -43,13 +42,12 @@ MPU6050 			| BLDC 				| Wi-Fi 				| GPS
 
 
 # Hardware
+![](docs/images/PF.png)
 
 ## Schematic
-
 ![](docs/images/pcb.png)
 
 ## PCB Layout
-
 ![](docs/images/PCB/layoutF.png)
 
 ![](docs/images/PCB/layoutB.png)
