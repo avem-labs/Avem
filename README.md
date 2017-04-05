@@ -54,4 +54,4 @@ MPU6050 			| BLDC 				| Wi-Fi 				| GPS
 
 [Documents](docs/)
 
-Made with :heart: by but0n
+Made with ♥ by but0n
