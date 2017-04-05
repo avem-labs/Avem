@@ -6,7 +6,7 @@
 
 [UAV] - [STM32F103] - 6 Axes sensor MPU6050 - Quaternion &amp; Euler Angles Compute - PID Controller
 
-[Detials & Videos](http://bbs.5imx.com/forum.php?mod=viewthread&tid=1227960&extra=page%3D1)
+[Details & Videos](http://bbs.5imx.com/forum.php?mod=viewthread&tid=1227960&extra=page%3D1)
 
 Terminal demo
 ![](docs/images/HUD.PNG)
@@ -41,25 +41,19 @@ MPU6050 			| BLDC 				| Wi-Fi 				| GPS
 - [ ] **GPS**
 - [ ] 3D print or CNC cut
 
-----
 
 # Hardware
-
-## PCB Layout
-Front
-
-![](docs/images/PCB/layoutF.png)
-
-Back
-
-![](docs/images/PCB/layoutB.png)
-
-## 3D Moudle
-
-![](docs/images/PCB/demoV2.png)
 
 ## Schematic
 
 ![](docs/images/pcb.png)
 
-[More details](docs/)
+## PCB Layout
+
+![](docs/images/PCB/layoutF.png)
+
+![](docs/images/PCB/layoutB.png)
+
+[Documents](docs/)
+
+Made with :heart: by but0n
