@@ -7,6 +7,7 @@ void uart_showData(short k);    //THIS FUNCTION IS NOT SO GOOD, EG: uart_showDat
 unsigned char uart_Float2Char(float value);
 void uart_sendStr(char * cmd);
 void USART1_IRQHandler(void);
+void uart_translate();
 
 #define UART_CR() do {\
     uart_sendData(0x0D);\
@@ -24,6 +25,13 @@ int top;	//Stack Pointer
 		pop = '\0';\
 	}\
 }
+#define STACK_OVERFLOW	(top == CMD_MAX_LENGTH - 1)
 
+//	decode
+#define TOKEN_SEND	'S'
+#define TOKEN_LEARN	'L'
+#define CMD_NUM_MAX	'8'
+#define CMD_NUM_MIN	'1'
+#define ISLEGAL_NUM(k)	(((k) >= CMD_NUM_MIN) && ((k) <= CMD_NUM_MAX))
 
 #endif

@@ -59,10 +59,37 @@ void USART1_IRQHandler(void) {
 			case '$':
 				clrCache();
 			default:
+				if(STACK_OVERFLOW)
+					break;
 				push(cmd);
 				uart_sendData(cmd);
 				break;
 		}
+	}
+}
+
+void uart_translate() {
+//	The Last Item Of CMD Cache Array
+//	| 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |-bit-|
+//	Each bit is a switch of IR Devices
+	char k;
+	// unsigned char stagement;
+	while(top > -1) {	// While CMD Cache Not Empty
+		k = pop;
+		if(ISLEGAL_NUM(k)) {	// Handle Numbers
+			gCmdCache[CMD_MAX_LENGTH - 1] |= 1 << (k - '0');	// Store number argument to the top of cmd stack
+		} else {	// Handle Key Token
+			if(k == TOKEN_SEND) {	// Send data
+
+			}
+			else if(k == TOKEN_LEARN) {	// decode and store data
+
+			}
+		}
+
+
+
+
 	}
 }
 
