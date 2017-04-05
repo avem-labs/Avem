@@ -40,7 +40,7 @@ void uart_init(unsigned int pclk2, unsigned int bound) {
 
 void USART1_IRQHandler(void) {
 	if(USART1->SR & USART_SR_RXNE) {
-		char cmd = USART1->DR;
+		char cmd = USART1->DR;	// Read this register to clear RXNE flag
 		switch (cmd) {
 			case 0x0D:
 			case 0x0A:
