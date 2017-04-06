@@ -6,14 +6,14 @@ void motor_PWM_Init(unsigned short arr, unsigned short psc) {
     //RCC->APB1ENR |= 1<<1;       //TIM3 enable
     //RCC->APB2ENR |= 1<<2;       //GPIOA enable
 
-    RCC->APB1ENR |= RCC_APB1ENR_TIM3EN;   //TIM3 Enable
-    RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;   //IO Port A Enable
-    RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
+    RCC->APB1ENR |= RCC_APB1ENR_TIM3EN;		//TIM3 Enable
+    RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;		//IO Port A Enable
+    RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;		//IO Port B for TIM3 Channel 3 and 4
 
     GPIOA->CRL &= 0x00FFFFFF;   //Clean
     GPIOA->CRL |= 0xBB000000;   //复用推挽输出
-    GPIOA->ODR |= 1<<7;     //CH2 GPIO Config
-    GPIOA->ODR |= 1<<6;     //CH1 GPIO Config
+    GPIOA->ODR |= 1<<7;			//CH2 GPIO Config
+    GPIOA->ODR |= 1<<6;			//CH1 GPIO Config
 
     GPIOB->CRL &= 0xFFFFFF00;
     GPIOB->CRL |= 0x000000BB;
