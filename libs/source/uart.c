@@ -68,7 +68,7 @@ void USART1_IRQHandler(void) {
 	}
 }
 
-void uart_translate() {
+void uart_decode() {
 //	The Last Item Of CMD Cache Array
 //	| 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |-bit-|
 //	Each bit is a switch of IR Devices
