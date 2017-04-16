@@ -101,19 +101,14 @@ void uart_sendData(unsigned char data) {
 }
 
 void uart_showData(short k) {
-	char tem[] = "00000";
-	char *result = tem;
+	char cache[] = "00000";
+	int i = 4;
+	unsigned short bit[] = {10000, 1000, 100, 10, 1};
 
-	uart_sendData(k<0 ? '-':'+');
-	if(k<0)
-		k = -k;
-	unsigned short bit = 1;
-	while(*result) {
-		(*result++) = (char)(k / bit % 10 + '0');
-		bit *= 10;
-	}
-	for(unsigned char i = 0; i < 5; i++)
-		uart_sendData(tem[4-i]);
+	do {
+		cache[i] += (char)(k / bit[i] % 10);
+	} while(i--);
+	uart_sendStr(cache);
 }
 
 unsigned char uart_Float2Char(float value) {
