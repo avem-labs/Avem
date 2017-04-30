@@ -22,8 +22,13 @@ float g_Yaw, g_Pitch, g_Roll;
 
 
 //ms
-void delay(volatile unsigned int count) {
-    for(count *= 12000; count!=0; count--);
+void delay(unsigned int t) {
+	SysTick->LOAD = 9000 * t;
+	SysTick->VAL = 0;
+	SysTick->CTRL = 0x01;
+	for(unsigned int tmp = SysTick->CTRL;(tmp&0x01)&&(!(tmp&SysTick_CTRL_COUNTFLAG));tmp = SysTick->CTRL);
+	SysTick->CTRL = 0;
+	SysTick->VAL = 0;
 }
 
 void Comput(SixAxis cache) {
