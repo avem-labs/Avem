@@ -3,7 +3,7 @@
 
 void uart_init(unsigned int pclk2, unsigned int bound);
 void uart_sendData(unsigned char data);
-void uart_showData(short k);    //THIS FUNCTION IS NOT SO GOOD, EG: uart_showData(1000)
+void uart_showData(short k);
 unsigned char uart_Float2Char(float value);
 void uart_sendStr(char * cmd);
 void USART1_IRQHandler(void);
