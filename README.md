@@ -10,7 +10,7 @@
 Terminal demo
 ![](docs/images/HUD.PNG)
 
-# GPIO List
+# I/O List
 
 MPU6050 			| BLDC 				| Wi-Fi 				| GPS
 :----:				|:----:				|:----: 				|:---:
