@@ -11,14 +11,10 @@
 #include "pid.h"
 #include "tty.h"
 
-#define Kp      100.0f      //比例增益支配率(常量)
-#define Ki      0.002f      //积分增益支配率
-#define halfT   0.001f      //采样周期的一半
 
-float g_q0 = 1, g_q1 = 0, g_q2 = 0, g_q3 = 0;   //Quaternion
-float g_exInt = 0, g_eyInt = 0, g_ezInt = 0;
-float g_Yaw, g_Pitch, g_Roll;
-
+double _asin(double i) {return asin(i);}
+double _atan2(double i,double k) {return atan2(i,k);}
+double _sqrt(double i) {return sqrt(i);}
 
 
 //ms
@@ -31,56 +27,6 @@ void delay(unsigned int t) {
 	SysTick->VAL = 0;
 }
 
-void Comput(SixAxis cache) {
-
-    float norm;     //模
-    float vx, vy, vz;
-    float ex, ey, ez;
-
-    norm = sqrt(cache.aX*cache.aX + cache.aY*cache.aY + cache.aZ*cache.aZ);     //取模
-
-    //向量化
-    cache.aX = cache.aX / norm;
-    cache.aY = cache.aY / norm;
-    cache.aZ = cache.aZ / norm;
-
-    //估计方向的重力
-    vx = 2 * (g_q1 * g_q3 - g_q0 * g_q2);
-    vy = 2 * (g_q0 * g_q1 + g_q2 * g_q3);
-    vz = g_q0*g_q0 - g_q1*g_q1 - g_q2*g_q2 + g_q3*g_q3;
-
-    //错误的领域和方向传感器测量参考方向几件的交叉乘积的总和
-    ex = (cache.aY * vz - cache.aZ * vy);
-    ey = (cache.aZ * vx - cache.aX * vz);
-    ez = (cache.aX * vy - cache.aY * vx);
-
-    //积分误差比例积分增益
-    g_exInt += ex * Ki;
-    g_eyInt += ey * Ki;
-    g_ezInt += ez * Ki;
-
-    //调整后的陀螺仪测量
-    cache.gX += Kp * ex + g_exInt;
-    cache.gY += Kp * ey + g_eyInt;
-    cache.gZ += Kp * ez + g_ezInt;
-
-    //整合四元数率和正常化
-    g_q0 += (-g_q1 * cache.gX - g_q2 * cache.gY - g_q3 * cache.gZ) * halfT;
-    g_q1 += (g_q0 * cache.gX + g_q2 * cache.gZ - g_q3 * cache.gY) * halfT;
-    g_q2 += (g_q0 * cache.gY - g_q1 * cache.gZ + g_q3 * cache.gX) * halfT;
-    g_q3 += (g_q0 * cache.gZ + g_q1 * cache.gY - g_q2 * cache.gX) * halfT;
-
-    //正常化四元
-    norm = sqrt(g_q0*g_q0 + g_q1*g_q1 + g_q2*g_q2 + g_q3*g_q3);
-    g_q0 = g_q0 / norm;
-    g_q1 = g_q1 / norm;
-    g_q2 = g_q2 / norm;
-    g_q3 = g_q3 / norm;
-
-    g_Pitch = asin(-2 * g_q1 * g_q3 + 2 * g_q0 * g_q2) * 57.3;
-    g_Roll = atan2(2 * g_q2 * g_q3 + 2 * g_q0 * g_q1, -2 * g_q1*g_q1 - 2 * g_q2*g_q2 + 1) * 57.3;
-    g_Yaw = atan2(2 * (g_q1 * g_q2 + g_q0 * g_q3), g_q0*g_q0 + g_q1*g_q1 - g_q2*g_q2 - g_q3*g_q3) * 57.3;
-}
 
 #define DEBUG_BLDC		//Config
 
@@ -114,7 +60,7 @@ void Comput(SixAxis cache) {
 void mpu_task() {
 	while(1) {
 		MPU6050_getStructData(&sourceData);
-        Comput(sourceData);
+        IMU_Comput(sourceData);
 		vTaskDelay(10);
 	}
 }

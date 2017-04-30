@@ -59,6 +59,16 @@ typedef struct{
     float aZ;
 }SixAxis, *pSixAxis;
 
+#define Kp      100.0f      //比例增益支配率(常量)
+#define Ki      0.002f      //积分增益支配率
+#define halfT   0.001f      //采样周期的一半
+
+float g_Yaw, g_Pitch, g_Roll;
+
+extern double _asin (double);
+extern double _atan2 (double,double);
+extern double _sqrt (double);
+
 
 void MPU_Sigle_Write(unsigned char reg_addr, unsigned char reg_data);
 unsigned char MPU_Sigle_Read(unsigned reg_addr);
@@ -66,5 +76,6 @@ short MPU_GetData(unsigned char REG_Addr);
 void MPU_init();
 void MPU6050_getStructData(pSixAxis cache);
 void MPU6050_debug(pSixAxis cache);
+void IMU_Comput(SixAxis);
 
 #endif
