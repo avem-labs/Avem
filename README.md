@@ -48,9 +48,10 @@ MPU6050 			| BLDC 				| Wi-Fi 				| GPS
 ![](docs/images/pcb.png)
 
 ## PCB Layout
-![](docs/images/PCB/layoutF.png)
+![](docs/images/PCB/demoV2.0.jpg)
 
-![](docs/images/PCB/layoutB.png)
+![](docs/images/PCB/demoV2.0_PCB.jpg)
+
 
 [Documents](docs/)
 
