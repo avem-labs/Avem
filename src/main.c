@@ -32,6 +32,8 @@ void delay(unsigned int t) {
 
 #if defined (DEBUG_MPU6050_EULER) || defined (DEBUG_MPU6050_SOURCEDATA) || defined (DEBUG_BLDC)
     SixAxis sourceData;
+#else
+#error Which Debug type are you using? Define DEBUG_XXXX in your compiler options.
 #endif
 
 // float InnerLast;			//保存内环旧值以便后向差分
