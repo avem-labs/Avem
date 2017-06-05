@@ -8,7 +8,7 @@ LDLIBS+=-lstm32
 
 STARTUP=startup.c
 
-all: clean libs src
+all: libs src
 	$(CC) -o $(PROGRAM).elf $(LDFLAGS) \
 		-Wl,--whole-archive \
 			src/app.a \
@@ -40,7 +40,13 @@ tshow:
 		@echo "=🍺====>> optimize settings: $(InfoTextLib), $(InfoTextSrc)"
 		@echo "=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_"
 
-flash:
+isp: /dev/cu.SLAB_USBtoUART main.bin
+	cat -u /dev/cu.SLAB_USBtoUART & stty -f /dev/cu.SLAB_USBtoUART 115200
+	echo '>' > /dev/cu.SLAB_USBtoUART
+	pkill cat -u /dev/cu.SLAB_USBtoUART
+	make flash || make flash
+
+flash: /dev/cu.SLAB_USBtoUART main.bin
 	stm32flash -w $(TOP)/main.bin -v -g 0 /dev/tty.SLAB_USBtoUART
 dump:
 	$(OBJDUMP) -D main.elf > DUMP.s

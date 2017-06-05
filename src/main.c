@@ -11,6 +11,13 @@
 #include "pid.h"
 #include "tty.h"
 
+#define ISP_ADDR		0x1FFFF000
+
+void jump2ISP() {
+	__set_MSP(*(unsigned int *)ISP_ADDR);
+	((void (*)(void))*((unsigned int *)(ISP_ADDR + 4)))();
+}
+
 
 double _asin(double i) {return asin(i);}
 double _atan2(double i,double k) {return atan2(i,k);}
