@@ -8,7 +8,9 @@
 [Details & Videos](http://bbs.5imx.com/forum.php?mod=viewthread&tid=1227960&extra=page%3D1)
 
 Terminal demo
+![](docs/images/hud.gif)
 ![](docs/images/HUD.PNG)
+https://github.com/but0n/Avem_HUD
 
 # I/O List
 
@@ -35,7 +37,7 @@ MPU6050 			| BLDC 				| Wi-Fi 				| GPS
 - [ ] **Wi-Fi**(`ESP8266`)
 - [x] [Cascade PID control](https://github.com/but0n/Avem/blob/master/docs/README.md)
 - [x] FreeRTOS
-- [ ] TCP/IP Socket connect with host
+- [x] Host: Flask + pyserial
 - [ ] PID debug
 - [ ] **GPS**
 - [ ] 3D print or CNC cut
