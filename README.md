@@ -9,7 +9,7 @@
 
 Terminal demo
 
-![](docs/images/hud.gif)
+<center>![](docs/images/hud.gif)</center>
 ![](docs/images/HUD.PNG)
 https://github.com/but0n/Avem_HUD
 
