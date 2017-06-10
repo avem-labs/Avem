@@ -9,7 +9,7 @@
 
 Terminal demo
 
-<center>![](docs/images/hud.gif)</center>
+<div align="center">![](docs/images/hud.gif)</div>
 
 ![](docs/images/HUD.PNG)
 
