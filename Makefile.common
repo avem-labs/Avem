@@ -45,11 +45,11 @@ TypeOfMCU=STM32F10X_HD
 #============================================================================#
 
 TC=arm-none-eabi
-CC=$(TC)-gcc
-LD=$(TC)-ld -v
+CC=echo "CC $@";$(TC)-gcc
+LD=echo "LD $@";$(TC)-ld -v
 OBJCOPY=$(TC)-objcopy
 OBJDUMP=$(TC)-objdump
-AR=$(TC)-ar
+AR=echo "AR $@";$(TC)-ar
 GDB=$(TC)-gdb
 INCLUDE=-I$(TOP)/inc
 INCLUDE+=-I$(STMLIB)/CMSIS/Include
