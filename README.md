@@ -30,9 +30,9 @@ MPU6050 			| BLDC 				| Wi-Fi 				| GPS
 - [x] Software **I2C**
 - [x] Init **MPU6050**
 - [x] Get 3 axes `Gryo` and 3 axes `Accel` data from MPU6050
-- [x] Cumpute Quaternion and **Euler** Angles
+- [x] Cumpute Quaternion and Euler Angles
 - [x] **PWM** output
-- [x] Driving motors with **L9110S**
+- [x] ~~Driving motors with **L9110S**~~
 - [x] **PID** Control
 - [x] Schematic
 - [x] PCB Layout
@@ -43,7 +43,6 @@ MPU6050 			| BLDC 				| Wi-Fi 				| GPS
 - [x] Host: Flask + pyserial
 - [ ] PID debug
 - [ ] **GPS**
-- [ ] 3D print or CNC cut
 
 
 # Hardware
@@ -57,12 +56,6 @@ MPU6050 			| BLDC 				| Wi-Fi 				| GPS
 Version 3.0
 
 ![](docs/images/PCB/demoV3.0.JPG)
-
-Version 2.0
-
-![](docs/images/PCB/demoV2.0.JPG)
-
-![](docs/images/PCB/demoV2.0_PCB.JPG)
 
 
 [Documents](docs/)
