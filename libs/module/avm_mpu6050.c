@@ -1,9 +1,9 @@
-#include "mpu6050.h"
+#include "avm_mpu6050.h"
 
-#include "bit.h"
+#include "avm_bit.h"
 #include "stm32f10x.h"
-#include "i2c.h"
-#include "uart.h"
+#include "avm_i2c.h"
+#include "avm_uart.h"
 
 void MPU_Sigle_Write(unsigned char reg_addr, unsigned char reg_data) {
     IIC_Start();

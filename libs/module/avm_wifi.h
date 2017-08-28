@@ -1,5 +1,5 @@
-#ifndef WIFI_H
-#define WIFI_H
+#ifndef _AVM_WIFI_H_
+#define _AVM_WIFI_H_
 //Only USART1 PCLK2 = 72
 #define WIFI_PCLK2 36
 #define WIFI_BOUND 115200

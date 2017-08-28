@@ -1,7 +1,7 @@
-#include "i2c.h"
+#include "avm_i2c.h"
 
 #include "stm32f10x.h"
-#include "bit.h"
+#include "avm_bit.h"
 
 void delay_us(volatile unsigned int nus) {
     for(nus *= 4; nus; nus--);

@@ -1,4 +1,4 @@
-#include "uart.h"
+#include "avm_uart.h"
 #include "stm32f10x.h"
 
 int top = -1;	//Stack Pointer

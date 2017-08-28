@@ -1,4 +1,4 @@
-#include "motor.h"
+#include "avm_motor.h"
 #include "stm32f10x.h"
 
 //A7

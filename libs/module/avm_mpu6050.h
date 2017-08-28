@@ -1,5 +1,5 @@
-#ifndef MPU6050_H
-#define MPU6050_H
+#ifndef _AVM_MPU6050_H_
+#define _AVM_MPU6050_H_
 
 //=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_
 #define LED0 BIT_ADDR((GPIOA_BASE+12), 8)

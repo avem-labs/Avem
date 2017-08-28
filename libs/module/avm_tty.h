@@ -1,5 +1,5 @@
-#ifndef TTY_H
-#define TTY_H
+#ifndef _AVM_TTY_H_
+#define _AVM_TTY_H_
 
 #define TTY_NONE()          uart_sendStr("\033[m")
 #define TTY_RED()           uart_sendStr("\033[41;30m")

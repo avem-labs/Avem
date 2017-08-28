@@ -1,5 +1,5 @@
-#ifndef UART_H
-#define UART_H
+#ifndef _AVM_UART_H_
+#define _AVM_UART_H_
 
 void uart_init(unsigned int pclk2, unsigned int bound);
 void uart_sendData(unsigned char data);

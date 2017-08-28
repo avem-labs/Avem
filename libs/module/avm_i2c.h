@@ -1,6 +1,5 @@
-
-#ifndef I2C_H
-#define I2C_H
+#ifndef _AVM_I2C_H_
+#define _AVM_I2C_H_
 
 
 #define SCL_PINNUM 15

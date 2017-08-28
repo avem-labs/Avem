@@ -1,6 +1,6 @@
 #include "stm32f10x.h"
-#include "pid.h"
-#include "motor.h"
+#include "avm_pid.h"
+#include "avm_motor.h"
 
 void pid_SingleAxis(pid_pst temp, float setPoint) {
     temp->Error = *temp->Feedback - setPoint;

@@ -1,4 +1,4 @@
-#include "wifi.h"
+#include "avm_wifi.h"
 
 #include "stm32f10x.h"
 

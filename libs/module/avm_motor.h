@@ -1,5 +1,5 @@
-#ifndef MOTOR_H
-#define MOTOR_H
+#ifndef _AVM_MOTOR_H_
+#define _AVM_MOTOR_H_
 
 #define MOTOR_NORMAL_STARTUP
 

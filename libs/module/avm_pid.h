@@ -1,5 +1,5 @@
-#ifndef PID_H
-#define PID_H
+#ifndef _AVM_PID_H_
+#define _AVM_PID_H_
 
 extern float g_Yaw, g_Pitch, g_Roll;     //eular
 

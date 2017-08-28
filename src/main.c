@@ -1,15 +1,12 @@
-#include "FreeRTOS.h"
-#include "task.h"
-
 #include <math.h>
 #include "stm32f10x.h"
-#include "bit.h"
-#include "mpu6050.h"
-#include "motor.h"
-#include "uart.h"
-#include "wifi.h"
-#include "pid.h"
-#include "tty.h"
+#include "avm_bit.h"
+#include "avm_mpu6050.h"
+#include "avm_motor.h"
+#include "avm_uart.h"
+#include "avm_wifi.h"
+#include "avm_pid.h"
+#include "avm_tty.h"
 
 #define ISP_ADDR		0x1FFFF000
 
@@ -70,7 +67,7 @@ void mpu_task() {
 	while(1) {
 		MPU6050_getStructData(&sourceData);
         IMU_Comput(sourceData);
-		vTaskDelay(10);
+		// vTaskDelay(10);
 	}
 }
 
@@ -78,7 +75,7 @@ void mpu_task() {
 	void pid_task() {
 		while(1) {
 			pid_SingleAxis(&g_pid_roll, 0);
-			vTaskDelay(10);
+			// vTaskDelay(10);
 		}
 	}
 #endif
@@ -96,7 +93,7 @@ void uart_task() {
 
         UART_CR();
 
-		vTaskDelay(100);
+		// vTaskDelay(100);
 	}
 }
 
@@ -138,7 +135,7 @@ void uart_debugPID() {
 		uart_showData(g_pid_roll.output);
 		TTY_NONE();
 		uart_sendStr("\n\r");
-		vTaskDelay(100);
+		// vTaskDelay(100);
 	}
 }
 
@@ -155,10 +152,8 @@ int main() {
     uart_sendStr("MPU6050 Connect Success!");
     UART_CR();
 
-	xTaskCreate(uart_task, "UART_TASK", 100, NULL, 1, NULL);
-	xTaskCreate(mpu_task, "MPU_TASK", 100, NULL, 3, NULL);
-	xTaskCreate(pid_task, "PID_TASK", 100, NULL, 2, NULL);
-	vTaskStartScheduler();
-	uart_sendStr("Stack Overflow...");
+	// xTaskCreate(uart_task, "UART_TASK", 100, NULL, 1, NULL);
+	// xTaskCreate(mpu_task, "MPU_TASK", 100, NULL, 3, NULL);
+	// xTaskCreate(pid_task, "PID_TASK", 100, NULL, 2, NULL);
 	while(1);
 }
