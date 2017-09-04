@@ -1,6 +1,8 @@
 #ifndef _AVM_MOTOR_H_
 #define _AVM_MOTOR_H_
 
+extern avm_module_t avm_motor_module_st;
+
 #define MOTOR_NORMAL_STARTUP
 
 
@@ -19,18 +21,19 @@
     #define MOTOR_SETTING() do {\
         motor_PWM_Init(36000,40);\
 		MOTOR_ALL = THROTTLE_MIN;\
-        delay(4000);\
+        delay_ms(4000);\
 		MOTOR_ALL = THROTTLE_MID;\
     } while(0)
 #else
     #define MOTOR_SETTING() do {\
         motor_PWM_Init(36000,40);\
 		MOTOR_ALL = THROTTLE_MAX;\
-        delay(3000);\
+        delay_ms(3000);\
 		MOTOR_ALL = THROTTLE_MIN;\
-        delay(8000);\
+        delay_ms(8000);\
     } while(0)
 #endif
+
 
 void motor_PWM_Init(unsigned short arr, unsigned short psc);  //72MHz / (arr + 1)*(psc + 1)
 

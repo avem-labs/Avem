@@ -1,5 +1,19 @@
-#include "avm_motor.h"
-#include "stm32f10x.h"
+#include <avm_core.h>
+
+static unsigned char avm_motor_init(void *);
+
+avm_module_t avm_motor_module_st = {
+    0,
+    NULL,
+    avm_motor_init,
+    NULL,
+    NULL
+};
+
+static unsigned char avm_motor_init(void *arg) {
+    MOTOR_SETTING();
+    return 0;
+}
 
 //A7
 void motor_PWM_Init(unsigned short arr, unsigned short psc) {

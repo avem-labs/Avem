@@ -1,8 +1,6 @@
 #ifndef _AVM_PID_H_
 #define _AVM_PID_H_
 
-extern float g_Yaw, g_Pitch, g_Roll;     //eular
-
 #define OUTTER_LOOP_KP 0 //0.257 * 0.83 0.255
 #define OUTTER_LOOP_KI 0
 #define OUTTER_LOOP_KD 0
@@ -30,6 +28,8 @@ typedef struct {
     __IO uint16_t *Channel1;
     __IO uint16_t *Channel2;
 } pid_st, *pid_pst;
+
+extern pid_st avm_pid;
 
 void pid_SingleAxis(pid_pst package, float setPoint);
 void pid(float setPoint, float d);

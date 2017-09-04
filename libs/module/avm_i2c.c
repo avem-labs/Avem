@@ -1,9 +1,21 @@
-#include "avm_i2c.h"
+#include <avm_core.h>
 
-#include "stm32f10x.h"
-#include "avm_bit.h"
+static unsigned char avm_i2c_init(void *arg);
 
-void delay_us(volatile unsigned int nus) {
+avm_module_t avm_i2c_module_st = {
+    0,
+    NULL,
+    avm_i2c_init,
+    NULL,
+    NULL
+};
+
+unsigned char avm_i2c_init(void *arg) {
+    IIC_init();
+    return 0;
+}
+
+static void delay_custom(volatile unsigned int nus) {
     for(nus *= 4; nus; nus--);
 }
 

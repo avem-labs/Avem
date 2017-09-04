@@ -1,8 +1,21 @@
-#include "avm_uart.h"
-#include "stm32f10x.h"
+#include "avm_core.h"
 
-int top = -1;	//Stack Pointer
-char gCmdCache[CMD_MAX_LENGTH];
+static unsigned char avm_uart_init(void *conf);
+static unsigned int avm_uart_conf[] = {72, 115200};
+
+avm_module_t avm_uart_module_st = {
+    0,
+    &avm_uart_conf[0],
+    avm_uart_init,
+    NULL,
+    NULL
+};
+
+
+static unsigned char avm_uart_init(void *conf) {
+    uart_init(((unsigned int *)conf)[0], ((unsigned int *)conf)[1]);
+    return 0;
+}
 
 
 void uart_init(unsigned int pclk2, unsigned int bound) {
@@ -39,56 +52,35 @@ void uart_init(unsigned int pclk2, unsigned int bound) {
 
 void USART1_IRQHandler(void) {
 	if(USART1->SR & USART_SR_RXNE) {
-		char cmd = USART1->DR;	// Read this register to clear RXNE flag
+		const char cmd = USART1->DR;	// 读取串口接收寄存器来清除 RXNE 标志
 		switch (cmd) {
-			case 0x0D:
-			case 0x0A:
-				UART_CR();
-				uart_sendStr("Handle Command:\t");
-				uart_sendStr(gCmdCache);
-				UART_CR();
-				clrCache();
+			case TOKEN:
+				MPU6050_getStructData(&avm_euler);
+				IMU_Comput(avm_euler);
+                pid_SingleAxis(&avm_pid, 0);
+
+				uart_Float2Char(g_Pitch);
+				uart_sendStr("@");
+
+				uart_Float2Char(g_Roll);
+				uart_sendStr("@");
+
+				uart_Float2Char(g_Yaw);
+                uart_sendStr("@");
+
+                uart_short2char(*avm_pid.Channel1);
+                uart_sendStr("@");
+
+                uart_short2char(*avm_pid.Channel2);
+				uart_sendStr("\n\r");
 				break;
-			case 0x08:
-			case 0x7F:
-				pop = '\0';
-				uart_sendData(0x7F);
-				uart_sendData(0x08);
-				break;
-			case '$':
-				clrCache();
-			default:
-				if(STACK_OVERFLOW)
-					break;
-				push(cmd);
-				uart_sendData(cmd);
+			case '>':	// Jump to bootloader
+				uart_sendStr("Running bootloader...");
+				jump2ISP();
+				// NOTE: running bootloader
+			default:	//其它按键
 				break;
 		}
-	}
-}
-
-void uart_decode() {
-//	The Last Item Of CMD Cache Array
-//	| 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |-bit-|
-//	Each bit is a switch of IR Devices
-	char k;
-	// unsigned char stagement;
-	while(top > -1) {	// While CMD Cache Not Empty
-		k = pop;
-		if(ISLEGAL_NUM(k)) {	// Handle Numbers
-			gCmdCache[CMD_MAX_LENGTH - 1] |= 1 << (k - '0');	// Store number argument to the top of cmd stack
-		} else {	// Handle Key Token
-			if(k == TOKEN_SEND) {	// Send data
-
-			}
-			else if(k == TOKEN_LEARN) {	// decode and store data
-
-			}
-		}
-
-
-
-
 	}
 }
 
@@ -97,10 +89,21 @@ void uart_sendData(unsigned char data) {
     while((USART1->SR & 0x40) == 0);
 }
 
-void uart_showData(short k) {
+void uart_short2char(short k) {
 	char cache[] = "00000";
 	int i = 4;
 	unsigned short bit[] = {10000, 1000, 100, 10, 1};
+
+	do {
+		cache[i] += (char)(k / bit[i] % 10);
+	} while(i--);
+	uart_sendStr(cache);
+}
+
+void uart_int2char(unsigned int k) {
+	char cache[] = "0000000000";	// Max value is 4294967295
+	unsigned char i = 9;
+	const unsigned int bit[] = {1000000000, 100000000, 10000000, 1000000, 100000, 10000, 1000, 100, 10, 1};
 
 	do {
 		cache[i] += (char)(k / bit[i] % 10);

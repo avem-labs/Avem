@@ -1,9 +1,22 @@
-#include "avm_mpu6050.h"
+#include <avm_core.h>
 
-#include "avm_bit.h"
-#include "stm32f10x.h"
-#include "avm_i2c.h"
-#include "avm_uart.h"
+static unsigned char avm_mpu_init(void *);
+
+avm_module_t avm_mpu_module_st = {
+    0,
+    NULL,
+    avm_mpu_init,
+    NULL,
+    NULL
+};
+
+static unsigned char avm_mpu_init(void *arg) {
+    // Delay is required after MPU6050 powered up, At least 7ms
+    delay_ms(7);
+    MPU_init();
+    return 0;
+}
+
 
 void MPU_Sigle_Write(unsigned char reg_addr, unsigned char reg_data) {
     IIC_Start();
@@ -76,26 +89,26 @@ void MPU6050_getStructData(pSixAxis cache) {
     cache->aZ += A_Z_OFFSET;
 #endif
 }
-void MPU6050_debug(pSixAxis cache) {
-    uart_Float2Char((float)cache->gX);
-    uart_sendData(' ');
-    uart_Float2Char((float)cache->gY);
-    uart_sendData(' ');
-    uart_Float2Char((float)cache->gZ);
-    uart_sendData(' ');
-
-    uart_Float2Char((float)cache->aX);
-    uart_sendData(' ');
-    uart_Float2Char((float)cache->aY);
-    uart_sendData(' ');
-    uart_Float2Char((float)cache->aZ);
-    uart_sendData(' ');
-    uart_sendData(0x0D);
-    uart_sendData(0x0A);
-}
+// void MPU6050_debug(pSixAxis cache) {
+//     uart_Float2Char((float)cache->gX);
+//     uart_sendData(' ');
+//     uart_Float2Char((float)cache->gY);
+//     uart_sendData(' ');
+//     uart_Float2Char((float)cache->gZ);
+//     uart_sendData(' ');
+//
+//     uart_Float2Char((float)cache->aX);
+//     uart_sendData(' ');
+//     uart_Float2Char((float)cache->aY);
+//     uart_sendData(' ');
+//     uart_Float2Char((float)cache->aZ);
+//     uart_sendData(' ');
+//     uart_sendData(0x0D);
+//     uart_sendData(0x0A);
+// }
 
 float g_Yaw, g_Pitch, g_Roll;
-
+SixAxis avm_euler;
 
 void IMU_Comput(SixAxis cache) {
 	static float g_q0 = 1, g_q1 = 0, g_q2 = 0, g_q3 = 0;   //Quaternion
@@ -106,7 +119,7 @@ void IMU_Comput(SixAxis cache) {
     float vx, vy, vz;
     float ex, ey, ez;
 
-    norm = _sqrt(cache.aX*cache.aX + cache.aY*cache.aY + cache.aZ*cache.aZ);     //取模
+    norm = sqrt(cache.aX*cache.aX + cache.aY*cache.aY + cache.aZ*cache.aZ);     //取模
 
     //向量化
     cache.aX = cache.aX / norm;
@@ -140,13 +153,13 @@ void IMU_Comput(SixAxis cache) {
     g_q3 += (g_q0 * cache.gZ + g_q1 * cache.gY - g_q2 * cache.gX) * halfT;
 
     //正常化四元
-    norm = _sqrt(g_q0*g_q0 + g_q1*g_q1 + g_q2*g_q2 + g_q3*g_q3);
+    norm = sqrt(g_q0*g_q0 + g_q1*g_q1 + g_q2*g_q2 + g_q3*g_q3);
     g_q0 = g_q0 / norm;
     g_q1 = g_q1 / norm;
     g_q2 = g_q2 / norm;
     g_q3 = g_q3 / norm;
 
-    g_Pitch = _asin(-2 * g_q1 * g_q3 + 2 * g_q0 * g_q2) * 57.3;
-    g_Roll = _atan2(2 * g_q2 * g_q3 + 2 * g_q0 * g_q1, -2 * g_q1*g_q1 - 2 * g_q2*g_q2 + 1) * 57.3;
-    g_Yaw = _atan2(2 * (g_q1 * g_q2 + g_q0 * g_q3), g_q0*g_q0 + g_q1*g_q1 - g_q2*g_q2 - g_q3*g_q3) * 57.3;
+    g_Pitch = asin(-2 * g_q1 * g_q3 + 2 * g_q0 * g_q2) * 57.3;
+    g_Roll = atan2(2 * g_q2 * g_q3 + 2 * g_q0 * g_q1, -2 * g_q1*g_q1 - 2 * g_q2*g_q2 + 1) * 57.3;
+    g_Yaw = atan2(2 * (g_q1 * g_q2 + g_q0 * g_q3), g_q0*g_q0 + g_q1*g_q1 - g_q2*g_q2 - g_q3*g_q3) * 57.3;
 }

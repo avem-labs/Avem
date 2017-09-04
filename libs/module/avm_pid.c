@@ -1,6 +1,28 @@
-#include "stm32f10x.h"
-#include "avm_pid.h"
-#include "avm_motor.h"
+#include <avm_core.h>
+
+// float InnerLast;			//保存内环旧值以便后向差分
+// float OutterLast;		//保存外环旧值以便后向差分
+// float *Feedback;			//反馈数据, 实时的角度数据
+// float *Gyro;				//角速度
+// float Error;				//误差值
+// float p;					//比例项(内环外环共用)
+// float i;					//积分项(仅用于外环)
+// float d;					//微分项(内环外环共用)
+// short output;			//PID输出, 用来修改PWM值, 2字节
+// __IO uint16_t *Channel1;	//PWM输出, 通道1
+// __IO uint16_t *Channel2;	//PWM输出, 通道2
+
+pid_st avm_pid = {
+    .InnerLast  = 0,
+    .OutterLast = 0,
+    .Feedback   = &g_Roll,
+    .p          = 0,
+    .i          = 0,
+    .d          = 0,
+    .Channel1   = &MOTOR2,
+    .Channel2   = &MOTOR4,
+    .Gyro       = &avm_euler.gX,
+};
 
 void pid_SingleAxis(pid_pst temp, float setPoint) {
     temp->Error = *temp->Feedback - setPoint;

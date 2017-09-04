@@ -39,16 +39,18 @@ void delay(volatile unsigned int count);
 //=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_
 #define IMU_SOFTWARE_FIXED
 
-#define G_X_OFFSET 5.2439f
-#define G_Y_OFFSET -0.7926f
-#define G_Z_OFFSET -0.3048f
+#define G_X_OFFSET 1.5853f
+#define G_Y_OFFSET 0.7926f
+#define G_Z_OFFSET 2.0121f
 
 #define A_X_OFFSET 0
-#define A_Y_OFFSET 11.3f
-#define A_Z_OFFSET 0
+#define A_Y_OFFSET 0
+#define A_Z_OFFSET 0.2f
 
 #define IMU_ADDRESS 0x68
 #define IMU_NOT_CONNECTED (MPU_Sigle_Read(WHO_AM_I)!=IMU_ADDRESS)
+
+extern avm_module_t avm_mpu_module_st;
 
 typedef struct{
     float gX;
@@ -63,11 +65,8 @@ typedef struct{
 #define Ki      0.002f      //积分增益支配率
 #define halfT   0.001f      //采样周期的一半
 
-float g_Yaw, g_Pitch, g_Roll;
-
-extern double _asin (double);
-extern double _atan2 (double,double);
-extern double _sqrt (double);
+extern float g_Yaw, g_Pitch, g_Roll;
+extern SixAxis avm_euler;
 
 
 void MPU_Sigle_Write(unsigned char reg_addr, unsigned char reg_data);
@@ -75,7 +74,7 @@ unsigned char MPU_Sigle_Read(unsigned reg_addr);
 short MPU_GetData(unsigned char REG_Addr);
 void MPU_init();
 void MPU6050_getStructData(pSixAxis cache);
-void MPU6050_debug(pSixAxis cache);
+// void MPU6050_debug(pSixAxis cache);
 void IMU_Comput(SixAxis);
 
 #endif

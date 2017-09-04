@@ -11,11 +11,12 @@
 
 #define READ_SDA BIT_ADDR(&(GPIOB->IDR), SDA_PINNUM)
 
-#define IIC_DELAY() delay_us(1)
+#define IIC_DELAY() delay_custom(1)
+
+extern avm_module_t avm_i2c_module_st;
 
 
-
-void delay_us(volatile unsigned int nus);
+// void delay_us(volatile unsigned int nus);
 
 void IIC_init();
 void IIC_Start();
