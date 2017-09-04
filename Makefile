@@ -3,8 +3,8 @@
 include Makefile.common
 LDFLAGS=$(COMMONFLAGS) -fno-exceptions -ffunction-sections -fdata-sections -L$(LIBDIR) -nostartfiles -Wl,--gc-sections,-Tlinker.ld
 
-LDLIBS+=-lm
 LDLIBS+=-lstm32
+LDLIBS+=-lm
 
 STARTUP=startup.c
 
