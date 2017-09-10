@@ -9,7 +9,7 @@
 
 Terminal demo
 
-<div align="center"><img src="https://github.com/but0n/Avem/raw/master/docs/images/hud.gif"></div>
+<div align="center"><img src="https://cdn.rawgit.com/but0n/Avem/develop/docs/images/hud.gif"></div>
 
 ![](docs/images/HUD.PNG)
 
