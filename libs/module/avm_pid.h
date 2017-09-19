@@ -1,13 +1,13 @@
 #ifndef _AVM_PID_H_
 #define _AVM_PID_H_
 
-#define OUTTER_LOOP_KP 0 //0.257 * 0.83 0.255
-#define OUTTER_LOOP_KI 0
-#define OUTTER_LOOP_KD 0
+#define OUTTER_LOOP_KP 3 //0.257 * 0.83 0.255
+#define OUTTER_LOOP_KI 1
+#define OUTTER_LOOP_KD 0.3f
 
-#define INNER_LOOP_KP 0.03f
+#define INNER_LOOP_KP 1
 #define INNER_LOOP_KI 0
-#define INNER_LOOP_KD 0
+#define INNER_LOOP_KD 0.3f
 
 #define SUM_ERRO_MAX 900
 #define SUM_ERRO_MIN -900
