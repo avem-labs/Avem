@@ -11,6 +11,8 @@ avm_module_t avm_core_module_st = {
 };
 
 void jump2ISP() {
+	SysTick->CTRL = 0;
+	SysTick->VAL = 0;
 	__set_MSP(*(unsigned int *)ISP_ADDR);
 	((void (*)(void))*((unsigned int *)(ISP_ADDR + 4)))();
 }
